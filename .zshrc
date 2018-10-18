@@ -4,6 +4,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
+# Set CLICOLOR if you want Ansi Colors in iTerm2 
+export CLICOLOR=1
+unset LSCOLORS 
+alias ls='ls -GFh'
+ 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -90,15 +95,12 @@ source $ZSH/oh-my-zsh.sh
 
 #zsh-synta-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands starting with `rm -rf` in red:
 
-# pure
-#autoload -U promptinit; promptinit
-#prompt pure
 #autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
-#apple info
-#archey
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
