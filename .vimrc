@@ -12,9 +12,13 @@ Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'wakatime/vim-wakatime'
+Plug 'tpope/vim-fugitive'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-bufferline'
 
 call plug#end()
-
 
 
 " leader key
@@ -105,25 +109,22 @@ let g:EasyMotion_smartcase = 1
 " Airline
 "
 let g:airline_theme='molokai'
-let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
+let g:airline_section_z = '%P %l/%L%{g:airline_symbols.maxlinenr} : %v'
 " Use patched fonts
 let g:airline_powerline_fonts = 1
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#tab_nr_type   =  1 " tab number
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
 " enable/disable fugitive/lawrencium integration
 let g:airline#extensions#branch#enabled = 1
 " enable/disable showing a summary of changed hunks under source control.
 let g:airline#extensions#hunks#enabled = 1
 " enable/disable showing only non-zero hunks.
 let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline#extensions#whitespace#enabled = 0
 " ctrlp with airline
 let g:airline#extension#ctrlp#enabled=1
+" bufferline
+let g:airline#extensions#bufferline#enabled = 1
+set ttimeoutlen=10
+
+
 " Tab navigation
 nnoremap <S-tab> :bnext<CR>
 nmap <leader>1 :bfirst<CR>
@@ -131,7 +132,7 @@ nmap <leader>2 :bfirst<CR>:bn<CR>
 nmap <leader>3 :bfirst<CR>:2bn<CR>
 nmap <leader>4 :bfirst<CR>:3bn<CR>
 " fix ui bug
-autocmd BufWritePost $MYVIMRC source $MYVIMRC | AirlineRefresh | AirlineRefresh
+command! AirlineForceRefresh call airline#load_theme() | call airline#update_statusline() | call airline#load_theme() | call airline#update_statusline()
 
 
 "
@@ -159,19 +160,18 @@ let g:NERDTreeDirArrowCollapsible = '~'
 " Ale
 " https://www.zhihu.com/question/47691414/answer/373700711
 let g:ale_linters_explicit = 1
-let g:ale_completion_delay = 100
+let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
-let g:ale_lint_delay = 100
+let g:ale_lint_delay = 500
 let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
-let g:ale_cursor_detail = 1
 let g:airline#extensions#ale#enabled = 1
 
 let g:ale_linters = {'cpp': ['clang']}
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 
-let g:ale_sign_error = "\ue009\ue009"
+let g:ale_sign_error = ">>"
 hi! clear SpellBad
 hi! clear SpellCap
 hi! clear SpellRare
