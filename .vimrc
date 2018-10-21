@@ -4,7 +4,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
 Plug 'valloric/youcompleteme'
@@ -15,9 +14,11 @@ Plug 'wakatime/vim-wakatime'
 Plug 'tpope/vim-fugitive'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-commentary'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'bling/vim-bufferline'
 Plug 'Shougo/echodoc.vim'
+Plug 'Yggdroot/LeaderF'
+Plug 'Chiel92/vim-autoformat'
 
 call plug#end()
 
@@ -25,6 +26,9 @@ call plug#end()
 " leader key
 let mapleader = ','
 let g:mapleader = ','
+
+inoremap <leader>w <Esc>:w<cr>
+noremap <leader>w :w<cr>
 
 set encoding=utf-8
 set history=2000 	" set history upper limit
@@ -119,8 +123,6 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 " enable/disable showing only non-zero hunks.
 let g:airline#extensions#hunks#non_zero_only = 1
-" ctrlp with airline
-let g:airline#extension#ctrlp#enabled=1
 " bufferline
 let g:airline#extensions#bufferline#enabled = 1
 set ttimeoutlen=10
@@ -138,15 +140,25 @@ command! AirlineForceRefresh call airline#load_theme() | call airline#update_sta
 
 
 "
-" CtrlP
+" LeaderF
 "
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-" ancestor is .git and current dir
-let g:ctrlp_working_path_mode = 'ra'
-" MacOS or Linux
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_user_command = 'find %s -type f'
+let g:Lf_ShortcutF = '<c-p>'
+let g:Lf_ShortcutB = '<m-n>'
+noremap <c-n> :LeaderfMru<cr>
+noremap <m-p> :LeaderfFunction!<cr>
+noremap <m-n> :LeaderfBuffer<cr>
+noremap <m-m> :LeaderfTag<cr>
+let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+
+let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WindowHeight = 0.30
+let g:Lf_CacheDirectory = expand('~/.vim/cache')
+let g:Lf_ShowRelativePath = 0
+let g:Lf_HideHelp = 1
+let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
+
 
 "
 " NerdTree
@@ -249,6 +261,12 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 let g:cpp_no_function_highlight = 1
+
+"
+" autoformat
+" https://github.com/Chiel92/vim-autoformat
+noremap <F3> :Autoformat<CR>
+let g:autoformat_verbosemode=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Color Setup

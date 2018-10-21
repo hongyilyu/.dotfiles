@@ -115,3 +115,4 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+export PATH="/usr/local/opt/llvm/bin:$PATH"
