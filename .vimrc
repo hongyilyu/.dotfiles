@@ -27,6 +27,7 @@ call plug#end()
 let mapleader = ','
 let g:mapleader = ','
 
+noremap <C-[> :<Esc>
 inoremap <leader>w <Esc>:w<cr>
 noremap <leader>w :w<cr>
 
