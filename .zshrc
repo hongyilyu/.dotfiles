@@ -101,8 +101,8 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands st
 #autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Start scipt
+neofetch --config ~/.dotfiles/.config.conf
 
 
 ## get rid of command not found ##
