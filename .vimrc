@@ -17,7 +17,7 @@ Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-signify'
 Plug 'bling/vim-bufferline'
 Plug 'Shougo/echodoc.vim'
-Plug 'Yggdroot/LeaderF'
+Plug 'Yggdroot/LeaderF'     " install.sh required
 Plug 'Chiel92/vim-autoformat'
 
 call plug#end()
