@@ -19,6 +19,7 @@ Plug 'bling/vim-bufferline'
 Plug 'Shougo/echodoc.vim'
 Plug 'Yggdroot/LeaderF'     " install.sh required
 Plug 'Chiel92/vim-autoformat'
+Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
@@ -127,7 +128,9 @@ let g:airline#extensions#hunks#non_zero_only = 1
 " bufferline
 let g:airline#extensions#bufferline#enabled = 1
 set ttimeoutlen=10
-
+" tmuxline 
+let g:airline#extensions#tmuxline#enabled = 0
+" let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 
 
 " Tab navigation
@@ -193,7 +196,8 @@ hi! clear SpellRare
 hi! SpellBad gui=undercurl guisp=red
 hi! SpellCap gui=undercurl guisp=blue
 hi! SpellRare gui=undercurl guisp=magenta
-
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
 " 
 " UndoTree
 "
