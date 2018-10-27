@@ -19,7 +19,6 @@ Plug 'bling/vim-bufferline'
 Plug 'Shougo/echodoc.vim'
 Plug 'Yggdroot/LeaderF'     " install.sh required
 Plug 'Chiel92/vim-autoformat'
-Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
@@ -115,7 +114,8 @@ let g:EasyMotion_smartcase = 1
 "
 " Airline
 "
-let g:airline_theme='molokai'
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
 let g:airline_section_z = '%P %l/%L%{g:airline_symbols.maxlinenr} : %v'
 " Use patched fonts
 let g:airline_powerline_fonts = 1
@@ -128,9 +128,6 @@ let g:airline#extensions#hunks#non_zero_only = 1
 " bufferline
 let g:airline#extensions#bufferline#enabled = 1
 set ttimeoutlen=10
-" tmuxline 
-let g:airline#extensions#tmuxline#enabled = 0
-" let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 
 
 " Tab navigation
