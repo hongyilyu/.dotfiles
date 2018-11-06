@@ -32,55 +32,56 @@ inoremap <leader>w <Esc>:w<cr>
 noremap <leader>w :w<cr>
 
 set encoding=utf-8
-set history=2000 	" set history upper limit
+set history=2000 	    " set history upper limit
 
-filetype on      	" check file type
-filetype indent on      " indent for different file
-filetype plugin on	" allow plugin
+filetype on             " check file type
+filetype indent on          " indent for different file
+filetype plugin on      " allow plugin
 
-set title	    	" change terminal's title
-set autoread    	" auto reload file
-set showmatch 		" cursor shows matching ) and }
-set matchtime=3	    " how many tens of second to blink when matching bracket
-set showmode 		" show current mode
-set ruler			" always show current position
-set number			" show line number
-set showcmd			" show command on status bar
-set scrolloff=7		" keep 7 lines when scrol down or up
-set nowrap			" display long lines as just one line
+set title               " change terminal's title
+set autoread            " auto reload file
+set showmatch           " cursor shows matching ) and }
+set matchtime=3         " how many tens of second to blink when matching bracket
+set showmode            " show current mode
+set ruler               " always show current position
+set number              " show line number
+set showcmd             " show command on status bar
+set scrolloff=7         " keep 7 lines when scrol down or up
+set wrap                " display long lines as multiple line
+set showbreak=\ \ \ \   "wrap indent
 
-set autoindent		" auto indentation
-set copyindent		" copy previous indentation on autoindenting
-"set hlsearch 		" search highlighting
-"set incsearch		" make search acts like in browsers
-"set ignorecase		" ignore case when searching
-"set smartcase		" case sensitive when more than one capitalize
-set smarttab		" insert tabs on the start of line based on context
-set cursorcolumn	" highlight current column
-set cursorline		" highlight current line
-set mousehide		" hide the mouse when typing
+set autoindent          " auto indentation
+set copyindent          " copy previous indentation on autoindenting
+"set hlsearch           " search highlighting
+"set incsearch          " make search acts like in browsers
+"set ignorecase         " ignore case when searching
+"set smartcase          " case sensitive when more than one capitalize
+set smarttab            " insert tabs on the start of line based on context
+set cursorcolumn        " highlight current column
+set cursorline          " highlight current line
+set mousehide           " hide the mouse when typing
 
-set tabstop=4		" tab key width
-set shiftwidth=4	" indent width
-set softtabstop=4	" insert tabs on the start of line based on shiftwidth
-set	smarttab		" tab to space
+set tabstop=4           " tab key width
+set shiftwidth=4        " indent width
+set softtabstop=4       " insert tabs on the start of line based on shiftwidth
+set	smarttab            " tab to space
 set expandtab
 
-set novisualbell	" disable sound on error
-set noerrorbells	" disable sound on error
-set t_vb=		" disable sound on error
-set tm=500		" ?
+set novisualbell        " disable sound on error
+set noerrorbells        " disable sound on error
+set t_vb=               " disable sound on error
+set tm=500              " ?
 
-set foldenable		" code folding
+set foldenable		    " code folding
 set foldmethod=indent	" fold depend on indent
-set foldlevel=99	" fold level
-" code folding function at around line 80
+set foldlevel=99	    " fold level
+" code folding function at around line 290
 
-set wildmenu		" wild char completion menu
+set wildmenu		        " wild char completion menu
 set wildignore=*.o,*~,*.pyc " ignore compiled files
 set wildmode=list:longest
 set completeopt=longest,menu " auto complete like normal IDE
-set magic		" for regular expressions turn magic on
+set magic		            " for regular expressions turn magic on
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
