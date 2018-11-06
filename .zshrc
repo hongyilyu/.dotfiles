@@ -99,13 +99,19 @@ source $ZSH/oh-my-zsh.sh
 if [ -e /proc/version ]
 then
     if cat /proc/version | grep -i -e ubuntu -e debian -e raspbian > /dev/null 2>&1 ; then
-        alias update="sudo apt-get update && sudo apt-get upgrade";
+        alias update="sudo apt-get update && sudo apt-get upgrade && 
+                      vim +PlugUpgrade +qall && echo 'vim upgrade' &&
+                      vim +PlugUpdate +qall && echo 'vim update' && 
+                      vim +PlugClean +qall && echo 'vim cleanup'";
         source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     fi
 else 
-    alias update="brew update && echo 'brew update' && brew upgrade && echo 'brew upgrade' &&
-        brew cleanup && echo 'brew cleanup' && vim +PlugUpgrade +qall && echo 'vim upgrade' &&
-        vim +PlugUpdate +qall && echo 'vim update' && vim +PlugClean +qall && echo 'vim cleanup'" 
+    alias update="brew update && echo 'brew update' && 
+                  brew upgrade && echo 'brew upgrade' &&
+                  brew cleanup && echo 'brew cleanup' && 
+                  vim +PlugUpgrade +qall && echo 'vim upgrade' &&
+                  vim +PlugUpdate +qall && echo 'vim update' && 
+                  vim +PlugClean +qall && echo 'vim cleanup'" 
     source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 #zsh-synta-highlighting
