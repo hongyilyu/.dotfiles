@@ -113,6 +113,7 @@ else
                   vim +PlugUpdate +qall && echo 'vim update' && 
                   vim +PlugClean +qall && echo 'vim cleanup'" 
     source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    alias finder="open -a finder ."
 fi
 #zsh-synta-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)

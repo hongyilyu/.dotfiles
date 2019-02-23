@@ -237,6 +237,8 @@ let g:ycm_semantic_triggers =  {
     \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
     \ 'cs,lua,javascript': ['re!\w{2}'],
     \ }
+let g:ycm_server_python_interpreter='/usr/local/bin/python3'
+let g:syntastic_python_checkers=['pyflakes']
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 
@@ -244,6 +246,7 @@ let g:ycm_filetype_whitelist = {
     \ "c":1,
     \ "cpp":1, 
     \ "zsh":1,
+    \ "python":1,
     \ }
 
 nmap <leader>g :YcmCompleter GoTo<CR>
