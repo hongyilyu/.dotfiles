@@ -13,7 +13,10 @@ alias ls='ls -GFh'
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="ys"
+#ZSH_THEME="ys"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+source ~/.dotfiles/.powerlevel10k.conf
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -114,6 +117,7 @@ else
                   vim +PlugClean +qall && echo 'vim cleanup'" 
     source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     alias finder="open -a finder ."
+    alias sendiot="scp -i ~/.ssh/id_rsa dns_callback.py send_email.py IoT_Classification.py manual_change_ip.py update_ip.py fetch_ip.py sniffer.py iptable_controller.py root@192.168.2.1:/jffs/workspace/"
 fi
 #zsh-synta-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)

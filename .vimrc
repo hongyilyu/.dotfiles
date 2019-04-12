@@ -32,7 +32,7 @@ inoremap <leader>w <Esc>:w<cr>
 noremap <leader>w :w<cr>
 
 set encoding=utf-8
-set history=2000 	    " set history upper limit
+set history=2000        " set history upper limit
 
 filetype on             " check file type
 filetype indent on          " indent for different file
@@ -64,7 +64,7 @@ set mousehide           " hide the mouse when typing
 set tabstop=4           " tab key width
 set shiftwidth=4        " indent width
 set softtabstop=4       " insert tabs on the start of line based on shiftwidth
-set	smarttab            " tab to space
+set smarttab            " tab to space
 set expandtab
 
 set novisualbell        " disable sound on error
@@ -72,16 +72,16 @@ set noerrorbells        " disable sound on error
 set t_vb=               " disable sound on error
 set tm=500              " ?
 
-set foldenable		    " code folding
-set foldmethod=indent	" fold depend on indent
-set foldlevel=99	    " fold level
+set foldenable          " code folding
+set foldmethod=indent   " fold depend on indent
+set foldlevel=99        " fold level
 " code folding function at around line 290
 
-set wildmenu		        " wild char completion menu
+set wildmenu                " wild char completion menu
 set wildignore=*.o,*~,*.pyc " ignore compiled files
 set wildmode=list:longest
 set completeopt=longest,menu " auto complete like normal IDE
-set magic		            " for regular expressions turn magic on
+set magic                   " for regular expressions turn magic on
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -196,7 +196,7 @@ hi! SpellCap gui=undercurl guisp=blue
 hi! SpellRare gui=undercurl guisp=magenta
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
-" 
+"
 " UndoTree
 "
 nnoremap <F5> :UndotreeToggle<cr>
@@ -221,7 +221,7 @@ if !exists('g:undotree_SetFocusWhenToggle')
     let g:undotree_SetFocusWhenToggle = 1
 endif
 
-" 
+"
 " YouCompleteMe
 "
 let g:ycm_add_preview_to_completeopt = 0
@@ -234,20 +234,20 @@ let g:ycm_key_invoke_completion = '<c-z>'
 set completeopt=menu,menuone
 noremap <c-z> <NOP>
 let g:ycm_semantic_triggers =  {
-    \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-    \ 'cs,lua,javascript': ['re!\w{2}'],
-    \ }
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ }
 let g:ycm_server_python_interpreter='/usr/local/bin/python3'
 let g:syntastic_python_checkers=['pyflakes']
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 
-let g:ycm_filetype_whitelist = { 
-    \ "c":1,
-    \ "cpp":1, 
-    \ "zsh":1,
-    \ "python":1,
-    \ }
+let g:ycm_filetype_whitelist = {
+            \ "c":1,
+            \ "cpp":1,
+            \ "zsh":1,
+            \ "python":1,
+            \ }
 
 nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <leader>d :YcmCompleter GoToDefinition<CR>
@@ -277,10 +277,9 @@ let g:autoformat_verbosemode=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Color Setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax on
+syntax enable
 colorscheme solarized
 set background=dark
-set t_Co=256
 let g:solarized_termtrans=1
 if has('gui_running')
     set background=light
