@@ -19,9 +19,11 @@ Plug 'bling/vim-bufferline'
 Plug 'Shougo/echodoc.vim'
 Plug 'Yggdroot/LeaderF'     " install.sh required
 Plug 'Chiel92/vim-autoformat'
+Plug 'vim-python/python-syntax'
 
 call plug#end()
 
+let g:python_highlight_all = 1
 
 " leader key
 let mapleader = ','
@@ -42,7 +44,6 @@ set title               " change terminal's title
 set autoread            " auto reload file
 set showmatch           " cursor shows matching ) and }
 set matchtime=3         " how many tens of second to blink when matching bracket
-set showmode            " show current mode
 set ruler               " always show current position
 set number              " show line number
 set showcmd             " show command on status bar
@@ -184,7 +185,10 @@ let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:airline#extensions#ale#enabled = 1
 
-let g:ale_linters = {'cpp': ['clang']}
+let g:ale_linters = {
+    \ 'cpp': ['clang'],
+    \ 'python': ['flake8']
+    \}
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 
 let g:ale_sign_error = ">>"
