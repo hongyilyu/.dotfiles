@@ -20,6 +20,8 @@ Plug 'Shougo/echodoc.vim'
 Plug 'Yggdroot/LeaderF'     " install.sh required
 Plug 'Chiel92/vim-autoformat'
 Plug 'vim-python/python-syntax'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 call plug#end()
 
@@ -46,6 +48,8 @@ set showmatch           " cursor shows matching ) and }
 set matchtime=3         " how many tens of second to blink when matching bracket
 set ruler               " always show current position
 set number              " show line number
+set relativenumber      " turn hybrid line number on
+                        " toggle it check below
 set showcmd             " show command on status bar
 set scrolloff=7         " keep 7 lines when scrol down or up
 set wrap                " display long lines as multiple line
@@ -117,7 +121,7 @@ let g:EasyMotion_smartcase = 1
 " Airline
 "
 let g:airline_theme='solarized'
-let g:airline_solarized_bg='light'
+let g:airline_solarized_bg='dark'
 let g:airline_section_z = '%P %l/%L%{g:airline_symbols.maxlinenr} : %v'
 " Use patched fonts
 let g:airline_powerline_fonts = 1
@@ -127,9 +131,20 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 " enable/disable showing only non-zero hunks.
 let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#tmuxline#enabled = 1
+set ttimeoutlen=10
 " bufferline
 let g:airline#extensions#bufferline#enabled = 1
-set ttimeoutlen=10
+let g:airline#extensions#bufferline#overwrite_variables=0
+let g:bufferline_active_buffer_left = ''
+let g:bufferline_active_buffer_right = ''
+let g:bufferline_echo = 0
+let g:bufferline_show_bufnr = 1
+let g:bufferline_rotate = 1
+let g:bufferline_excludes = ['\[vimfiler\]', 'NERD_tree_1']
+let g:bufferline_separator = ''
+let g:bufferline_inactive_highlight = 'airline_c'
+let g:bufferline_active_highlight = 'airline_c'
 
 
 " Tab navigation
@@ -241,7 +256,7 @@ let g:ycm_semantic_triggers =  {
             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
             \ 'cs,lua,javascript': ['re!\w{2}'],
             \ }
-let g:ycm_server_python_interpreter='/usr/local/bin/python3'
+let g:ycm_server_python_interpreter='/usr/local/bin/python'
 let g:syntastic_python_checkers=['pyflakes']
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
@@ -293,7 +308,12 @@ endif
 
 "let g:solarized_termcolors=256
 
-
+" toggle auto relative number
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " code folding shortcuts <leader>zz
 let g:FoldMethod = 0
@@ -307,3 +327,13 @@ fun! ToggleFold()
         let g:FoldMethod = 0
     endif
 endfun
+
+" open file at location that was last viewed
+if has("autocmd")
+    " When editing a file, always jump to the last cursor position
+    autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal g'\"" |
+    \ endif
+endif
+" for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
