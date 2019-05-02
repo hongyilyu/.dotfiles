@@ -27,10 +27,9 @@ set_app_input_method('WeChat', Chinese, twoEvents)
 ----------------------------------------------------------------------------------------------------
 -- Load Spoons
 spoonList = {
-    "BingDaily",
-    "CircleClock",
     "SpeedMenu",
     "Calendar",
+    "UnsplashZ",
     }
 
 -- Load those Spoons
