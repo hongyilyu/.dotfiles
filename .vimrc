@@ -6,7 +6,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
-Plug 'valloric/youcompleteme'
+Plug 'valloric/youcompleteme', { 'do': './install.py --clang-completer' }
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs'
@@ -17,7 +17,7 @@ Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-signify'
 Plug 'bling/vim-bufferline'
 Plug 'Shougo/echodoc.vim'
-Plug 'Yggdroot/LeaderF'     " install.sh required
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'vim-python/python-syntax'
 Plug 'vim-pandoc/vim-pandoc'
@@ -53,7 +53,10 @@ set relativenumber      " turn hybrid line number on
 set showcmd             " show command on status bar
 set scrolloff=7         " keep 7 lines when scrol down or up
 set wrap                " display long lines as multiple line
-set showbreak=\ \ \ \   "wrap indent
+set breakindent         " enable indentation
+" ident by an additional 4 characters on wrapped lines, when line >= 10 characters, put 'showbreak' at start of line
+set breakindentopt=shift:4,sbr,min:10
+set showbreak=↪       "wrap indent
 
 set autoindent          " auto indentation
 set copyindent          " copy previous indentation on autoindenting
