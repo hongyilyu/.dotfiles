@@ -51,7 +51,7 @@ set number              " show line number
 set relativenumber      " turn hybrid line number on
                         " toggle it check below
 set showcmd             " show command on status bar
-set scrolloff=7         " keep 7 lines when scrol down or up
+set scrolloff=15        " keep 15 lines when scrol down or up
 set wrap                " display long lines as multiple line
 set breakindent         " enable indentation
 " ident by an additional 4 characters on wrapped lines, when line >= 10 characters, put 'showbreak' at start of line
@@ -271,8 +271,15 @@ let g:ycm_filetype_whitelist = {
             \ "python":1,
             \ }
 
-nmap <leader>g :YcmCompleter GoTo<CR>
-nmap <leader>d :YcmCompleter GoToDefinition<CR>
+let g:ycm_autoclose_preview_window_after_completion = 1
+nnoremap <F5>           :YcmForceCompileAndDiagnostics<CR>
+nnoremap <leader>got 	:YcmCompleter GoTo<CR>
+nnoremap <leader>gic    :YcmCompleter GoToInclude<CR>
+nnoremap <leader>gdc    :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gdf    :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>f      :YcmCompleter FixIt<CR>
+
+
 
 "
 " echodoc

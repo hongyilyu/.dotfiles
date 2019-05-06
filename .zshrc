@@ -118,7 +118,8 @@ else
                   vim +PlugClean +qall && echo 'vim cleanup'" 
     source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     alias finder="open -a finder ."
-    alias sendiot="scp -i ~/.ssh/id_rsa web_server.py dns_callback.py send_email.py IoT_Classification.py manual_change_ip.py update_ip.py fetch_ip.py sniffer.py iptable_controller.py root@192.168.2.1:/jffs/workspace/"
+    alias sendiot="scp -i ~/.ssh/id_rsa web_server.py dns_callback.py IoT_Classification.py manual_change_ip.py update_ip.py fetch_ip.py sniffer.py iptable_controller.py root@192.168.2.1:/jffs/workspace/"
+    alias sendser="scp -i ~/.ssh/id_rsa g_pkl.sh send_email.py generate_policy.py policies_compare.py mud_server@192.168.2.118:~/Desktop/MUDgeneration/"
 fi
 #zsh-synta-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
