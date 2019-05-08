@@ -6,7 +6,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
-Plug 'valloric/youcompleteme', { 'do': './install.py --clang-completer' }
+Plug 'valloric/youcompleteme', "{ 'do': './install.py --clang-completer' }
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs'
@@ -68,6 +68,7 @@ set smarttab            " insert tabs on the start of line based on context
 set cursorcolumn        " highlight current column
 set cursorline          " highlight current line
 set mousehide           " hide the mouse when typing
+set mouse-=a            " not sure what it does, https://gist.github.com/u0d7i/01f78999feff1e2a8361
 
 set tabstop=4           " tab key width
 set shiftwidth=4        " indent width
@@ -273,10 +274,10 @@ let g:ycm_filetype_whitelist = {
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 nnoremap <F5>           :YcmForceCompileAndDiagnostics<CR>
-nnoremap <leader>got 	:YcmCompleter GoTo<CR>
-nnoremap <leader>gic    :YcmCompleter GoToInclude<CR>
-nnoremap <leader>gdc    :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gdf    :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gt 	:YcmCompleter GoTo<CR>
+nnoremap <leader>gi     :YcmCompleter GoToInclude<CR>
+nnoremap <leader>gc     :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gd     :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>f      :YcmCompleter FixIt<CR>
 
 
@@ -346,4 +347,3 @@ if has("autocmd")
     \   exe "normal g'\"" |
     \ endif
 endif
-" for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
