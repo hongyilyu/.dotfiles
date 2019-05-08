@@ -3,27 +3,31 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+export ZSH_CONFIG=~/.dotfiles/zshrc
 
-# Set CLICOLOR if you want Ansi Colors in iTerm2 
-export CLICOLOR=1
-unset LSCOLORS 
-alias ls='ls -GFh'
- 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-#ZSH_THEME="ys"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-source ~/.dotfiles/.powerlevel10k.conf
 
+
+
+
+# Use the force to load my functions
+fpath=($ZSH_CONFIG/functions $fpath)
+# autoload custom functions
+autoload $^fpath/*(N:t)
+
+
+
+source $ZSH_CONFIG/plugin.zsh
+source $ZSH_CONFIG/alias.zsh
+source $ZSH_CONFIG/color.zsh
+source $ZSH_CONFIG/.powerlevel10k.conf
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -55,83 +59,3 @@ ENABLE_CORRECTION="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(  
-        git
-        autojump
-        osx
-    )
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-#autojump
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
-
-if [ -e /proc/version ]
-then
-    if cat /proc/version | grep -i -e ubuntu -e debian -e raspbian > /dev/null 2>&1 ; then
-        alias update="sudo apt-get update && sudo apt-get upgrade && 
-                      vim +PlugUpgrade +qall && echo 'vim upgrade' &&
-                      vim +PlugUpdate +qall && echo 'vim update' && 
-                      vim +PlugClean +qall && echo 'vim cleanup'";
-        source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    fi
-else 
-    alias update="brew update && echo 'brew update' && 
-                  brew upgrade && echo 'brew upgrade' &&
-                  brew cleanup && echo 'brew cleanup' && 
-                  vim +PlugUpgrade +qall && echo 'vim upgrade' &&
-                  vim +PlugUpdate +qall && echo 'vim update' && 
-                  vim +PlugClean +qall && echo 'vim cleanup'" 
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    alias finder="open -a finder ."
-    alias sendiot="scp -i ~/.ssh/id_rsa web_server.py dns_callback.py IoT_Classification.py manual_change_ip.py update_ip.py fetch_ip.py sniffer.py iptable_controller.py root@192.168.2.1:/jffs/workspace/"
-    alias sendser="scp -i ~/.ssh/id_rsa g_pkl.sh send_email.py generate_policy.py policies_compare.py mud_server@192.168.2.118:~/Desktop/MUDgeneration/"
-fi
-#zsh-synta-highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands starting with `rm -rf` in red:
-
-## get rid of command not found ##
-alias cd..='cd ..'
-
-## a quick way to get out of current directory ##
-alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
-alias .....='cd ../../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../..'
