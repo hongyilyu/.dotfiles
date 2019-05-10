@@ -2,7 +2,7 @@
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(  
+plugins=(
         git
         autojump
         osx
@@ -13,7 +13,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-################################################## VI-MODE ################################################## 
+################################################## VI-MODE ##################################################
 
 # Better searching in command mode
 bindkey -M vicmd '/' history-incremental-search-backward
@@ -32,7 +32,7 @@ export KEYTIMEOUT=1
 
 ################################################## AUTO-JUMP ##################################################
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
-############################################################################################################# 
+#############################################################################################################
 
 ################################################## HIGHLIGHT ##################################################
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
