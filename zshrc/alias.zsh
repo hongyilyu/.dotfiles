@@ -32,3 +32,8 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+
+## git
+alias g="git"
+alias gs='git status'
+alias gd='git diff'
