@@ -18,8 +18,9 @@ autoload $^fpath/*(N:t)
 
 
 source $ZSH_CONFIG/plugin.zsh
+source $ZSH_CONFIG/OS.zsh
 source $ZSH_CONFIG/alias.zsh
-source $ZSH_CONFIG/color.zsh
+source $ZSH_CONFIG/ls.zsh
 source $ZSH_CONFIG/.powerlevel10k.conf
 
 # Uncomment the following line to use case-sensitive completion.
