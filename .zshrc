@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 export ZSH_CONFIG=~/.dotfiles/zshrc
+export VIM_CONFIG=~/.dotfiles/vimrc
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
