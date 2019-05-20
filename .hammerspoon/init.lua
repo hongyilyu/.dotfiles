@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------
--- Input Switch 
+-- Input Switch
 -- https://dsdshcym.github.io/blog/2017/08/09/use-hammerspoon-to-auto-switch-input-methods/
 local function Chinese()
   -- hs.keycodes.setMethod("Pinyin - Simplified")
@@ -37,3 +37,4 @@ spoonList = {
 for _, v in pairs(spoonList) do
     hs.loadSpoon(v)
 end
+-- require 'Scripts/memory.memory'
