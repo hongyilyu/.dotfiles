@@ -17,3 +17,7 @@ alias .5='cd ../../../../..'
 alias g="git"
 alias gs='git status'
 alias gd='git diff'
+
+## todo.sh
+export TODOTXT_DEFAULT_ACTION=ls
+alias todo='todo.sh -d ~/.todo.cfg'
