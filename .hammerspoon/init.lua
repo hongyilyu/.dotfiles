@@ -29,8 +29,8 @@ set_app_input_method('WeChat', Chinese, twoEvents)
 -- Load Spoons
 spoonList = {
     "SpeedMenu",
-    "Calendar",
     "UnsplashZ",
+    "HCalendar",
     }
 
 -- Load those Spoons
