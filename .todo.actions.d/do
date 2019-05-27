@@ -1,0 +1,69 @@
+#!/bin/bash
+
+action=$1
+shift
+
+function usage {
+  echo " Customized repeat:"
+  echo "   repeat ITEM "
+  echo "     mark an item complete then re-enter it"
+  echo "   repeat ITEM DAYS"
+  echo "     mark an item as complete then re-enter it with a date DAYS from now"
+  echo "   repeat ITEM +DAYS"
+  echo "     mark an item with a date as complete then re-enter it with a date DAYS from the due date"
+  echo ""
+  exit
+}
+[ "$action" = "usage" ] && usage
+
+# make sure we have an item number
+ITEM=$1
+if ! [[ "$ITEM" =~ ^[0-9]+$ ]]; then
+echo "Error! Usage:"
+usage
+exit
+fi
+
+# declare some variable
+DATE_PATTERN="[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}"
+
+# pull the line from the todo file
+LINE=$(sed "$ITEM!d" "$TODO_FILE")
+
+# parse recur days
+REC=$(echo $LINE | grep -o "rec:[0-9]\+[d,w,m,y]")
+if [[ "$REC" == "" ]]; then
+    $DO && "$TODO_SH" command do "$ITEM"
+else
+    NUM_TO_REC=$(echo $REC | grep -o "[0-9]\+")
+    PERIOD_TO_REC=$(echo $REC | grep -o "[d,w,m,y]$")
+    
+    # parse change dates
+    DUE_DATE=$(echo $LINE | grep -o "due:$DATE_PATTERN")
+    THRESH_DATE=$(echo $LINE | grep -o "t:$DATE_PATTERN")
+    
+    if [[ "$DUE_DATE" == "" ]]; then 
+        $DO && "$TODO_SH" command do "$ITEM"
+    fi
+    # update due date
+    DATE=$(echo $DUE_DATE | grep -o $DATE_PATTERN)
+    NEW_DUE_DATE="due:$(date -jf %Y-%m-%d -v+$NUM_TO_REC$PERIOD_TO_REC $DATE +%Y-%m-%d)"
+    NEW_LINE=${LINE/$DUE_DATE/$NEW_DUE_DATE}
+    if [[ "$NEW_LINE" == "" ]]; then 
+        $DO && "$TODO_SH" command do "$ITEM"
+    fi
+
+    if [[ "$THRESH_DATE" != "" ]]; then 
+        # update threshold date
+        DATE=$(echo $THRESH_DATE | grep -o $DATE_PATTERN)
+        NEW_THRESH_DATE="t:$(date -jf %Y-%m-%d -v+$NUM_TO_REC$PERIOD_TO_REC $DATE +%Y-%m-%d)"
+        NEW_LINE=${NEW_LINE/$THRESH_DATE/$NEW_THRESH_DATE}
+        if [[ "$NEW_LINE" == "" ]]; then 
+            $DO && "$TODO_SH" command do "$ITEM"
+        fi
+    fi
+    $DO && "$TODO_SH" command do "$ITEM"
+    $DO && "$TODO_SH" command add "$NEW_LINE"
+fi
+
+
