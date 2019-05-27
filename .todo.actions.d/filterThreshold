@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DATE_PATTERN="[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}"
+
+
+while read LINE; do
+    THRESH_DATE=$(echo $LINE | grep -o "t:$DATE_PATTERN")
+
+    if [[ "$THRESH_DATE" == "" ]]; then
+        echo $LINE
+    else
+        THRESH_DATE=$(echo $THRESH_DATE | grep -o "$DATE_PATTERN")
+        TODAY=$(date +"%Y-%m-%d")
+        if expr "$TODAY" ">=" "$THRESH_DATE" > /dev/null; then 
+            echo $LINE;
+        fi
+    fi
+
+done
