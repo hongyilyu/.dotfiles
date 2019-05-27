@@ -24,6 +24,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 call plug#end()
 
@@ -322,8 +323,20 @@ let g:indent_guides_auto_colors = 1
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
+"
+" vim-cpp-enhanced-highlight
+" https://github.com/octol/vim-cpp-enhanced-highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+
+
+
 
 let g:python_highlight_all = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Color Setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -380,6 +393,6 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee,*.cpp :call CleanExtraSpaces()
 endif
 
