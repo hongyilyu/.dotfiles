@@ -33,28 +33,28 @@ if [[ "$REC" == "" ]]; then
 else
     NUM_TO_REC=$(echo $REC | grep -o "[0-9]\+")
     PERIOD_TO_REC=$(echo $REC | grep -o "[d,w,m,y]$")
-    
+
     # parse change dates
     DUE_DATE=$(echo $LINE | grep -o "due:$DATE_PATTERN")
     THRESH_DATE=$(echo $LINE | grep -o "t:$DATE_PATTERN")
-    
-    if [[ "$DUE_DATE" == "" ]]; then 
+
+    if [[ "$DUE_DATE" == "" ]]; then
         $DO && "$TODO_SH" command do "$ITEM"
     fi
     # update due date
     DATE=$(echo $DUE_DATE | grep -o $DATE_PATTERN)
     NEW_DUE_DATE="due:$(date -jf %Y-%m-%d -v+$NUM_TO_REC$PERIOD_TO_REC $DATE +%Y-%m-%d)"
     NEW_LINE=${LINE/$DUE_DATE/$NEW_DUE_DATE}
-    if [[ "$NEW_LINE" == "" ]]; then 
+    if [[ "$NEW_LINE" == "" ]]; then
         $DO && "$TODO_SH" command do "$ITEM"
     fi
 
-    if [[ "$THRESH_DATE" != "" ]]; then 
+    if [[ "$THRESH_DATE" != "" ]]; then
         # update threshold date
         DATE=$(echo $THRESH_DATE | grep -o $DATE_PATTERN)
         NEW_THRESH_DATE="t:$(date -jf %Y-%m-%d -v+$NUM_TO_REC$PERIOD_TO_REC $DATE +%Y-%m-%d)"
         NEW_LINE=${NEW_LINE/$THRESH_DATE/$NEW_THRESH_DATE}
-        if [[ "$NEW_LINE" == "" ]]; then 
+        if [[ "$NEW_LINE" == "" ]]; then
             $DO && "$TODO_SH" command do "$ITEM"
         fi
     fi
