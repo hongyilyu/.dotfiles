@@ -4,25 +4,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-bufferline'
 Plug 'w0rp/ale'
 Plug 'valloric/youcompleteme', "{ 'do': './install.py --clang-completer' }
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'wakatime/vim-wakatime'
-Plug 'tpope/vim-fugitive'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-signify'
-Plug 'bling/vim-bufferline'
 Plug 'Shougo/echodoc.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'vim-python/python-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
@@ -193,16 +190,6 @@ let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 
 "
-" NerdTree
-"
-map <C-n> :NERDTreeToggle<CR>
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" change default arrow
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '~'
-
-"
 " Ale
 " https://www.zhihu.com/question/47691414/answer/373700711
 let g:ale_linters_explicit = 1
@@ -313,15 +300,6 @@ let g:cpp_no_function_highlight = 1
 " https://github.com/Chiel92/vim-autoformat
 noremap <F3> :Autoformat<CR>
 let g:autoformat_verbosemode=1
-
-"
-" vim-indent-guides
-" https://github.com/nathanaelkane/vim-indent-guides
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 1
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 "
 " vim-cpp-enhanced-highlight
