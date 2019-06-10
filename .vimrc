@@ -8,10 +8,8 @@ Plug 'bling/vim-bufferline'
 Plug 'w0rp/ale'
 Plug 'valloric/youcompleteme', "{ 'do': './install.py --clang-completer' }
 Plug 'tpope/vim-commentary'
-Plug 'mbbill/undotree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'wakatime/vim-wakatime'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-signify'
 Plug 'Shougo/echodoc.vim'
@@ -22,6 +20,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'tpope/vim-surround'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -62,7 +61,7 @@ set smarttab            " insert tabs on the start of line based on context
 "set cursorcolumn        " highlight current column
 set cursorline          " highlight current line
 set mousehide           " hide the mouse when typing
-set mouse-=a            " not sure what it does, https://gist.github.com/u0d7i/01f78999feff1e2a8361
+set mouse=a            " not sure what it does, https://gist.github.com/u0d7i/01f78999feff1e2a8361
 
 set tabstop=4           " tab key width
 set shiftwidth=4        " indent width
@@ -216,30 +215,6 @@ hi! SpellCap gui=undercurl guisp=blue
 hi! SpellRare gui=undercurl guisp=magenta
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
-"
-" UndoTree
-"
-nnoremap <F4> :UndotreeToggle<cr>
-" relative timestamp
-if !exists('g:undotree_RelativeTimestamp')
-    let g:undotree_RelativeTimestamp = 1
-endif
-" Highlight changed text
-if !exists('g:undotree_HighlightChangedText')
-    let g:undotree_HighlightChangedText = 1
-endif
-" tree node shape.
-if !exists('g:undotree_TreeNodeShape')
-    let g:undotree_TreeNodeShape = '*'
-endif
-if !exists('g:undotree_DiffCommand')
-    let g:undotree_DiffCommand = "diff"
-endif
-" if set, let undotree window get focus after being opened, otherwise
-" focus will stay in current window.
-if !exists('g:undotree_SetFocusWhenToggle')
-    let g:undotree_SetFocusWhenToggle = 1
-endif
 
 "
 " YouCompleteMe
@@ -250,7 +225,7 @@ let g:ycm_server_log_level = 'info'
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
-let g:ycm_key_invoke_completion = '<c-z>'
+let g:ycm_key_invoke_completion = '<c-space>'
 set completeopt=menu,menuone
 noremap <c-z> <NOP>
 let g:ycm_semantic_triggers =  {
@@ -286,14 +261,13 @@ set noshowmode
 let g:echodoc#enable_at_startup = 1
 
 "
-" cpp enhanced highlight
+" indentLine
 "
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_concepts_highlight = 1
-let g:cpp_no_function_highlight = 1
+" color with color scheme instead of default grey
+let g:indentLine_setColors = 0
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+nnoremap <F4>           :IndentLinesToggle<CR>
 
 "
 " autoformat
