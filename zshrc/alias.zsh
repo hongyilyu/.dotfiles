@@ -15,7 +15,7 @@ alias .5='cd ../../../../..'
 
 ## git
 alias g="git"
-alias gs='git status'
+alias gs='git status --ignore-submodules=dirty'
 alias gd='git diff'
 
 ## todo.sh

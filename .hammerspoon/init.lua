@@ -23,13 +23,12 @@ set_app_input_method('Hammerspoon', English, hs.window.filter.windowCreated)
 set_app_input_method('iTerm2', English, twoEvents)
 set_app_input_method('Google Chrome', English, twoEvents)
 set_app_input_method('Code', English, twoEvents)
+set_app_input_method('WebStorm', English, twoEvents)
 set_app_input_method('WeChat', Chinese, twoEvents)
 
 ----------------------------------------------------------------------------------------------------
 -- Load Spoons
 spoonList = {
-    "SpeedMenu",
-    "UnsplashZ",
     "HCalendar",
     }
 
@@ -38,3 +37,4 @@ for _, v in pairs(spoonList) do
     hs.loadSpoon(v)
 end
 -- require 'Scripts/memory.memory'
+require 'Scripts/fanControl'
