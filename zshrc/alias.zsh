@@ -1,6 +1,6 @@
-alias vimupdate="vim +PlugUpgrade +qall && echo 'vim upgrade' &&
-                  vim +PlugUpdate +qall && echo 'vim update' && 
-                  vim +PlugClean +qall && echo 'vim cleanup'"
+alias vimupdate="nvim +PlugUpgrade +qall && echo 'vim upgrade' &&
+                 nvim +PlugUpdate +qall && echo 'vim update' && 
+                 nvim +PlugClean +qall && echo 'vim cleanup'"
 
 ## get rid of command not found ##
 alias cd..='cd ..'

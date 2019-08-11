@@ -1,16 +1,13 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 Plug 'w0rp/ale'
 Plug 'valloric/youcompleteme', "{ 'do': './install.py --clang-completer' }
-Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'wakatime/vim-wakatime'
-Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-signify'
 Plug 'Shougo/echodoc.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
@@ -19,8 +16,10 @@ Plug 'vim-python/python-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'tpope/vim-surround'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/indentLine'
+Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
+Plug 'vim-scripts/bufexplorer.zip'
 
 call plug#end()
 
@@ -199,10 +198,17 @@ let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:airline#extensions#ale#enabled = 1
+let g:ale_rust_rls_toolchain = "stable"
+let g:ale_rust_cargo_use_check = 1
+let g:ale_rust_cargo_check_all_targets = 1
 
+let g:ale_fixers = {
+    \ 'rust': ['rustfmt'],
+    \}
 let g:ale_linters = {
     \ 'cpp': ['clang'],
-    \ 'python': ['flake8']
+    \ 'python': ['flake8'],
+    \ 'rust': ['rls'],
     \}
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 
@@ -229,29 +235,34 @@ let g:ycm_key_invoke_completion = '<c-space>'
 set completeopt=menu,menuone
 noremap <c-z> <NOP>
 let g:ycm_semantic_triggers =  {
-            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ 'c,cpp,python,java,go,erlang,rust': ['re!\w{2}'],
             \ }
 let g:ycm_server_python_interpreter='/usr/local/bin/python'
 let g:syntastic_python_checkers=['pyflakes']
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
-
+let g:ycm_rust_src_path = '/Users/hongyilyu/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 let g:ycm_filetype_whitelist = {
             \ "c":1,
             \ "cpp":1,
             \ "zsh":1,
             \ "python":1,
+            \ "rust":1,
             \ }
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 nnoremap <F5>           :YcmForceCompileAndDiagnostics<CR>
 nnoremap <leader>gt 	:YcmCompleter GoTo<CR>
-nnoremap <leader>gi     :YcmCompleter GoToInclude<CR>
-nnoremap <leader>gc     :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gd     :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>f      :YcmCompleter FixIt<CR>
 
+"
+"
+"
+let g:rustfmt_command = "rustfmt +nightly"
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+let g:rust_clip_command = 'xclip -selection clipboard'
 
 
 "
@@ -276,19 +287,13 @@ noremap <F3> :Autoformat<CR>
 let g:autoformat_verbosemode=1
 
 "
-" vim-cpp-enhanced-highlight
-" https://github.com/octol/vim-cpp-enhanced-highlight
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_concepts_highlight = 1
-
-
-
-
-let g:python_highlight_all = 1
-
+" bufexplorer.zip
+"
+let g:bufExplorerDefaultHelp=0
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerFindActive=1
+let g:bufExplorerSortBy='name'
+map <leader>b :BufExplorer<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Color Setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -345,6 +350,6 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee,*.cpp :call CleanExtraSpaces()
+    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.rs,*.cpp :call CleanExtraSpaces()
 endif
 

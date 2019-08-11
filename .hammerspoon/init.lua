@@ -27,6 +27,7 @@ set_app_input_method('WebStorm', English, twoEvents)
 set_app_input_method('WeChat', Chinese, twoEvents)
 
 ----------------------------------------------------------------------------------------------------
+require("hs.ipc")
 -- Load Spoons
 spoonList = {
     "HCalendar",
