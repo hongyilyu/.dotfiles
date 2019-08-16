@@ -21,11 +21,11 @@ set breakindentopt=shift:4,sbr,min:10
 set showbreak=↪         "wrap indent
 set smartindent         " Smart Indent
 set ttimeout            " Function Key timeout
-set ttimeoutlen=50      " Function Key timeout set to 50 ms 
+set ttimeoutlen=50      " Function Key timeout set to 50 ms
 set ruler               " always show current position
 set number              " show line number
 set relativenumber      " turn hybrid line number on
-                        " toggle it check below
+						" toggle it check below
 
 " Vim paste copy to OS clipboard
 set clipboard+=unnamed
@@ -46,16 +46,16 @@ endif
 " Indentation Config
 "----------------------------------------------------------------------
 if has('autocmd')
-    " Check file type indent for different file, allow plugin
+	" Check file type indent for different file, allow plugin
 	filetype plugin indent on
 endif
 
 "----------------------------------------------------------------------
 " Syntax Highlighting
 "----------------------------------------------------------------------
-if has('syntax')  
-	syntax enable 
-	syntax on 
+if has('syntax')
+	syntax enable
+	syntax on
 endif
 
 "----------------------------------------------------------------------
@@ -108,9 +108,9 @@ set ffs=unix,dos,mac
 " Foldenable Config
 "----------------------------------------------------------------------
 if has('folding')
-    set foldenable          " code folding
-    set foldmethod=indent   " fold depend on indent
-    set foldlevel=99        " fold level
+	set foldenable          " code folding
+	set foldmethod=indent   " fold depend on indent
+	set foldlevel=99        " fold level
 endif
 
 "----------------------------------------------------------------------
