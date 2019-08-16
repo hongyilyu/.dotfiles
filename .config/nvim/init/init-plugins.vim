@@ -159,13 +159,13 @@ let g:ycm_confirm_extra_conf=0
 let g:ycm_rust_src_path = '/Users/hongyilyu/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 let g:ycm_filetype_whitelist = {
 			\ "c":1,
-			\ "cpp":1, 
+			\ "cpp":1,
 			\ "objc":1,
 			\ "objcpp":1,
 			\ "python":1,
 			\ "java":1,
 			\ "javascript":1,
-			\ "vim":1, 
+			\ "vim":1,
 			\ "go":1,
 			\ "cs":1,
 			\ "lua":1,
