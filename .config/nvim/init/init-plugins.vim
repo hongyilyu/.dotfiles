@@ -127,6 +127,7 @@ let g:ale_linters = {
 	\ 'c': ['clang'],
 	\}
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
 
 let g:ale_sign_error = ">>"
 hi! clear SpellBad
