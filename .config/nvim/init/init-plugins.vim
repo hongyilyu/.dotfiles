@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'bling/vim-bufferline'
 Plug 'w0rp/ale'
 Plug 'valloric/youcompleteme', "{ 'do': './install.py --clang-completer' }
 Plug 'jiangmiao/auto-pairs'
@@ -19,6 +18,7 @@ Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
+Plug 'mkitt/tabline.vim'
 
 call plug#end()
 
@@ -50,28 +50,37 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 " enable/disable showing only non-zero hunks.
 let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline#extensions#tmuxline#enabled = 1
 set ttimeoutlen=10
-" bufferline
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#bufferline#overwrite_variables=0
-let g:bufferline_active_buffer_left = ''
-let g:bufferline_active_buffer_right = ''
-let g:bufferline_echo = 0
-let g:bufferline_show_bufnr = 1
-let g:bufferline_rotate = 0
-let g:bufferline_excludes = ['\[vimfiler\]', 'NERD_tree_1']
-let g:bufferline_separator = ''
-let g:bufferline_inactive_highlight = 'airline_c'
-let g:bufferline_active_highlight = 'airline_c'
 
+" tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#buffer_idx_format = {
+		\ '0': '⓪  ',
+		\ '1': '①  ',
+		\ '2': '②  ',
+		\ '3': '③  ',
+		\ '4': '④  ',
+		\ '5': '⑤  ',
+		\ '6': '⑥  ',
+		\ '7': '⑦  ',
+		\ '8': '⑧  ',
+		\ '9': '⑨  '
+		\}
 
 " Tab navigation
 nnoremap <S-tab> :bnext<CR>
-nmap <leader>1 :bfirst<CR>
-nmap <leader>2 :bfirst<CR>:bn<CR>
-nmap <leader>3 :bfirst<CR>:2bn<CR>
-nmap <leader>4 :bfirst<CR>:3bn<CR>
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
 " fix ui bug
 command! AirlineForceRefresh call airline#load_theme() | call airline#update_statusline() | call airline#load_theme() | call airline#update_statusline()
 
