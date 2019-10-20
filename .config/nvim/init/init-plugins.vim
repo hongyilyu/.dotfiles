@@ -151,7 +151,6 @@ let g:Lf_WildIgnore = {
 "
 " fzf.vim
 "
-let s:root_dir=system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
 let $FZF_DEFAULT_COMMAND =  "rg --hidden --no-ignore -l ''"
 let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
@@ -178,7 +177,6 @@ function! FloatingFZF()
 endfunction
 
 nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
-command! -bang -nargs=+ -complete=dir Projfind call fzf#vim#ag_raw(<q-args> . ' ~/Documents/Projects/', fzf#vim#with_preview(), <bang>0)
 
 "
 " Coc

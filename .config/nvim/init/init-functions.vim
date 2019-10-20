@@ -34,96 +34,52 @@ if has("autocmd")
 	autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.rs,*.cpp,*.vim,*.sql :call CleanExtraSpaces()
 endif
 
-" Floating Window
-nnoremap <c-c> :call OpenFloatingWin()<CR>
-function! TerminalCreate() abort
-	if !has('nvim')
-		return v:false
-	endif
 
-	if !exists('g:terminal')
-		let g:terminal = {
-					\ 'opts': {},
-					\ 'term': {
-					\ 'loaded': v:null,
-					\ 'bufferid': v:null
-					\ },
-					\ 'origin': {
-					\ 'bufferid': v:null
-					\ }
-					\ }
-
-		function! g:terminal.opts.on_exit(jobid, data, event) abort
-			silent execute 'buffer' g:terminal.origin.bufferid
-			silent execute 'bdelete!' g:terminal.term.bufferid
-
-			let g:terminal.term.loaded = v:null
-			let g:terminal.term.bufferid = v:null
-			let g:terminal.origin.bufferid = v:null
-		endfunction
-	endif
-
-	if g:terminal.term.loaded
-		return v:false
-	endif
-
-	let g:terminal.origin.bufferid = bufnr('')
-
-	enew
-	call termopen(&shell, g:terminal.opts)
-
-	let g:terminal.term.loaded = v:true
-	let g:terminal.term.bufferid = bufnr('')
-	startinsert
-endfunction
-function! TerminalToggle()
-	if !has('nvim')
-		return v:false
-	endif
-
-	" Create the terminal buffer.
-	if !exists('g:terminal') || !g:terminal.term.loaded
-		return TerminalCreate()
-	endif
-
-	" Go back to origin buffer if current buffer is terminal.
-	if g:terminal.term.bufferid ==# bufnr('')
-		silent execute 'buffer' g:terminal.origin.bufferid
-
-		" Launch terminal buffer and start insert mode.
-	else
-		let g:terminal.origin.bufferid = bufnr('')
-
-		silent execute 'buffer' g:terminal.term.bufferid
-		startinsert
-	endif
-endfunction
-
-function! OpenFloatingWin()
-	let height = &lines - 3
-	let width = float2nr(&columns - (&columns * 2 / 10))
+nnoremap <c-c> :call FloatTerm()<CR>
+" Floating Term
+let s:float_term_border_win = 0
+let s:float_term_win = 0
+function! FloatTerm(...)
+	" Configuration
+	let height = float2nr((&lines - 2) * 0.6)
+	let row = float2nr((&lines - height) / 2)
+	let width = float2nr(&columns * 0.6)
 	let col = float2nr((&columns - width) / 2)
-
-	let opts = {
+	" Border Window
+	let border_opts = {
 		\ 'relative': 'editor',
-		\ 'row': height * 0.3,
-		\ 'col': col + 30,
-		\ 'width': width * 2 / 3,
-		\ 'height': height / 2,
+		\ 'row': row - 1,
+		\ 'col': col - 1,
+		\ 'width': width + 2,
+		\ 'height': height + 2,
 		\ 'style': 'minimal'
 		\ }
-
+	let border_buf = nvim_create_buf(v:false, v:true)
+	let s:float_term_border_win = nvim_open_win(border_buf, v:true, border_opts)
+	" Terminal Window
+	let opts = {
+		\ 'relative': 'editor',
+		\ 'row': row,
+		\ 'col': col,
+		\ 'width': width,
+		\ 'height': height,
+		\ 'style': 'minimal'
+		\ }
 	let buf = nvim_create_buf(v:false, v:true)
-	let win = nvim_open_win(buf, v:true, opts)
-
-	call setwinvar(win, '&winhl', 'Normal:Pmenu')
-
-	setlocal
-		\ buftype=nofile
-		\ nobuflisted
-		\ bufhidden=hide
-		\ nonumber
-		\ norelativenumber
-		\ signcolumn=no
-	call TerminalToggle()
+	let s:float_term_win = nvim_open_win(buf, v:true, opts)
+	" Styling
+	hi FloatTermNormal term=None ctermbg=0
+	call setwinvar(s:float_term_border_win, '&winhl', 'Normal:FloatTermNormal')
+	call setwinvar(s:float_term_win, '&winhl', 'Normal:FloatTermNormal')
+	if a:0 == 0
+		terminal
+	else
+		call termopen(a:1)
+	endif
+	set nonumber
+	set norelativenumber
+	set signcolumn=no
+	startinsert
+	" Close border window when terminal window close
+	autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_border_win, v:true)
 endfunction

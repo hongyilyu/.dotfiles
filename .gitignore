@@ -1,4 +1,5 @@
 .DS_Store
 *.old
 .config/nvim/init/xterm-256color.ti
-.config/coc/extensions
+.config/coc
+!.config/coc/extensions/package.json
