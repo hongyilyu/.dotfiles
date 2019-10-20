@@ -182,6 +182,8 @@ nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
 " Coc
 "
 " if hidden is not set, TextEdit might fail.
+autocmd VimEnter * call coc#rpc#start_server()
+let g:coc_global_extensions=['coc-rls', 'coc-python', 'coc-lists', 'coc-pairs', 'coc-json']
 set hidden
 
 " Some servers have issues with backup files, see #649
