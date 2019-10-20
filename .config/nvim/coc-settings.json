@@ -1,0 +1,14 @@
+{
+	"languageserver": {
+		"clangd": {
+			"command": "/usr/local//Cellar/llvm/9.0.0/bin/clangd",
+			"args": ["--background-index"],
+			"rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+			"filetypes": ["c", "cpp", "objc", "objcpp"]
+		}
+	},
+	"python.jediEnabled": false,
+	"python.linting.pylintEnabled": true,
+	"python.linting.flake8Enabled": false,
+	"diagnostic.warningSign": "--"
+}

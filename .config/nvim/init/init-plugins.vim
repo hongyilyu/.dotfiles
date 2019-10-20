@@ -4,21 +4,21 @@ Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
-Plug 'valloric/youcompleteme', "{ 'do': './install.py --clang-completer' }
-Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wakatime/vim-wakatime'
 Plug 'mhinz/vim-signify'
-Plug 'Shougo/echodoc.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-Plug 'Chiel92/vim-autoformat'
-Plug 'vim-python/python-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'tpope/vim-surround'
-Plug 'Yggdroot/indentLine'
-Plug 'cespare/vim-toml'
-Plug 'rust-lang/rust.vim'
 Plug 'mkitt/tabline.vim'
+Plug 'airblade/vim-rooter'
+if isdirectory('/usr/local/opt/fzf')
+	Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+else
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+	Plug 'junegunn/fzf.vim'
+endif
 
 call plug#end()
 
@@ -39,7 +39,7 @@ let g:EasyMotion_smartcase = 1
 "
 " Airline
 "
-let g:airline_theme='solarized'
+let g:airline_theme='molokai'
 let g:airline_solarized_bg='dark'
 let g:airline_section_z = '%P %l/%L%{g:airline_symbols.maxlinenr} : %v'
 " Use patched fonts
@@ -52,6 +52,7 @@ let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 set ttimeoutlen=10
 
+let g:airline#extensions#coc#enabled = 1
 " tabline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
@@ -88,7 +89,7 @@ command! AirlineForceRefresh call airline#load_theme() | call airline#update_sta
 "
 " LeaderF
 "
-let g:Lf_ShortcutF = '<c-p>'
+"let g:Lf_ShortcutF = '<c-p>'
 let g:Lf_ShortcutB = '<m-n>'
 noremap <c-n> :LeaderfMru<cr>
 noremap <m-p> :LeaderfFunction!<cr>
@@ -113,121 +114,194 @@ let g:Lf_WildIgnore = {
 "
 " Ale
 " https://www.zhihu.com/question/47691414/answer/373700711
-let g:ale_linters_explicit = 1
-let g:ale_completion_delay = 500
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
-let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:airline#extensions#ale#enabled = 1
-let g:ale_rust_rls_toolchain = "stable"
-let g:ale_rust_cargo_use_check = 1
-let g:ale_rust_cargo_check_all_targets = 1
-
-let g:ale_fixers = {
-	\ 'rust': ['rustfmt'],
-	\}
-let g:ale_linters = {
-	\ 'cpp': ['clang'],
-	\ 'python': ['flake8'],
-	\ 'rust': ['rls'],
-	\ 'c': ['clang'],
-	\}
-let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
-let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-
-let g:ale_sign_error = ">>"
-hi! clear SpellBad
-hi! clear SpellCap
-hi! clear SpellRare
-hi! SpellBad gui=undercurl guisp=red
-hi! SpellCap gui=undercurl guisp=blue
-hi! SpellRare gui=undercurl guisp=magenta
-nmap <silent> <leader>k <Plug>(ale_previous_wrap)
-nmap <silent> <leader>j <Plug>(ale_next_wrap)
-
+" let g:ale_linters_explicit = 1
+" let g:ale_completion_delay = 500
+" let g:ale_echo_delay = 20
+" let g:ale_lint_delay = 500
+" let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 "
-" YouCompleteMe
+" let g:ale_lint_on_text_changed = 'normal'
+" let g:ale_lint_on_insert_leave = 1
+" let g:airline#extensions#ale#enabled = 1
+" let g:ale_rust_rls_toolchain = "stable"
+" let g:ale_rust_cargo_use_check = 1
+" let g:ale_rust_cargo_check_all_targets = 1
 "
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_server_log_level = 'info'
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_strings=1
-let g:ycm_key_invoke_completion = '<c-space>'
-set completeopt=menu,menuone,noselect
-noremap <c-z> <NOP>
-let g:ycm_semantic_triggers =  {
-			\ 'c,cpp,python,java,go,erlang,rust': ['re!\w{2}'],
-			\ }
-let g:ycm_server_python_interpreter='/usr/local/bin/python'
-let g:syntastic_python_checkers=['pyflakes']
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf=0
-let g:ycm_rust_src_path = '/Users/hongyilyu/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
-let g:ycm_filetype_whitelist = {
-			\ "c":1,
-			\ "cpp":1,
-			\ "objc":1,
-			\ "objcpp":1,
-			\ "python":1,
-			\ "java":1,
-			\ "javascript":1,
-			\ "vim":1,
-			\ "go":1,
-			\ "cs":1,
-			\ "lua":1,
-			\ "perl":1,
-			\ "perl6":1,
-			\ "ruby":1,
-			\ "rust":1,
-			\ "make":1,
-			\ "cmake":1,
-			\ "html":1,
-			\ "css":1,
-			\ "json":1,
-			\ "typedscript":1,
-			\ "sh":1,
-			\ "zsh":1,
-			\ "bash":1,
-			\ "markdown":1,
-			\ }
-
-let g:ycm_autoclose_preview_window_after_completion = 1
-nnoremap <F5>           :YcmForceCompileAndDiagnostics<CR>
-nnoremap <leader>gt 	:YcmCompleter GoTo<CR>
-nnoremap <leader>f      :YcmCompleter FixIt<CR>
+" let g:ale_fixers = {
+" 	\ 'rust': ['rustfmt'],
+" 	\}
+" let g:ale_linters = {
+" 	\ 'cpp': ['clang'],
+" 	\ 'rust': ['rls'],
+" 	\ 'c': ['clang'],
+" 	\}
+" let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+" let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+"
+" let g:ale_sign_error = ">>"
+" hi! clear SpellBad
+" hi! clear SpellCap
+" hi! clear SpellRare
+" hi! SpellBad gui=undercurl guisp=red
+" hi! SpellCap gui=undercurl guisp=blue
+" hi! SpellRare gui=undercurl guisp=magenta
+" nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+" nmap <silent> <leader>j <Plug>(ale_next_wrap)
 
 "
+" fzf.vim
 "
-"
-let g:rustfmt_command = "rustfmt +nightly"
-let g:rustfmt_autosave = 1
-let g:rustfmt_emit_files = 1
-let g:rustfmt_fail_silently = 0
-let g:rust_clip_command = 'xclip -selection clipboard'
+let s:root_dir=system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+let $FZF_DEFAULT_COMMAND =  "rg --hidden --no-ignore -l ''"
+let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
+function! FloatingFZF()
+	let buf = nvim_create_buf(v:false, v:true)
+	call setbufvar(buf, '&signcolumn', 'no')
+
+	let height = float2nr(10)
+	let width = float2nr(80)
+	let horizontal = float2nr((&columns - width) / 2)
+	let vertical = 1
+
+	let opts = {
+		\ 'relative': 'editor',
+		\ 'row': vertical,
+		\ 'col': horizontal,
+		\ 'width': width,
+		\ 'height': height,
+		\ 'style': 'minimal'
+		\ }
+
+	call nvim_open_win(buf, v:true, opts)
+endfunction
+
+nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
+command! -bang -nargs=+ -complete=dir Projfind call fzf#vim#ag_raw(<q-args> . ' ~/Documents/Projects/', fzf#vim#with_preview(), <bang>0)
 
 "
-" echodoc
+" Coc
 "
-set noshowmode
-let g:echodoc#enable_at_startup = 1
+" if hidden is not set, TextEdit might fail.
+set hidden
 
-"
-" indentLine
-"
-" color with color scheme instead of default grey
-let g:indentLine_setColors = 0
-let g:indentLine_concealcursor = 'inc'
-let g:indentLine_conceallevel = 2
-nnoremap <F4>           :IndentLinesToggle<CR>
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
 
-"
-" autoformat
-" https://github.com/Chiel92/vim-autoformat
-noremap <F3> :Autoformat<CR>
-let g:autoformat_verbosemode=1
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+	autocmd!
+	" Setup formatexpr specified filetype(s).
+	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+	" Update signature help on jump placeholder
+	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>

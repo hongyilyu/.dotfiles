@@ -109,7 +109,8 @@ function! OpenFloatingWin()
 		\ 'row': height * 0.3,
 		\ 'col': col + 30,
 		\ 'width': width * 2 / 3,
-		\ 'height': height / 2
+		\ 'height': height / 2,
+		\ 'style': 'minimal'
 		\ }
 
 	let buf = nvim_create_buf(v:false, v:true)

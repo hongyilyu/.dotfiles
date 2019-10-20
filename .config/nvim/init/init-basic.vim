@@ -75,7 +75,7 @@ set title               " change terminal's title
 set autoread            " auto reload file
 set showcmd             " show command on status bar
 set scrolloff=15        " keep 15 lines when scrol down or up
-set cursorline          " highlight current line
+set nocursorline          " highlight current line
 set mousehide           " hide the mouse when typing
 "set mouse=a            " not sure what it does, https://gist.github.com/u0d7i/01f78999feff1e2a8361
 set hid                 " A buffer becomes hidden when it is abandoned
