@@ -13,6 +13,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'tpope/vim-surround'
 Plug 'mkitt/tabline.vim'
 Plug 'airblade/vim-rooter'
+Plug 'liuchengxu/vista.vim'
 if isdirectory('/usr/local/opt/fzf')
 	Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -27,6 +28,17 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"
+" Vista
+"
+nnoremap <Leader>vc :Vista finder<CR>
+nnoremap <Leader>vf :Vista!!<CR>
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+let g:airline#extensions#vista#enabled=1
+let g:vista_default_executive = 'coc'
+
+
 
 "
 " Easymotion
