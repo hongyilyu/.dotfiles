@@ -14,6 +14,7 @@ Plug 'tpope/vim-surround'
 Plug 'mkitt/tabline.vim'
 Plug 'airblade/vim-rooter'
 Plug 'liuchengxu/vista.vim'
+Plug 'rhysd/git-messenger.vim'
 if isdirectory('/usr/local/opt/fzf')
 	Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -38,6 +39,9 @@ autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 let g:airline#extensions#vista#enabled=1
 let g:vista_default_executive = 'coc'
 
+"
+" Git Message
+"
 
 
 "
@@ -51,8 +55,7 @@ let g:EasyMotion_smartcase = 1
 "
 " Airline
 "
-let g:airline_theme='molokai'
-let g:airline_solarized_bg='dark'
+let g:airline_theme='papercolor'
 let g:airline_section_z = '%P %l/%L%{g:airline_symbols.maxlinenr} : %v'
 " Use patched fonts
 let g:airline_powerline_fonts = 1
