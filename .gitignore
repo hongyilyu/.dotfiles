@@ -3,5 +3,4 @@
 .config/nvim/init/xterm-256color.ti
 .config/coc/*
 !.config/coc/.gitkeep
-.oh-my-zsh/custom/plugins/*
-.oh-my-zsh/custom/themes/powerlevel10k
+oh-my-zsh
