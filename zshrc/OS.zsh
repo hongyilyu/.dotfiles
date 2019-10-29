@@ -4,6 +4,8 @@ then
         alias update="sudo apt-get update && sudo apt-get upgrade &&
                       vimupdate"
     fi
+	# https://mayccoll.github.io/Gogh/
+	alias linux_color_scheme='bash -c "$(wget -qO- https://git.io/vQgMr)"'
 else
     alias update="brew update && echo 'brew update' &&
                   brew upgrade && echo 'brew upgrade' &&
