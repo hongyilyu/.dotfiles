@@ -9,7 +9,7 @@ let g:mapleader = ','
 
 set nocompatible        " disable vi mode compatible
 set bs=eol,start,indent " set backspace key mode
-set whichwrap+=<,>,h,l
+set whichwrap+=<,>		" https://vim.fandom.com/wiki/Automatically_wrap_left_and_right
 set nohlsearch
 
 set autoindent          " auto indentation
