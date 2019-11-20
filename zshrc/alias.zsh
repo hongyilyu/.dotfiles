@@ -18,3 +18,5 @@ alias todo='todo.sh -d ~/.todo.cfg'
 
 ## use neovim
 alias vim='nvim'
+
+alias :q='exit'
