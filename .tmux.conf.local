@@ -293,4 +293,3 @@ set -g mode-keys vi
 
 # move status line to top
 #set -g status-position top
-set-option -g default-shell /usr/local/bin/zsh

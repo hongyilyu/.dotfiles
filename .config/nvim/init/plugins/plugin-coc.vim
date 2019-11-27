@@ -3,7 +3,7 @@
 "
 " if hidden is not set, TextEdit might fail.
 autocmd VimEnter * call coc#rpc#start_server()
-let g:coc_global_extensions=['coc-rls', 'coc-python', 'coc-lists', 'coc-pairs', 'coc-json']
+let g:coc_global_extensions=['coc-rls', 'coc-python', 'coc-lists', 'coc-pairs', 'coc-json', 'coc-yaml', 'coc-snippets', 'coc-markdownlint']
 set hidden
 
 " Some servers have issues with backup files, see #649
@@ -29,6 +29,7 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+let g:coc_snippet_next = '<tab>'
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
