@@ -7,6 +7,6 @@ fi
 sudo add-apt-repository -y ppa:neovim-ppa/unstable
 apt-get -y update
 apt-get -y upgrade
-apt-get -y install vim python3 python3-pip tmux neovim zsh nodejs npm curl autojump
+apt-get -y install vim python3 python3-pip tmux neovim zsh nodejs npm curl autojump gconf2
 npm install -g neovim
 pip3 install --system --upgrade mackup
