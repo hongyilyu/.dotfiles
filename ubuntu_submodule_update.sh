@@ -8,3 +8,5 @@ rm -rf $HOME/.dotfiles/oh-my-zsh/custom
 mv /tmp/custom $HOME/.dotfiles/oh-my-zsh/custom
 cd $HOME/.dotfiles/oh-my-zsh
 git checkout -- *
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
