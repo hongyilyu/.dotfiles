@@ -39,4 +39,4 @@ for _, v in pairs(spoonList) do
     hs.loadSpoon(v)
 end
 -- require 'Scripts/memory.memory'
-require 'Scripts/fanControl'
+-- require 'Scripts/fanControl'
