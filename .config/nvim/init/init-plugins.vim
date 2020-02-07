@@ -4,6 +4,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/jsonc.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'mhinz/vim-signify'
 Plug 'vim-pandoc/vim-pandoc'

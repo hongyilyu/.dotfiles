@@ -31,7 +31,6 @@ set_app_input_method('WeChat', Chinese, twoEvents)
 require("hs.ipc")
 -- Load Spoons
 spoonList = {
-    "HCalendar",
     }
 
 -- Load those Spoons
