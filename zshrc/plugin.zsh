@@ -46,5 +46,5 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands st
 
 ################################################## AUTOSUGGEST ##################################################
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=60"
-bindkey '^ ' autosuggest-accept
+bindkey '\x00' autosuggest-accept
 #############################################################################################################

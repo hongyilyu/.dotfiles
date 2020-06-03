@@ -101,12 +101,6 @@ if has("autocmd")
 		\ endif
 endif
 
-" 定义一个 DiffOrig 命令用于查看文件改动
-if !exists(":DiffOrig")
-	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		\ | wincmd p | diffthis
-endif
-
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 "----------------------------------------------------------------------

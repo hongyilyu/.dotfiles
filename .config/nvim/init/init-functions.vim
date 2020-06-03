@@ -8,6 +8,13 @@ augroup numbertoggle
 	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+" 定义一个 DiffOrig 命令用于查看文件改动
+nnoremap <leader>df :DiffOrig<CR>
+if !exists(":DiffOrig")
+	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		\ | wincmd p | diffthis
+endif
+
 " code folding shortcuts <leader>zz
 let g:FoldMethod = 0
 map <leader>zz :call ToggleFold()<cr>

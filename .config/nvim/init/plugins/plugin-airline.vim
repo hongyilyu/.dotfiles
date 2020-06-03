@@ -47,12 +47,12 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 command! AirlineForceRefresh call airline#load_theme() | call airline#update_statusline() | call airline#load_theme() | call airline#update_statusline()
 
 function! RefreshUI()
-  if exists(':AirlineRefresh')
-    AirlineRefresh
-  else
-    " Clear & redraw the screen, then redraw all statuslines.
-    redraw!
-    redrawstatus!
-  endif
+	if exists(':AirlineRefresh')
+		AirlineRefresh
+	else
+		" Clear & redraw the screen, then redraw all statuslines.
+		redraw!
+		redrawstatus!
+	endif
 endfunction
 

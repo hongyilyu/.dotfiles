@@ -14,13 +14,13 @@ Plug 'mkitt/tabline.vim'
 Plug 'airblade/vim-rooter'
 Plug 'liuchengxu/vista.vim'
 Plug 'rhysd/git-messenger.vim'
+Plug 'morhetz/gruvbox'
 if isdirectory('/usr/local/opt/fzf')
 	Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 	Plug 'junegunn/fzf.vim'
 endif
-Plug 'morhetz/gruvbox'
 
 call plug#end()
 
