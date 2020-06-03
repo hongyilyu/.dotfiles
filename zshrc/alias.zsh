@@ -20,3 +20,6 @@ alias todo='todo.sh -d ~/.todo.cfg'
 alias vim='nvim'
 
 alias :q='exit'
+
+## react
+alias create-tsx='yarn create react-app --template typescript'

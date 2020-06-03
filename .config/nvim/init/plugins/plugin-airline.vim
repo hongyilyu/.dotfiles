@@ -4,7 +4,7 @@
 let g:airline_theme='papercolor'
 let g:airline_section_z = '%P %l/%L%{g:airline_symbols.maxlinenr} : %v'
 " Use patched fonts
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 " enable/disable fugitive/lawrencium integration
 let g:airline#extensions#branch#enabled = 1
 " enable/disable showing a summary of changed hunks under source control.
@@ -45,4 +45,14 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 " fix ui bug
 command! AirlineForceRefresh call airline#load_theme() | call airline#update_statusline() | call airline#load_theme() | call airline#update_statusline()
+
+function! RefreshUI()
+  if exists(':AirlineRefresh')
+    AirlineRefresh
+  else
+    " Clear & redraw the screen, then redraw all statuslines.
+    redraw!
+    redrawstatus!
+  endif
+endfunction
 

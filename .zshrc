@@ -3,9 +3,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}"/.dotfiles/oh-my-zsh"
 export ZSH_CONFIG=~/.dotfiles/zshrc
@@ -13,6 +10,7 @@ export VIM_CONFIG=~/.dotfiles/vimrc
 export ZSH_PREFIX=../../.oh-my-zsh/custom
 
 ZSH_THEME=powerlevel10k/powerlevel10k
+source $ZSH_CONFIG/p10k/p10k.zsh
 
 
 
@@ -25,10 +23,10 @@ autoload $^fpath/*(N:t)
 
 
 source $ZSH_CONFIG/plugin.zsh
+source $ZSH_CONFIG/fzf.zsh
 source $ZSH_CONFIG/OS.zsh
 source $ZSH_CONFIG/alias.zsh
 source $ZSH_CONFIG/ls.zsh
-source $ZSH_CONFIG/.powerlevel10k.conf
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -70,13 +68,6 @@ ENABLE_CORRECTION="true"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color=dark
---color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
---color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
-'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

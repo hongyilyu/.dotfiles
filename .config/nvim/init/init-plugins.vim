@@ -20,6 +20,7 @@ else
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 	Plug 'junegunn/fzf.vim'
 endif
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
