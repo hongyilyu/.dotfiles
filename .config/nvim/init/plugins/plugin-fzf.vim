@@ -31,7 +31,21 @@ let $FZF_DEFAULT_COMMAND =  "rg --hidden -l ''"
 "   call nvim_open_win(buf, v:true, opts)
 " endfunction
 
-let $FZF_DEFAULT_OPTS=" --layout=reverse  --margin=1,4"
+" let $FZF_DEFAULT_OPTS=" --layout=reverse  --margin=1,4"
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 function! FloatingFZF()
@@ -56,4 +70,4 @@ function! FloatingFZF()
 endfunction
 
 
-nnoremap <silent> <C-p> :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
+nnoremap <silent> <C-p> :call fzf#run(fzf#wrap({'options': '--reverse --prompt "."'}))<CR>
