@@ -7,7 +7,7 @@ fi
 export ZSH=${HOME}"/.dotfiles/oh-my-zsh"
 export ZSH_CONFIG=~/.dotfiles/zshrc
 export VIM_CONFIG=~/.dotfiles/vimrc
-export ZSH_PREFIX=../../.oh-my-zsh/custom
+export ZSH_CUSTOM=~/.dotfiles/oh-my-zsh/custom
 
 ZSH_THEME=powerlevel10k/powerlevel10k
 source $ZSH_CONFIG/p10k/p10k.zsh
