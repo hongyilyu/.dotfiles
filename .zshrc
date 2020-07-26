@@ -1,4 +1,6 @@
-# Enable Powerlevel10k instant prompt. Should stay at the top of ~/.zshrc.
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -76,5 +78,5 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 GITSTATUS_LOG_LEVEL=DEBUG
 
-# Finalize Powerlevel10k instant prompt. Should stay at the bottom of ~/.zshrc.
-(( ! ${+functions[p10k-instant-prompt-finalize]} )) || p10k-instant-prompt-finalize
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zshrc/p10k/p10k.zsh.
+[[ ! -f ~/.dotfiles/zshrc/p10k/p10k.zsh ]] || source ~/.dotfiles/zshrc/p10k/p10k.zsh
