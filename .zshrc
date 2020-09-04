@@ -30,6 +30,10 @@ source $ZSH_CONFIG/OS.zsh
 source $ZSH_CONFIG/alias.zsh
 source $ZSH_CONFIG/ls.zsh
 
+
+# Custome EXPORT
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -70,6 +74,9 @@ ENABLE_CORRECTION="true"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:`yarn global bin`"
+export PATH="$PATH:$HOME/.cargo/bin"
+export LANG="de_AT.UTF-8"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
