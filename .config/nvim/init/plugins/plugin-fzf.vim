@@ -3,6 +3,20 @@
 "
 let $FZF_DEFAULT_COMMAND =  "rg --colors 'match:bg:yellow' --colors 'match:fg:black' --colors 'match:style:nobold' --colors 'path:fg:green' --colors 'path:style:bold' --colors 'line:fg:yellow' --colors 'line:style:bold' --hidden -l ''"
 
+let g:fzf_colors = { 'fg':      ['fg', 'Comment'],
+	\ 'bg':         ['bg', 'Normal'],
+	\ 'hl':         ['fg', 'Statement'],
+	\ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+	\ 'bg+':        ['bg', 'Normal'],
+	\ 'hl+':        ['fg', 'Statement'],
+	\ 'info':       ['fg', 'PreProc'],
+	\ 'border':     ['fg', 'Ignore'],
+	\ 'prompt':     ['fg', 'Conditional'],
+	\ 'pointer':    ['fg', 'Exception'],
+	\ 'marker':     ['fg', 'Keyword'],
+	\ 'spinner':    ['fg', 'Label'],
+	\ 'header':     ['fg', 'Comment'] }
+
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 function! FloatingFZF()
@@ -41,6 +55,8 @@ function! FloatingFZF()
 	call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
 	au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
+
+
 
 nnoremap <silent> <C-p> :call fzf#run(fzf#wrap({'options': '--reverse --prompt "."'}))<CR>
 
