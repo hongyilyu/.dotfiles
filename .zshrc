@@ -31,9 +31,6 @@ source $ZSH_CONFIG/alias.zsh
 source $ZSH_CONFIG/ls.zsh
 
 
-# Custome EXPORT
-export RIPGREP_CONFIG_PATH=~/.config/ripgrep/ripgreprc
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -87,3 +84,5 @@ GITSTATUS_LOG_LEVEL=DEBUG
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zshrc/p10k/p10k.zsh.
 [[ ! -f ~/.dotfiles/zshrc/p10k/p10k.zsh ]] || source ~/.dotfiles/zshrc/p10k/p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

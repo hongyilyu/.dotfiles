@@ -11,6 +11,7 @@ set nocompatible        " disable vi mode compatible
 set bs=eol,start,indent " set backspace key mode
 set whichwrap+=<,>		" https://vim.fandom.com/wiki/Automatically_wrap_left_and_right
 set nohlsearch
+language en_US
 
 set autoindent          " auto indentation
 set cindent             " C/C++ indentation
@@ -18,29 +19,17 @@ set wrap                " display long lines as multiple line
 set breakindent         " enable indentation
 " ident by an additional 4 characters on wrapped lines, when line >= 10 characters, put 'showbreak' at start of line
 set breakindentopt=shift:4,sbr,min:10
-set showbreak=↪         "wrap indent
+set showbreak=↪         " wrap indent
 set smartindent         " Smart Indent
 set ttimeout            " Function Key timeout
 set ttimeoutlen=50      " Function Key timeout set to 50 ms
 set ruler               " always show current position
 set number              " show line number
 set relativenumber      " turn hybrid line number on
-						" toggle it check below
+set clipboard+=unnamed  " Vim paste copy to OS clipboard
 
-" Vim paste copy to OS clipboard
-set clipboard+=unnamed
-
-"----------------------------------------------------------------------
-" Encoding Config
-"----------------------------------------------------------------------
-if has('multi_byte')
-	" 内部工作编码
-	set encoding=utf-8
-	" 文件默认编码
-	set fileencoding=utf-8
-	" 打开文件时自动尝试下面顺序的编码
-	set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
-endif
+set undodir=~/.vimdid   " Permanent undo
+set undofile
 
 "----------------------------------------------------------------------
 " Indentation Config
@@ -59,7 +48,7 @@ if has('syntax')
 endif
 
 "----------------------------------------------------------------------
-" 其他设置
+" Other Settings
 "----------------------------------------------------------------------
 set showmatch           " cursor shows matching ) and }
 set matchtime=3         " how many tens of second to blink when matching bracket
@@ -75,13 +64,10 @@ set title               " change terminal's title
 set autoread            " auto reload file
 set showcmd             " show command on status bar
 set scrolloff=15        " keep 15 lines when scrol down or up
-set nocursorline          " highlight current line
+set nocursorline        " highlight current line
 set mousehide           " hide the mouse when typing
-"set mouse=a            " not sure what it does, https://gist.github.com/u0d7i/01f78999feff1e2a8361
 set hid                 " A buffer becomes hidden when it is abandoned
-" 延迟绘制（提升性能）
-
-set lazyredraw
+set mouse=a				" Enable mouse usage in terminals
 
 " 错误格式
 set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
@@ -89,29 +75,12 @@ set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
 " 设置分隔符可视
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 
-
-" 设置 tags：当前文件所在目录往上向根目录搜索直到碰到 .tags 文件
-" 或者 Vim 当前目录包含 .tags 文件
-set tags=./.tags;,.tags
-
 " 如遇Unicode值大于255的文本，不必等到空格再折行
 set formatoptions+=m
-
-" 合并两行中文时，不在中间加空格
-set formatoptions+=B
 
 " 文件换行符，默认使用 unix 换行符
 set ffs=unix,dos,mac
 
-
-"----------------------------------------------------------------------
-" Foldenable Config
-"----------------------------------------------------------------------
-if has('folding')
-	set foldenable          " code folding
-	set foldmethod=indent   " fold depend on indent
-	set foldlevel=99        " fold level
-endif
 
 "----------------------------------------------------------------------
 " Ignore extension when searching or auto-completion

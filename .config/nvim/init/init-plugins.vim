@@ -1,25 +1,32 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-airline/vim-airline'
+" VIM Enhancements
+Plug 'ciaranm/securemodelines'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'justinmk/vim-sneak'						" s{char}{char}
 Plug 'easymotion/vim-easymotion'
+
+" GUI Enhancements
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mkitt/tabline.vim'
+Plug 'mhinz/vim-signify'
+Plug 'rhysd/git-messenger.vim' " <leader>gm
+Plug 'morhetz/gruvbox'
+
+" Fuzzy Finder
+Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/jsonc.vim'
-Plug 'wakatime/vim-wakatime'
-Plug 'mhinz/vim-signify'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'tpope/vim-surround'
-Plug 'mkitt/tabline.vim'
-Plug 'airblade/vim-rooter'
-Plug 'rhysd/git-messenger.vim'
-Plug 'morhetz/gruvbox'
-if isdirectory('/usr/local/opt/fzf')
-	Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-else
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-	Plug 'junegunn/fzf.vim'
-endif
+
+" Other
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -33,7 +40,6 @@ call plug#end()
 "
 " Easymotion
 "
-map <Leader>fd <Plug>(easymotion-bd-f)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1

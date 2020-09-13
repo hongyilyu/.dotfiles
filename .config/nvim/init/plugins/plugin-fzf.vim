@@ -42,12 +42,18 @@ function! FloatingFZF()
 	au BufWipeout <buffer> exe 'bw '.s:buf
 endfunction
 
-command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \       "rg --hidden -l ''".shellescape(<q-args>), 0,
-      \       {'options': '--reverse --prompt "."'},
-      \       <bang>0)
-
 nnoremap <silent> <C-p> :call fzf#run(fzf#wrap({'options': '--reverse --prompt "."'}))<CR>
 
-nnoremap <silent> <C-x> :Rg<CR>
+
+if executable('rg')
+	set grepprg=rg\ --no-heading\ --vimgrep
+	set grepformat=%f:%l:%c:%m
+endif
+
+command! -bang -nargs=* RgContent
+	\ call fzf#vim#grep(
+	\		'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+	\		{'options': '--reverse --prompt "."'},
+	\		<bang>0)
+
+nnoremap <silent> <leader>s :RgContent<CR>

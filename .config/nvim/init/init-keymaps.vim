@@ -15,7 +15,7 @@ inoremap <c-_> <c-k>
 noremap <C-j> <down>
 noremap <C-k> <up>
 noremap <C-l> <right>
-inoremap <C-h> <left>
+noremap <C-h> <left>
 inoremap <C-j> <down>
 inoremap <C-k> <up>
 inoremap <C-l> <right>
@@ -37,5 +37,9 @@ cnoremap <c-d> <del>
 cnoremap <c-_> <c-k>
 
 "----------------------------------------------------------------------
-" MISC命令模式的快速移动
+" MISC
 "----------------------------------------------------------------------
+nnoremap j gj
+nnoremap k gk
+map H ^
+map L $
