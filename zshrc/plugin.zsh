@@ -24,6 +24,9 @@ bindkey -v
 # Better searching in command mode
 bindkey -M vicmd '/' history-incremental-search-backward
 bindkey -M vicmd '?' history-incremental-search-forward
+bindkey '^A' beginning-of-line
+bindkey '^B' backward-char
+bindkey '^F' forward-char
 
 # Beginning search with arrow keys
 bindkey "^p" up-line-or-beginning-search
@@ -47,5 +50,5 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands st
 
 ################################################## AUTOSUGGEST ##################################################
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=60"
-bindkey '\x00' autosuggest-accept
+bindkey '¼' autosuggest-accept # ctrl + space
 #############################################################################################################
