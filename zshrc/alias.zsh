@@ -1,5 +1,5 @@
 alias vimupdate="nvim +PlugUpgrade +PlugUpdate +PlugClean +qall &&
-					upgrade_oh_my_zsh"
+					omz update"
 
 ## get rid of command not found ##
 alias cd..='cd ..'

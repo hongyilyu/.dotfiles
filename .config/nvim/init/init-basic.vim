@@ -27,6 +27,7 @@ set ruler               " always show current position
 set number              " show line number
 set relativenumber      " turn hybrid line number on
 set clipboard+=unnamed  " Vim paste copy to OS clipboard
+set lazyredraw
 
 set undodir=~/.vimdid   " Permanent undo
 set undofile

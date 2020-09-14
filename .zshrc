@@ -75,8 +75,6 @@ export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:$HOME/.cargo/bin"
 export LANG="de_AT.UTF-8"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
@@ -84,5 +82,3 @@ GITSTATUS_LOG_LEVEL=DEBUG
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zshrc/p10k/p10k.zsh.
 [[ ! -f ~/.dotfiles/zshrc/p10k/p10k.zsh ]] || source ~/.dotfiles/zshrc/p10k/p10k.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
