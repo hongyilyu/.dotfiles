@@ -12,12 +12,9 @@ alias g="git"
 alias gs='git status --ignore-submodules=dirty'
 alias gd='git diff'
 
-## todo.sh
-export TODOTXT_DEFAULT_ACTION=ls
-alias todo='todo.sh -d ~/.todo.cfg'
-
 ## use neovim
 alias vim='nvim'
+alias v='nvim'
 
 alias :q='exit'
 
