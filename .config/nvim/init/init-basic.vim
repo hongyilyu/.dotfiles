@@ -11,7 +11,6 @@ set nocompatible        " disable vi mode compatible
 set bs=eol,start,indent " set backspace key mode
 set whichwrap+=<,>		" https://vim.fandom.com/wiki/Automatically_wrap_left_and_right
 set nohlsearch
-language en_US
 
 set autoindent          " auto indentation
 set cindent             " C/C++ indentation
@@ -24,8 +23,8 @@ set smartindent         " Smart Indent
 set ttimeout            " Function Key timeout
 set ttimeoutlen=50      " Function Key timeout set to 50 ms
 set ruler               " always show current position
-set number              " show line number
-set relativenumber      " turn hybrid line number on
+"set number              " show line number
+"set relativenumber      " turn hybrid line number on
 set clipboard+=unnamed  " Vim paste copy to OS clipboard
 set lazyredraw
 
@@ -39,6 +38,21 @@ if has('autocmd')
 	" Check file type indent for different file, allow plugin
 	filetype plugin indent on
 endif
+
+"----------------------------------------------------------------------
+" Indent Format
+"----------------------------------------------------------------------
+set tabstop=4           " tab key width
+set shiftwidth=4        " indent width
+set softtabstop=4       " insert tabs on the start of line based on shiftwidth
+set smarttab            " tab to space
+set noet                " set no expandable tab
+
+"----------------------------------------------------------------------
+" File Type Different
+"----------------------------------------------------------------------
+autocmd FileType html,css,typescript,javascript,yaml setlocal shiftwidth=2 tabstop=2
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
 "----------------------------------------------------------------------
 " Syntax Highlighting
@@ -70,10 +84,10 @@ set mousehide           " hide the mouse when typing
 set hid                 " A buffer becomes hidden when it is abandoned
 set mouse=a				" Enable mouse usage in terminals
 
-" 错误格式
+" error format
 set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
 
-" 设置分隔符可视
+" display hidden chars
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 
 " 如遇Unicode值大于255的文本，不必等到空格再折行

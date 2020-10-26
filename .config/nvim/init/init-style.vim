@@ -1,15 +1,8 @@
 "----------------------------------------------------------------------
-" 显示设置
+" Display Settings
 "----------------------------------------------------------------------
 
-" 总是显示状态栏
 set laststatus=2
-
-" 总是显示侧边栏（用于显示 mark/gitdiff/诊断信息）
-set signcolumn=yes
-
-" 总是显示行号
-set number
 
 " 设置显示制表符等隐藏字符
 set list
@@ -20,6 +13,15 @@ set showcmd
 " 水平切割窗口时，默认在右边显示新窗口
 set splitright
 set splitbelow
+
+" open file at location that was last viewed
+if has("autocmd")
+	autocmd BufReadPost *
+		\ if line("'\"") > 1 && line("'\"") <= line("$") |
+		\	 exe "normal! g`\"" |
+		\ endif
+endif
+
 "----------------------------------------------------------------------
 " 更改样式
 "----------------------------------------------------------------------

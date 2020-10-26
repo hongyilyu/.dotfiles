@@ -16,18 +16,11 @@ exec 'set rtp+='.s:home
 " 将 ~/.vim 目录加入 runtimepath (有时候 vim 不会自动帮你加入）
 set rtp+=~/.vim
 
-
-" Load Tabsize Config
-LoadScript init/init-tabsize.vim
-
 " Load Keymaps Config
 LoadScript init/init-keymaps.vim
 
 " Load Basic Config
 LoadScript init/init-basic.vim
-
-" Load Extra Config
-LoadScript init/init-config.vim
 
 " Load UI Style Config
 LoadScript init/init-style.vim
@@ -37,12 +30,3 @@ LoadScript init/init-functions.vim
 
 " Load Plugin Config
 LoadScript init/init-plugins.vim
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Color Setup
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd vimenter * colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
-autocmd VimEnter * call RefreshUI()
-autocmd VimEnter * highlight CursorLineNR term=bold cterm=NONE
-	\ ctermfg=Yellow ctermbg=NONE gui=NONE guifg=DarkYellow guibg=NONE

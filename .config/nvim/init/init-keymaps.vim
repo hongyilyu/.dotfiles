@@ -3,8 +3,6 @@
 "----------------------------------------------------------------------
 inoremap <c-a> <home>
 inoremap <c-e> <end>
-inoremap <c-d> <del>
-inoremap <c-_> <c-k>
 
 
 "----------------------------------------------------------------------
@@ -12,10 +10,6 @@ inoremap <c-_> <c-k>
 " 使用 SecureCRT/XShell 等终端软件需设置：Backspace sends delete
 " 详见：http://www.skywind.me/blog/archives/2021
 "----------------------------------------------------------------------
-noremap <C-j> <down>
-noremap <C-k> <up>
-noremap <C-l> <right>
-noremap <C-h> <left>
 inoremap <C-j> <down>
 inoremap <C-k> <up>
 inoremap <C-l> <right>
@@ -43,3 +37,4 @@ nnoremap j gj
 nnoremap k gk
 map H ^
 map L $
+vnoremap <leader>s :'<,'>!sort -f<cr>
