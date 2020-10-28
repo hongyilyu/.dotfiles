@@ -13,7 +13,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mkitt/tabline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'rhysd/git-messenger.vim' " <leader>gm
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " Fuzzy Finder
 Plug 'airblade/vim-rooter'
@@ -31,13 +32,17 @@ Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
-autocmd ColorScheme gruvbox highlight clear SignColumn
-autocmd ColorScheme gruvbox highlight SignifySignAdd    ctermfg=green  ctermbg=234 guifg=#ebdbb2 guibg=#1d2021
-autocmd ColorScheme gruvbox highlight SignifySignDelete ctermfg=red    ctermbg=234 guifg=#ebdbb2 guibg=#1d2021
-autocmd ColorScheme gruvbox highlight SignifySignChange ctermfg=yellow ctermbg=234 guifg=#ebdbb2 guibg=#1d2021
-colorscheme gruvbox
+autocmd ColorScheme gruvbox-material highlight clear SignColumn
+autocmd ColorScheme gruvbox-material highlight SignifySignAdd    ctermbg=None guifg=green
+autocmd ColorScheme gruvbox-material highlight SignifySignDelete ctermbg=None guifg=red
+autocmd ColorScheme gruvbox-material highlight SignifySignChange ctermbg=None guifg=yellow
+if has('termguicolors')
+  set termguicolors
+endif
 set background=dark
-let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_italic = 1
+colorscheme gruvbox-material
 set signcolumn=yes:2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -1,7 +1,7 @@
 "
 " Airline
 "
-let g:airline_theme='papercolor'
+let g:airline_theme='gruvbox_material'
 let g:airline_section_z = '%P %l/%L%{g:airline_symbols.maxlinenr} : %v'
 " Use patched fonts
 let g:airline_powerline_fonts = 0

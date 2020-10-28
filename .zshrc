@@ -75,3 +75,5 @@ GITSTATUS_LOG_LEVEL=DEBUG
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zshrc/p10k/p10k.zsh.
 [[ ! -f ~/.dotfiles/zshrc/p10k/p10k.zsh ]] || source ~/.dotfiles/zshrc/p10k/p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

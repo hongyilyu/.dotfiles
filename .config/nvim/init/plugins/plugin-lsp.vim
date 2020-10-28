@@ -70,10 +70,10 @@ autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
 hi LspDiagnosticsUnderline gui=undercurl term=undercurl
 hi LspDiagnosticsErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
 hi LspDiagnosticsWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
-hi LspDiagnosticsError ctermfg=Red
-hi LspDiagnosticsWarning ctermfg=Yellow
-hi LspDiagnosticsInformation ctermfg=LightBlue
-hi LspDiagnosticsHint ctermfg=LightGrey
+hi LspDiagnosticsError            guifg=Red
+hi LspDiagnosticsWarning          guifg=Yellow
+hi LspDiagnosticsInformation      guifg=LightBlue
+hi LspDiagnosticsHint             guifg=LightGrey
 
 call sign_define("LspDiagnosticsErrorSign", {"text" : "E", "texthl" : "LspDiagnosticsError"})
 call sign_define("LspDiagnosticsWarningSign", {"text" : "W", "texthl" : "LspDiagnosticsWarning"})
