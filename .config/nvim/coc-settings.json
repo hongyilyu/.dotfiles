@@ -1,22 +1,7 @@
 {
-	"languageserver": {
-		"ccls": {
-			"command": "ccls",
-			"filetypes": ["c", "cpp", "objc", "objcpp"],
-			"rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-			"initializationOptions": {
-				"cache": {
-					"directory": "/tmp/ccls"
-				}
-			}
-		}
-	},
-	"python.jediEnabled": false,
-	"python.linting.pylintEnabled": true,
-	"python.linting.flake8Enabled": false,
 	"diagnostic.warningSign": "--",
 	"diagnostic.errorSign": ">>",
-	"diagnostic.infoSign": "",
+	"diagnostic.infoSign": "\u1F6C8",
 	"diagnostic.hintSign": "",
 	"suggest.completionItemKindLabels": {
 		"keyword": "\uf1de",
@@ -45,8 +30,6 @@
 		"typeParameter": "\uf728",
 		"default": "\uf29c"
 	},
-	"html.enable": true,
-	"html.format.wrapAttributes": "auto",
 	"coc.preferences.formatOnSaveFiletypes": [
 		"typescript",
 		"rust",

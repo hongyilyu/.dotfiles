@@ -4,6 +4,10 @@
 inoremap <c-a> <home>
 inoremap <c-e> <end>
 
+inoremap <C-n> <down>
+inoremap <C-p> <up>
+inoremap <C-f> <right>
+inoremap <C-b> <left>
 
 "----------------------------------------------------------------------
 " 设置 CTRL+HJKL 移动光标（INSERT 模式偶尔需要移动的方便些）
@@ -14,7 +18,6 @@ inoremap <C-j> <down>
 inoremap <C-k> <up>
 inoremap <C-l> <right>
 inoremap <C-h> <left>
-
 
 "----------------------------------------------------------------------
 " 命令模式的快速移动
@@ -33,8 +36,11 @@ cnoremap <c-_> <c-k>
 "----------------------------------------------------------------------
 " MISC
 "----------------------------------------------------------------------
+" Move by line for vim wrap
 nnoremap j gj
 nnoremap k gk
 map H ^
 map L $
-vnoremap <leader>s :'<,'>!sort -f<cr>
+
+" Open new file adjacent to current file
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>

@@ -68,7 +68,7 @@ endif
 
 command! -bang -nargs=* RgContent
 	\ call fzf#vim#grep(
-	\		'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+	\   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
 	\		{'options': '--reverse --prompt "."'},
 	\		<bang>0)
 

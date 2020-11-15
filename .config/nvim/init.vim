@@ -16,9 +16,6 @@ exec 'set rtp+='.s:home
 " 将 ~/.vim 目录加入 runtimepath (有时候 vim 不会自动帮你加入）
 set rtp+=~/.vim
 
-" Load Keymaps Config
-LoadScript init/init-keymaps.vim
-
 " Load Basic Config
 LoadScript init/init-basic.vim
 
@@ -27,6 +24,9 @@ LoadScript init/init-style.vim
 
 " Load Functions Config
 LoadScript init/init-functions.vim
+
+" Load Keymaps Config
+LoadScript init/init-keymaps.vim
 
 " Load Plugin Config
 LoadScript init/init-plugins.vim

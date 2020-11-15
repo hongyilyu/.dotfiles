@@ -22,16 +22,21 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " LSP
-Plug 'neovim/nvim-lsp'
-Plug 'tjdevries/lsp_extensions.nvim'
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/diagnostic-nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neovim/nvim-lsp'
+" Plug 'tjdevries/lsp_extensions.nvim'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'nvim-lua/diagnostic-nvim'
+" Plug 'sbdchd/neoformat'
 
 " Other
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ColorScheme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd ColorScheme gruvbox-material highlight clear SignColumn
 autocmd ColorScheme gruvbox-material highlight SignifySignAdd    ctermbg=None guifg=green
 autocmd ColorScheme gruvbox-material highlight SignifySignDelete ctermbg=None guifg=red
@@ -41,7 +46,6 @@ if has('termguicolors')
 endif
 set background=dark
 let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material
 set signcolumn=yes:2
 
@@ -49,16 +53,15 @@ set signcolumn=yes:2
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" NerdCommenter
+let g:NERDSpaceDelims = 1
+
 " AutoPairs
 let g:AutoPairsMapCh = 0
 
 " LSP
-LoadScript init/plugins/plugin-lsp.vim
-
-"
-" NerdComment
-" <leader> c <space>
-
+" LoadScript init/plugins/plugin-lsp.vim
+LoadScript init/plugins/plugin-coc.vim
 
 " Easymotion
 map  / <Plug>(easymotion-sn)
