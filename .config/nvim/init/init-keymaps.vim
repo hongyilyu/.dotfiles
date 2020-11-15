@@ -1,5 +1,5 @@
 "----------------------------------------------------------------------
-" INSERT 模式下使用 EMACS 键位
+" INSERT mode default EMAC key mapping
 "----------------------------------------------------------------------
 inoremap <c-a> <home>
 inoremap <c-e> <end>
@@ -10,9 +10,8 @@ inoremap <C-f> <right>
 inoremap <C-b> <left>
 
 "----------------------------------------------------------------------
-" 设置 CTRL+HJKL 移动光标（INSERT 模式偶尔需要移动的方便些）
-" 使用 SecureCRT/XShell 等终端软件需设置：Backspace sends delete
-" 详见：http://www.skywind.me/blog/archives/2021
+" use CTRL+HJKL to move cursor
+" check：http://www.skywind.me/blog/archives/2021
 "----------------------------------------------------------------------
 inoremap <C-j> <down>
 inoremap <C-k> <up>
@@ -20,7 +19,7 @@ inoremap <C-l> <right>
 inoremap <C-h> <left>
 
 "----------------------------------------------------------------------
-" 命令模式的快速移动
+" cmd line mode easy navigation
 "----------------------------------------------------------------------
 cnoremap <c-h> <left>
 cnoremap <c-j> <down>

@@ -87,13 +87,14 @@ set mouse=a				" Enable mouse usage in terminals
 " error format
 set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
 
-" display hidden chars
+" display hidden/invisible characters
+set list
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 
-" 如遇Unicode值大于255的文本，不必等到空格再折行
+" if text object Unicode > 255，wrap line before space.
 set formatoptions+=m
 
-" 文件换行符，默认使用 unix 换行符
+" default unix line-break
 set ffs=unix,dos,mac
 
 
