@@ -14,7 +14,7 @@ Plug 'mkitt/tabline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'rhysd/git-messenger.vim' " <leader>gm
 Plug 'sainnhe/gruvbox-material'
-Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/nvim-treesitter'
 
 " Fuzzy Finder
 Plug 'airblade/vim-rooter'
