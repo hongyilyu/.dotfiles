@@ -14,6 +14,7 @@ Plug 'mkitt/tabline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'rhysd/git-messenger.vim' " <leader>gm
 Plug 'sainnhe/gruvbox-material'
+Plug 'psliwka/vim-smoothie'
 " Plug 'nvim-treesitter/nvim-treesitter'
 
 " Fuzzy Finder
@@ -52,6 +53,9 @@ set signcolumn=yes:2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vim-smoothie
+let g:smoothie_experimental_mappings = 1
 
 " NerdCommenter
 let g:NERDSpaceDelims = 1
