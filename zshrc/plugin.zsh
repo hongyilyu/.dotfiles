@@ -8,7 +8,7 @@ plugins=(
         osx
         zsh-syntax-highlighting
         zsh-autosuggestions
-		fzf
+        fzf
     )
 
 source $ZSH/oh-my-zsh.sh
@@ -34,6 +34,12 @@ bindkey "^n" down-line-or-beginning-search
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 
+# Fix cursor invisible in visual mode.
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+
+precmd_functions+=(_fix_cursor)
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
 
