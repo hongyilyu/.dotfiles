@@ -16,6 +16,9 @@ Plug 'rhysd/git-messenger.vim' " <leader>gm
 Plug 'sainnhe/gruvbox-material'
 Plug 'psliwka/vim-smoothie'
 " Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'sbdchd/neoformat'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " Fuzzy Finder
 Plug 'airblade/vim-rooter'

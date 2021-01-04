@@ -64,8 +64,8 @@ nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
 nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
 
 " Enable type inlay hints
-autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-\ lua require'lsp_extensions'.inlay_hints{ prefix = ' ⇢ ', highlight = "Comment", aligned = true }
+" autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
+" \ lua require'lsp_extensions'.inlay_hints{ prefix = ' ⇢ ', highlight = "Comment", aligned = true }
 
 hi LspDiagnosticsUnderline gui=undercurl term=undercurl
 hi LspDiagnosticsErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
