@@ -1,14 +1,8 @@
+eval "$(starship init zsh)"
+
 # Path to your oh-my-zsh installation.
-export ZSH=${HOME}"/.dotfiles/oh-my-zsh"
-export ZSH_CONFIG=~/.dotfiles/zshrc
-export VIM_CONFIG=~/.dotfiles/vimrc
-export ZSH_CUSTOM=~/.dotfiles/oh-my-zsh/custom
-
-ZSH_THEME=powerlevel10k/powerlevel10k
-source $ZSH_CONFIG/p10k/p10k.zsh
-
-
-
+export BASE_DIR=${HOME}/.dotfiles
+export ZSH_CONFIG=${BASE_DIR}/zshrc
 
 # Use the force to load my functions
 fpath=($ZSH_CONFIG/functions $fpath)
@@ -21,7 +15,8 @@ source $ZSH_CONFIG/plugin.zsh
 source $ZSH_CONFIG/fzf.zsh
 source $ZSH_CONFIG/OS.zsh
 source $ZSH_CONFIG/alias.zsh
-source $ZSH_CONFIG/ls.zsh
+
+source $GITSTATUS_DIR/gitstatus.prompt.zsh
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -61,19 +56,3 @@ ENABLE_CORRECTION="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$PATH:`yarn global bin`"
-export PATH="$PATH:$HOME/.cargo/bin"
-export LANG="en_US.UTF-8"
-
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-GITSTATUS_LOG_LEVEL=DEBUG
-
-# To customize prompt, run `p10k configure` or edit ~/.dotfiles/zshrc/p10k/p10k.zsh.
-[[ ! -f ~/.dotfiles/zshrc/p10k/p10k.zsh ]] || source ~/.dotfiles/zshrc/p10k/p10k.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

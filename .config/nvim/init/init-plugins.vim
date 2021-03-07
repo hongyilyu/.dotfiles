@@ -34,9 +34,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'nvim-lua/diagnostic-nvim'
 " Plug 'sbdchd/neoformat'
 
-" Other
-Plug 'wakatime/vim-wakatime'
-
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
