@@ -1,10 +1,6 @@
 #!/bin/zsh
 # Simple Zsh prompt with Git status.
 
-# Source gitstatus.plugin.zsh from $GITSTATUS_DIR or from the same directory
-# in which the current script resides if the variable isn't set.
-source "${GITSTATUS_DIR:-${${(%):-%x}:h}}/gitstatus.plugin.zsh" || return
-
 # Sets GITSTATUS_PROMPT to reflect the state of the current git repository. Empty if not
 # in a git repository. In addition, sets GITSTATUS_PROMPT_LEN to the number of columns
 # $GITSTATUS_PROMPT will occupy when printed.
@@ -85,28 +81,6 @@ function gitstatus_prompt_update() {
   GITSTATUS_PROMPT_LEN="${(m)#${${GITSTATUS_PROMPT//\%\%/x}//\%(f|<->F)}}"
 }
 
-# Start gitstatusd instance with name "MY". The same name is passed to
-# gitstatus_query in gitstatus_prompt_update. The flags with -1 as values
-# enable staged, unstaged, conflicted and untracked counters.
-gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
+PROMPT='${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT}'      # git status
 
-# On every prompt, fetch git status and set GITSTATUS_PROMPT.
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd gitstatus_prompt_update
-
-# Enable/disable the right prompt options.
-setopt no_prompt_bang prompt_percent prompt_subst
-
-# Customize prompt. Put $GITSTATUS_PROMPT in it to reflect git status.
-#
-# Example:
-#
-#   user@host ~/projects/skynet master ⇡42
-#   % █
-#
-# The current directory gets truncated from the left if the whole prompt doesn't fit on the line.
-PROMPT='%70F%n@%m%f '                                  # green user@host
-PROMPT+='%39F%$((-GITSTATUS_PROMPT_LEN-1))<…<%~%<<%f'  # blue current working directory
-PROMPT+='${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT}'      # git status
-PROMPT+=$'\n'                                          # new line
-PROMPT+='%F{%(?.76.196)}%#%f '                         # %/# (normal/root); green/red (ok/error)
+echo $PROMPT

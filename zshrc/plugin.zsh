@@ -8,6 +8,7 @@ plugins=(
         osx
         zsh-syntax-highlighting
         zsh-autosuggestions
+        zsh-completions
         fzf
     )
 
@@ -57,4 +58,8 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands st
 ################################################## AUTOSUGGEST ##################################################
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=60"
 bindkey '¼' autosuggest-accept # ctrl + space
+#############################################################################################################
+
+################################################## GITSTATUSD ##################################################
+export GITSTATUS_DIR="$ZSH_CUSTOM/plugins/gitstatus"
 #############################################################################################################
