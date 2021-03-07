@@ -419,3 +419,10 @@ bind -n F9 select-window -t 9
 bind -n F10 select-window -t 0
 
 set -g default-terminal 'tmux-256color'
+
+# stop recursion for select-pane
+bind-key    k    select-pane -U
+bind-key    j    select-pane -D
+bind-key    h    select-pane -L
+bind-key    l    select-pane -R
+
