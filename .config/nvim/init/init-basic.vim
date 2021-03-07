@@ -82,7 +82,7 @@ set scrolloff=15        " keep 15 lines when scrol down or up
 set nocursorline        " highlight current line
 set mousehide           " hide the mouse when typing
 set hid                 " A buffer becomes hidden when it is abandoned
-set mouse=a				" Enable mouse usage in terminals
+" set mouse=a				" Enable mouse usage in terminals
 
 " error format
 set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m

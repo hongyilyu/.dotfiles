@@ -3,7 +3,7 @@
 "
 " if hidden is not set, TextEdit might fail.
 autocmd VimEnter * call coc#rpc#start_server()
-let g:coc_global_extensions=['coc-rust-analyzer', 'coc-lists', 'coc-pairs', 'coc-json', 'coc-snippets', 'coc-markdownlint']
+let g:coc_global_extensions=['coc-lists', 'coc-pairs', 'coc-json', 'coc-snippets', 'coc-markdownlint', 'coc-rust-analyzer']
 
 " Some servers have issues with backup files, see #649
 set nobackup
@@ -111,6 +111,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Using CocList
 " Show all actions available at this location
 nnoremap <silent> <space>a  :CocAction<cr>
+" Show all diagnostics.
+nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 " Find symbol of current document
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols

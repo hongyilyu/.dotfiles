@@ -6,6 +6,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
+Plug 'pechorin/any-jump.vim'
 
 " GUI Enhancements
 Plug 'vim-airline/vim-airline'
