@@ -17,7 +17,6 @@ Plug 'rhysd/git-messenger.vim' " <leader>gm
 Plug 'sainnhe/gruvbox-material'
 Plug 'psliwka/vim-smoothie'
 " Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'sbdchd/neoformat'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
@@ -28,11 +27,6 @@ Plug 'junegunn/fzf.vim'
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neovim/nvim-lsp'
-" Plug 'tjdevries/lsp_extensions.nvim'
-" Plug 'nvim-lua/completion-nvim'
-" Plug 'nvim-lua/diagnostic-nvim'
-" Plug 'sbdchd/neoformat'
 
 call plug#end()
 
@@ -44,7 +38,7 @@ autocmd ColorScheme gruvbox-material highlight SignifySignAdd    ctermbg=None gu
 autocmd ColorScheme gruvbox-material highlight SignifySignDelete ctermbg=None guifg=red
 autocmd ColorScheme gruvbox-material highlight SignifySignChange ctermbg=None guifg=yellow
 if has('termguicolors')
-  set termguicolors
+	set termguicolors
 endif
 set background=dark
 let g:gruvbox_material_background = 'hard'
@@ -65,7 +59,6 @@ let g:NERDSpaceDelims = 1
 let g:AutoPairsMapCh = 0
 
 " LSP
-" LoadScript init/plugins/plugin-lsp.vim
 LoadScript init/plugins/plugin-coc.vim
 
 " Easymotion

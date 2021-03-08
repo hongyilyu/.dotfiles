@@ -41,7 +41,7 @@ format = "[$output]($style) "
 
 # Language Support
 [python]
-format = " 🐍 "
+format = "🐍 "
 
 [rust]
-format = " 🦀 "
+format = "🦀 "
