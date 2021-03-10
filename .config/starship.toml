@@ -24,7 +24,7 @@ error_symbol = "[λ]($bold fg:#fd6f6b)"
 
 [directory]
 disabled = false
-read_only = "🔒"
+read_only = "🔒 "
 read_only_style = "red"
 truncate_to_repo = false
 truncation_length = 8
