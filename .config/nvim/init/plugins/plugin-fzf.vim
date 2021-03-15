@@ -1,21 +1,41 @@
 "
 " fzf.vim
 "
-let $FZF_DEFAULT_COMMAND =  "rg --colors 'match:bg:yellow' --colors 'match:fg:black' --colors 'match:style:nobold' --colors 'path:fg:green' --colors 'path:style:bold' --colors 'line:fg:yellow' --colors 'line:style:bold' --hidden -l ''"
+let $FZF_DEFAULT_COMMAND="fd --hidden --type f --exclude .git"
+let $FZF_DEFAULT_OPTS="--reverse || --preview '[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null'"
 
-let g:fzf_colors = { 'fg':      ['fg', 'Comment'],
-	\ 'bg':         ['bg', 'Normal'],
-	\ 'hl':         ['fg', 'Statement'],
-	\ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-	\ 'bg+':        ['bg', 'Normal'],
-	\ 'hl+':        ['fg', 'Statement'],
-	\ 'info':       ['fg', 'PreProc'],
-	\ 'border':     ['fg', 'Ignore'],
-	\ 'prompt':     ['fg', 'Conditional'],
-	\ 'pointer':    ['fg', 'Exception'],
-	\ 'marker':     ['fg', 'Keyword'],
-	\ 'spinner':    ['fg', 'Label'],
-	\ 'header':     ['fg', 'Comment'] }
+let g:fzf_branch_actions = {
+	\ 'track': {
+	\   'prompt': 'Track> ',
+	\   'execute': 'echo system("{git} checkout --track {branch}")',
+	\   'multiple': v:false,
+	\   'keymap': 'ctrl-t',
+	\   'required': ['branch'],
+	\   'confirm': v:false,
+	\ },
+	\ 'diff': {
+	\   'prompt': 'Diff> ',
+	\   'execute': 'Git diff {branch}',
+	\   'multiple': v:false,
+	\   'keymap': 'ctrl-f',
+	\   'required': ['branch'],
+	\   'confirm': v:false,
+	\ },
+	\}
+
+ let g:fzf_colors = { 'fg':      ['fg', 'Comment'],
+ 	\ 'bg':         ['bg', 'Normal'],
+ 	\ 'hl':         ['fg', 'Statement'],
+ 	\ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+ 	\ 'bg+':        ['bg', 'Normal'],
+ 	\ 'hl+':        ['fg', 'Statement'],
+ 	\ 'info':       ['fg', 'PreProc'],
+ 	\ 'border':     ['fg', 'Ignore'],
+ 	\ 'prompt':     ['fg', 'Conditional'],
+ 	\ 'pointer':    ['fg', 'Exception'],
+ 	\ 'marker':     ['fg', 'Keyword'],
+ 	\ 'spinner':    ['fg', 'Label'],
+ 	\ 'header':     ['fg', 'Comment'] }
 
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
@@ -61,15 +81,8 @@ endfunction
 nnoremap <silent> <C-p> :call fzf#run(fzf#wrap({'options': '--reverse --prompt "."'}))<CR>
 
 
-if executable('rg')
-	set grepprg=rg\ --no-heading\ --vimgrep
-	set grepformat=%f:%l:%c:%m
-endif
-
-command! -bang -nargs=* RgContent
-	\ call fzf#vim#grep(
-	\   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-	\		{'options': '--reverse --prompt "."'},
-	\		<bang>0)
-
-nnoremap <silent> <leader>s :RgContent<CR>
+" Find files using Telescope command-line sugar.
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>

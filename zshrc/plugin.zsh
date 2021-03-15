@@ -62,4 +62,5 @@ bindkey '¼' autosuggest-accept # ctrl + space
 
 ################################################## GITSTATUSD ##################################################
 export GITSTATUS_DIR="$ZSH_CUSTOM/plugins/gitstatus"
+source $GITSTATUS_DIR/gitstatus.prompt.zsh
 #############################################################################################################

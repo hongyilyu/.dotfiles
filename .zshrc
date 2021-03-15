@@ -2,6 +2,7 @@ eval "$(starship init zsh)"
 
 # Path to your oh-my-zsh installation.
 export BASE_DIR=${HOME}/.dotfiles
+export ZSH=${BASE_DIR}/oh-my-zsh
 export ZSH_CONFIG=${BASE_DIR}/zshrc
 
 # Use the force to load my functions
@@ -15,8 +16,6 @@ source $ZSH_CONFIG/plugin.zsh
 source $ZSH_CONFIG/fzf.zsh
 source $ZSH_CONFIG/OS.zsh
 source $ZSH_CONFIG/alias.zsh
-
-source $GITSTATUS_DIR/gitstatus.prompt.zsh
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -56,3 +55,9 @@ ENABLE_CORRECTION="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
+export LANG="en_US.UTF-8"
+export PATH="$PATH:`yarn global bin`"
+export PATH="$PATH:$HOME/.cargo/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

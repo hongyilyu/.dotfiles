@@ -42,4 +42,5 @@ map H ^
 map L $
 
 " Open new file adjacent to current file
-nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <leader>E :e <C-R>=expand("%:p:h") . "/" <CR>
+call Desc('E', 'Open adjacent to current file')

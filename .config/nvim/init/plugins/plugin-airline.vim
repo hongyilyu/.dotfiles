@@ -43,6 +43,15 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
+call DescIgnore('1')
+call DescIgnore('2')
+call DescIgnore('3')
+call DescIgnore('4')
+call DescIgnore('5')
+call DescIgnore('6')
+call DescIgnore('7')
+call DescIgnore('8')
+call DescIgnore('9')
 " fix ui bug
 command! AirlineForceRefresh call airline#load_theme() | call airline#update_statusline() | call airline#load_theme() | call airline#update_statusline()
 
