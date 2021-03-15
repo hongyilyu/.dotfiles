@@ -6,6 +6,11 @@ set timeoutlen=500
 let g:which_key_use_floating_win = 0
 let g:which_key_max_size = 0
 let g:which_key_display_names = { ' ': 'SPC', '<C-H>': 'BS', '<C-I>': 'TAB', '<TAB>': 'TAB', }
+" Hide status line
+autocmd! FileType which_key
+autocmd  FileType which_key set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+
 
 call Desc('gm', 'Git Commit Message')
 call DescIgnore('g.m')
@@ -90,10 +95,5 @@ let g:which_key_map.t = {
       \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
       \ 'u' : [':FloatermNew ncdu'                              , 'ncdu'],
       \ }
-
-" Hide status line
-autocmd! FileType which_key
-autocmd  FileType which_key set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 autocmd! User vim-which-key call which_key#register(',', 'g:which_key_map')

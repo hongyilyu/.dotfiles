@@ -26,5 +26,5 @@ let g:rust_doc#downloaded_rust_doc_dir = '~/Rust/rust-docs'
 let g:rust_doc#define_map_K = 0
 augroup vimrc-rust
     autocmd!
-    autocmd FileType rust nnoremap <buffer> <silent> <leader>d :<C-u>DeniteCursorWord rust/doc<CR>
+    autocmd FileType rust nnoremap <buffer> <silent> <leader>md :<C-u>DeniteCursorWord rust/doc<CR>
 augroup END
