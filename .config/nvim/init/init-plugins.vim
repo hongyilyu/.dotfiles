@@ -8,9 +8,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'pechorin/any-jump.vim'
 
 " GUI Enhancements
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mkitt/tabline.vim'
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+Plug 'romgrk/barbar.nvim'
 Plug 'mhinz/vim-signify'
 Plug 'rhysd/git-messenger.vim'
 Plug 'sainnhe/gruvbox-material'
@@ -19,17 +18,16 @@ Plug 'liuchengxu/vista.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'voldikss/vim-floaterm'
 " Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " Fuzzy Finder
 Plug 'airblade/vim-rooter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-" Plug 'nvim-lua/popup.nvim'
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -74,12 +72,14 @@ map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1
 
-" Airline
-LoadScript init/plugins/plugin-airline.vim
-
 " fzf.vim
 LoadScript init/plugins/plugin-fzf.vim
 
+" luafile ~/.dotfiles/.config/nvim/init/plugins/plugin-tree-sitter.lua
+luafile ~/.dotfiles/.config/nvim/init/plugins/plugin-galaxy-line.lua
+luafile ~/.dotfiles/.config/nvim/init/plugins/plugin-telescope.lua
+LoadScript init/plugins/plugin-floaterm.vim
+LoadScript init/plugins/plugin-barbar.vim
 LoadScript init/plugins/plugin-denite.vim
 LoadScript init/plugins/plugin-nvim-tree.vim
 LoadScript init/plugins/plugin-which-key.vim
