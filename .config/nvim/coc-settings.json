@@ -34,7 +34,11 @@
     "enumMember": "  ",
     "default": " "
   },
-  "coc.preferences.formatOnSaveFiletypes": [
+  "eslint.options": {
+    "useEslintrc": true
+  },
+  "prettier.eslintIntegration": true,
+  "coc.cocpreferences.formatOnSaveFiletypes": [
     "typescript",
     "rust",
     "css",

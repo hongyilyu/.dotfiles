@@ -3,7 +3,7 @@
 "
 " if hidden is not set, TextEdit might fail.
 autocmd VimEnter * call coc#rpc#start_server()
-let g:coc_global_extensions=['coc-lists', 'coc-pairs', 'coc-json', 'coc-snippets', 'coc-markdownlint', 'coc-rust-analyzer']
+let g:coc_global_extensions=['coc-lists', 'coc-pairs', 'coc-json', 'coc-snippets', 'coc-markdownlint', 'coc-rust-analyzer', 'coc-tsserver', 'coc-eslint', 'coc-prettier']
 
 " Some servers have issues with backup files, see #649
 set nobackup

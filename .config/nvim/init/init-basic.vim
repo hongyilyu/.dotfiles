@@ -51,7 +51,7 @@ set noet                " set no expandable tab
 "----------------------------------------------------------------------
 " File Type Different
 "----------------------------------------------------------------------
-autocmd FileType html,css,typescript,javascript,yaml setlocal shiftwidth=2 tabstop=2
+autocmd FileType html,css,typescript,javascript,yaml,json,jsonc setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
 "----------------------------------------------------------------------

@@ -59,5 +59,6 @@ ENABLE_CORRECTION="true"
 export LANG="en_US.UTF-8"
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:$HOME/.cargo/bin"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# aws
+autoload bashcompinit && bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
