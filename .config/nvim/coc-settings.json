@@ -38,7 +38,7 @@
     "useEslintrc": true
   },
   "prettier.eslintIntegration": true,
-  "coc.cocpreferences.formatOnSaveFiletypes": [
+  "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
     "rust",
     "css",

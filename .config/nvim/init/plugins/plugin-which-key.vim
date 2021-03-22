@@ -39,7 +39,7 @@ let g:which_key_map.l = {
       \ }
 
 " s is for search powered by telescope
-nnoremap <silent> <C-p> :Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>
+" nnoremap <silent> <C-p> :Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
       \ '.' : [':Telescope filetypes'                   , 'filetypes'],

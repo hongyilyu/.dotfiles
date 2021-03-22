@@ -58,7 +58,7 @@ require('telescope').setup{
 
                 -- Add up multiple actions
                 ["<CR>"] = actions.select_default + actions.center,
-                ["<C-p>"] = actions.close,
+                -- ["<C-p>"] = actions.close,
 
                 -- You can perform as many actions in a row as you like
                 -- ["<CR>"] = actions.select_default + actions.center + my_cool_custom_action,
