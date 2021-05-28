@@ -69,10 +69,6 @@ local mappings = {
             h = "Find Home Dir",
             g = "Live Grep",
             d = "Find Files",
-            a = "LSP Code Actions",
-            r = "LSP Reference",
-            ld = "LSP Document",
-            q = "LSP QuickFix",
             t = "TreeSitter",
             w = "Grep Word",
     }

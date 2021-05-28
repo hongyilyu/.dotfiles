@@ -102,7 +102,7 @@ gls.left[2] = {
 gls.left[3] = {
  GitIcon = {
         provider = function()
-            return ' '
+            return '  '
         end,
         condition = condition.check_git_workspace,
         separator = ' ',
@@ -134,7 +134,7 @@ gls.left[5] = {
     condition = checkwidth,
     -- separator = ' ',
     -- separator_highlight = {colors.purple,colors.bg},
-    icon = '+',
+    icon = ' ',
     highlight = {colors.green,colors.bg},
   }
 }
@@ -154,7 +154,7 @@ gls.left[7] = {
     condition = checkwidth,
     -- separator = ' ',
     -- separator_highlight = {colors.purple,colors.bg},
-    icon = '-',
+    icon = ' ',
     highlight = {colors.red,colors.bg},
   }
 }

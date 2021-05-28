@@ -25,13 +25,6 @@ map_tele('<leader>fh', 'fd_home')
 map_tele('<leader>fg', 'live_grep')
 map_tele('<leader>fd', 'fd')
 
-
--- |>L for LSP
-map_tele('<leader>fa', 'lsp_code_actions')
-map_tele('<leader>fr', 'lsp_references')
-map_tele('<leader>fld', 'lsp_document_symbols')
-map_tele('<leader>fq', 'quickfix')
-
 map_tele('<leader>ft', 'treesitter')
 map_tele('<leader>fw', 'grep_string', { short_path = true, word_match = '-w' })
 

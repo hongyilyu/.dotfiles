@@ -20,7 +20,7 @@ vim.cmd("nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>")
 vim.cmd("nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>")
 vim.cmd("nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>")
 vim.cmd("nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>")
-vim.cmd("nnoremap <silent> ca :Lspsaga code_action<CR>")
+vim.cmd("nnoremap <silent> <C-a> :Lspsaga code_action<CR>")
 vim.cmd("nnoremap <silent> K :Lspsaga hover_doc<CR>")
 -- vim.cmd('nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
 vim.cmd("nnoremap <silent> <C-k> :Lspsaga diagnostic_jump_prev<CR>")
@@ -100,10 +100,8 @@ local function documentHighlight(client, bufnr)
 end
 local lsp_config = {}
 
-if O.document_highlight then
-    function lsp_config.common_on_attach(client, bufnr)
-        documentHighlight(client, bufnr)
-    end
+function lsp_config.common_on_attach(client, bufnr)
+    documentHighlight(client, bufnr)
 end
 
 function lsp_config.tsserver_on_attach(client, bufnr)
