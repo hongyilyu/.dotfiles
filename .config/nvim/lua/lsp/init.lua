@@ -49,16 +49,16 @@ vim.lsp.protocol.CompletionItemKind = {
     "   (Text) ",
     "   (Method)",
     "   (Function)",
-    "   (Constructor)",
+    "   (Constructor)",
     " ﴲ  (Field)",
     "[ ] (Variable)",
     "   (Class)",
-    " ﰮ  (Interface)",
+    " \u{fa53}  (Interface)",
     "   (Module)",
     "   (Property)",
     "   (Unit)",
     "   (Value)",
-    " 練 (Enum)",
+    " \u{fa53} (Enum)",
     "   (Keyword)",
     "   (Snippet)",
     "   (Color)",
@@ -73,6 +73,7 @@ vim.lsp.protocol.CompletionItemKind = {
     "   (TypeParameter)"
 }
 
+vim.cmd [[ autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)]]
 --[[ " autoformat
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)

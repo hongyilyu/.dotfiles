@@ -12,6 +12,7 @@ require('lhy-autopairs')
 require('lhy-vista')
 require('lhy-which-key')
 require('lhy-nvim-tree')
+require('lhy-compe')
 
 
 

@@ -41,6 +41,10 @@ return require("packer").startup(
         use {"glepnir/lspsaga.nvim", opt = true}
         use {"kabouzeid/nvim-lspinstall", opt = true}
 
+        -- Autocomplete
+        use {"hrsh7th/nvim-compe", opt = true}
+        use {"hrsh7th/vim-vsnip", opt = true}
+
         -- Telescope
         use {"airblade/vim-rooter", opt = true}
         use {"nvim-lua/popup.nvim", opt = true}
@@ -76,6 +80,10 @@ return require("packer").startup(
         require_plugin("nvim-lspconfig")
         require_plugin("lspsaga.nvim")
         require_plugin("nvim-lspinstall")
+
+        -- Autocomplete
+        require_plugin("nvim-compe")
+        require_plugin("vim-vsnip")
 
         -- Telescope
         require_plugin("vim-rooter")
