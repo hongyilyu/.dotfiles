@@ -1,9 +1,7 @@
 local themes = require('telescope.themes')
 
 local drop_list = themes.get_dropdown {
-    results_height = 20;
     winblend = 20;
-    width = 0.45;
     previewer = false;
 }
 

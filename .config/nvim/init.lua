@@ -9,10 +9,11 @@ require('lhy-galaxyline')
 require('lhy-gitsigns')
 require('lhy-comment')
 require('lhy-autopairs')
-require('lhy-vista')
+require('lhy-symbols-outline')
 require('lhy-which-key')
 require('lhy-nvim-tree')
 require('lhy-compe')
+require('lhy-floatterm')
 
 
 

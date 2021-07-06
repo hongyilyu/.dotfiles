@@ -2,6 +2,5 @@
 *.old
 .config/nvim/init/xterm-256color.ti
 .config/coc/*
-!.config/coc/.gitkeep
 oh-my-zsh
 .git

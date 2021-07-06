@@ -13,7 +13,7 @@ local function require_plugin(plugin)
     local plugin_prefix = fn.stdpath("data") .. "/site/pack/packer/opt/"
 
     local plugin_path = plugin_prefix .. plugin .. "/"
-    --	print('test '..plugin_path)
+    -- print('test '..plugin_path)
     local ok, err, code = os.rename(plugin_path, plugin_path)
     if not ok then
         if code == 13 then
@@ -34,7 +34,7 @@ return require("packer").startup(
     function(use)
         -- Packer can manage itself as an optional plugin
         use "wbthomason/packer.nvim"
-        use {'sainnhe/gruvbox-material', opt = true}
+        use {'sainnhe/gruvbox-material', opt = true, config = function() require 'lhy-gruvbox' end}
 
         -- lsp
         use {"neovim/nvim-lspconfig", opt = true}
@@ -62,13 +62,20 @@ return require("packer").startup(
         use {"romgrk/barbar.nvim", opt = true}
 
         -- MISC
-        use {"liuchengxu/vista.vim", opt = true}
+        use {"simrat39/symbols-outline.nvim", cmd = "SymbolsOutline"}
         use {"lewis6991/gitsigns.nvim", opt = true}
         use {"windwp/nvim-autopairs", opt = true}
         use {"terrortylor/nvim-comment", opt = true}
         use {"kevinhwang91/nvim-bqf", opt = true}
         use {"folke/which-key.nvim", opt = true}
         use {"kyazdani42/nvim-tree.lua", opt = true}
+use {
+    "numToStr/FTerm.nvim",
+    event = "BufWinEnter",
+    config = function()
+        require('lhy-floatterm').config()
+    end,
+  }
 
 
 
@@ -102,7 +109,8 @@ return require("packer").startup(
         require_plugin("barbar.nvim")
 
         -- MISC
-        require_plugin("vista.vim")
+        require_plugin("symbols-outline.nvim")
+        require_plugin("FTerm")
         require_plugin("gitsigns.nvim")
         require_plugin("nvim-autopairs")
         require_plugin("nvim-comment")
