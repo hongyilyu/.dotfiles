@@ -3,7 +3,7 @@ local map_tele = function(key, f, options, buffer)
   local rhs = string.format(
     "<cmd>lua require('lhy-telescope')['%s'](%s)<CR>",
     f,
-    options and vim.inspect(options, { newline = '' }) or ''
+    options and vim.inspect(options, { newline = "" }) or ""
   )
   local options = {
     noremap = true,
@@ -17,15 +17,15 @@ local map_tele = function(key, f, options, buffer)
   end
 end
 
-vim.api.nvim_set_keymap('c', '<c-r>', '<Plug>(TelescopeFuzzyCommandSearch)', { noremap = false, nowait = true })
+vim.api.nvim_set_keymap("c", "<c-r>", "<Plug>(TelescopeFuzzyCommandSearch)", { noremap = false, nowait = true })
 
 -- Files
-map_tele('<c-p>', 'project_search')
-map_tele('<leader>fh', 'fd_home')
-map_tele('<leader>fg', 'live_grep')
-map_tele('<leader>fd', 'fd')
+map_tele("<c-p>", "project_search")
+map_tele("<leader>fh", "fd_home")
+map_tele("<leader>fg", "live_grep")
+map_tele("<leader>fd", "fd")
 
-map_tele('<leader>ft', 'treesitter')
-map_tele('<leader>fw', 'grep_string', { short_path = true, word_match = '-w' })
+map_tele("<leader>ft", "treesitter")
+map_tele("<leader>fw", "grep_string", { short_path = true, word_match = "-w" })
 
 return map_tele

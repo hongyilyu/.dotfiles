@@ -16,9 +16,6 @@ alias v='nvim'
 ## react
 alias create-tsx='yarn create react-app --template typescript'
 
-## ls
-alias ls='lsd'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+## Amazon
+alias bb='brazil-build'
+alias ssh='TERM=screen ssh'
