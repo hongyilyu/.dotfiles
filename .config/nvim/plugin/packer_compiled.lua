@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/lyuhongy/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/lyuhongy/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/lyuhongy/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/lyuhongy/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/lyuhongy/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/hongyilyu/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/hongyilyu/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/hongyilyu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/hongyilyu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/hongyilyu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -70,149 +70,153 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["FTerm.nvim"] = {
-    config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\18lhy-floatterm\frequire\0" },
+    config = { "\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\21config.floatterm\frequire\0" },
     loaded = false,
     needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/FTerm.nvim"
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/opt/FTerm.nvim"
   },
   ["barbar.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/barbar.nvim"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/barbar.nvim"
   },
   ["galaxyline.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/galaxyline.nvim"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
   ["gitsigns.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/gitsigns.nvim"
+    config = { "require 'config.gitsigns'" },
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   ["gruvbox-material"] = {
-    config = { "\27LJ\2\n+\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\16lhy-gruvbox\frequire\0" },
+    config = { "require('lhy-gruvbox')" },
     loaded = false,
     needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/gruvbox-material"
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/opt/gruvbox-material"
   },
   ["lspsaga.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/lspsaga.nvim"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
   neoformat = {
     loaded = true,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/start/neoformat"
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/neoformat"
   },
   ["nvim-autopairs"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/nvim-autopairs"
+    config = { "require 'config.autopairs'" },
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
   ["nvim-bqf"] = {
-    loaded = false,
-    needs_bufread = true,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/nvim-bqf"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/nvim-bqf"
   },
   ["nvim-comment"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/nvim-comment"
+    config = { "require 'config.comment'" },
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/nvim-comment"
   },
   ["nvim-compe"] = {
-    after_files = { "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe.vim" },
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/nvim-compe"
+    config = { "require('config.compe')" },
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-lspconfig"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-lspinstall"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/nvim-lspinstall"
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/opt/nvim-lspinstall"
   },
   ["nvim-tree.lua"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua"
+    config = { "require 'config.nvim-tree'" },
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-ts-autotag"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/nvim-ts-autotag"
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/opt/nvim-ts-autotag"
   },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   ["plenary.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/plenary.nvim"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["popup.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/popup.nvim"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["symbols-outline.nvim"] = {
-    commands = { "SymbolsOutline" },
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/symbols-outline.nvim"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
   },
   ["telescope-fzy-native.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/telescope-fzy-native.nvim"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
   },
   ["telescope.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/telescope.nvim"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["vim-rooter"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/vim-rooter"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/vim-rooter"
   },
   ["vim-vsnip"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/vim-vsnip"
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   },
   ["which-key.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/lyuhongy/.local/share/nvim/site/pack/packer/opt/which-key.nvim"
+    config = { "require 'config.which-key'" },
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/which-key.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
-
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-vim.cmd [[command! -nargs=* -range -bang -complete=file SymbolsOutline lua require("packer.load")({'symbols-outline.nvim'}, { cmd = "SymbolsOutline", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]]
-time([[Defining lazy-load commands]], false)
-
+-- Config for: nvim-comment
+time([[Config for nvim-comment]], true)
+require 'config.comment'
+time([[Config for nvim-comment]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require 'config.nvim-tree'
+time([[Config for nvim-tree.lua]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require 'config.autopairs'
+time([[Config for nvim-autopairs]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require 'config.gitsigns'
+time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-compe
+time([[Config for nvim-compe]], true)
+require('config.compe')
+time([[Config for nvim-compe]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require 'config.which-key'
+time([[Config for which-key.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-lspinstall'}, { event = "BufRead *" }, _G.packer_plugins)]]
 vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'FTerm.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")

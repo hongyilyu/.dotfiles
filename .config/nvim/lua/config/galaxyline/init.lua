@@ -1,7 +1,7 @@
 -- require'nvim-web-devicons'.setup()
 
-local condition = require('galaxyline.condition')
 local gl = require('galaxyline')
+local condition = require('galaxyline.condition')
 local fileinfo = require('galaxyline.provider_fileinfo')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista'}

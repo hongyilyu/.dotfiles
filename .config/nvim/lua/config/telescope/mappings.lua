@@ -1,7 +1,7 @@
 local map_tele = function(key, f, options, buffer)
   local mode = "n"
   local rhs = string.format(
-    "<cmd>lua require('lhy-telescope')['%s'](%s)<CR>",
+    "<cmd>lua require('config.telescope')['%s'](%s)<CR>",
     f,
     options and vim.inspect(options, { newline = "" }) or ""
   )

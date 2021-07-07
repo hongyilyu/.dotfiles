@@ -8,113 +8,69 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute "packadd packer.nvim"
 end
 
---- Check if a file or directory exists in this path
-local function require_plugin(plugin)
-  local plugin_prefix = fn.stdpath "data" .. "/site/pack/packer/opt/"
-
-  local plugin_path = plugin_prefix .. plugin .. "/"
-  -- print('test '..plugin_path)
-  local ok, err, code = os.rename(plugin_path, plugin_path)
-  if not ok then
-    if code == 13 then
-      -- Permission denied, but it exists
-      return true
-    end
-  end
-  --	print(ok, err, code)
-  if ok then
-    vim.cmd("packadd " .. plugin)
-  end
-  return ok, err, code
+local packer_ok, packer = pcall(require, "packer")
+if not packer_ok then
+  return
 end
 
-vim.cmd "autocmd BufWritePost plugins.lua PackerCompile" -- Auto compile when there are changes in plugins.lua
+packer.init {
+  git = { clone_timeout = 300 },
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "single" }
+    end,
+  },
+}
+
+vim.cmd "autocmd BufWritePost plugins.lua PackerCompile"
 
 return require("packer").startup(function(use)
   -- Packer can manage itself as an optional plugin
   use "wbthomason/packer.nvim"
   use {
     "sainnhe/gruvbox-material",
-    opt = true,
-    config = function()
-      require "lhy-gruvbox"
-    end,
+    config = [[require 'lhy-gruvbox']],
   }
-
-  -- lsp
-  use { "neovim/nvim-lspconfig", opt = true }
-  use { "glepnir/lspsaga.nvim", opt = true }
-  use { "kabouzeid/nvim-lspinstall", opt = true }
-
-  -- Autocomplete
-  use { "hrsh7th/nvim-compe", opt = true }
-  use { "hrsh7th/vim-vsnip", opt = true }
-  use { "sbdchd/neoformat" }
-
-  -- Telescope
-  use { "airblade/vim-rooter", opt = true }
-  use { "nvim-lua/popup.nvim", opt = true }
-  use { "nvim-lua/plenary.nvim", opt = true }
-  use { "nvim-telescope/telescope.nvim", opt = true }
-  use { "nvim-telescope/telescope-fzy-native.nvim", opt = true }
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-  use { "windwp/nvim-ts-autotag", opt = true }
+  use "windwp/nvim-ts-autotag"
+
+  -- lsp
+  use "neovim/nvim-lspconfig"
+  use "glepnir/lspsaga.nvim"
+  use { "kabouzeid/nvim-lspinstall", opt = true, event = "BufRead" }
+
+  -- Autocomplete
+  use { "hrsh7th/nvim-compe", config = [[require('config.compe')]] }
+  use "hrsh7th/vim-vsnip"
+  use "sbdchd/neoformat"
+
+  -- Telescope
+  use "airblade/vim-rooter"
+  use "nvim-lua/popup.nvim"
+  use "nvim-lua/plenary.nvim"
+  use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope-fzy-native.nvim"
 
   -- Status Line and Bufferline
-  use { "kyazdani42/nvim-web-devicons", opt = true }
-  use { "glepnir/galaxyline.nvim", opt = true }
-  use { "romgrk/barbar.nvim", opt = true }
+  use "kyazdani42/nvim-web-devicons"
+  use "glepnir/galaxyline.nvim"
+  use "romgrk/barbar.nvim"
 
   -- MISC
-  use { "simrat39/symbols-outline.nvim", cmd = "SymbolsOutline" }
-  use { "lewis6991/gitsigns.nvim", opt = true }
-  use { "windwp/nvim-autopairs", opt = true }
-  use { "terrortylor/nvim-comment", opt = true }
-  use { "kevinhwang91/nvim-bqf", opt = true }
-  use { "folke/which-key.nvim", opt = true }
-  use { "kyazdani42/nvim-tree.lua", opt = true }
+  use "simrat39/symbols-outline.nvim"
+  use { "lewis6991/gitsigns.nvim", config = [[require 'config.gitsigns']] }
+  use { "windwp/nvim-autopairs", config = [[require 'config.autopairs']] }
+  use { "terrortylor/nvim-comment", config = [[require 'config.comment']] }
+  use "kevinhwang91/nvim-bqf"
+  use { "folke/which-key.nvim", config = [[require 'config.which-key']] }
+  use { "kyazdani42/nvim-tree.lua", config = [[require 'config.nvim-tree']] }
   use {
     "numToStr/FTerm.nvim",
     event = "BufWinEnter",
     config = function()
-      require("lhy-floatterm").config()
+      require("config.floatterm").config()
     end,
   }
-
-  -- lsp
-  require_plugin "nvim-lspconfig"
-  require_plugin "lspsaga.nvim"
-  require_plugin "nvim-lspinstall"
-
-  -- Autocomplete
-  require_plugin "nvim-compe"
-  require_plugin "vim-vsnip"
-
-  -- Telescope
-  require_plugin "vim-rooter"
-  require_plugin "popup.nvim"
-  require_plugin "plenary.nvim"
-  require_plugin "telescope.nvim"
-  require_plugin "telescope-fzy-native.nvim"
-
-  -- Treesitter
-  require_plugin "nvim-treesitter"
-  require_plugin "nvim-ts-autotag"
-
-  -- Status Line and Bufferline
-  require_plugin "nvim-web-devicons"
-  require_plugin "galaxyline.nvim"
-  require_plugin "barbar.nvim"
-
-  -- MISC
-  require_plugin "symbols-outline.nvim"
-  require_plugin "FTerm"
-  require_plugin "gitsigns.nvim"
-  require_plugin "nvim-autopairs"
-  require_plugin "nvim-comment"
-  require_plugin "nvim-bqf"
-  require_plugin "which-key.nvim"
-  require_plugin "nvim-tree.lua"
 end)

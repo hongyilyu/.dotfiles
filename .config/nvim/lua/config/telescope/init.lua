@@ -88,9 +88,9 @@ require("telescope").setup {
   },
 }
 
-local M = require "lhy-telescope.functions"
+local M = require "config.telescope.functions"
 
-require "lhy-telescope.mappings"
+require "config.telescope.mappings"
 
 return setmetatable({}, {
   __index = function(_, k)
