@@ -227,7 +227,7 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
-tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized} , #{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized} , #{sysstat_cpu}  #{sysstat_mem}  #{sysstat_swap}  #{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
 
 # status left style
 tmux_conf_theme_status_left_fg="#211d19,#a39a89,#9f9589"       # idea from Vim-CMake
@@ -368,11 +368,15 @@ tmux_conf_update_plugins_on_reload=true
 
 # to enable a plugin, use the 'set -g @plugin' syntax:
 # visit https://github.com/tmux-plugins for available plugins
+set -g @plugin 'sainnhe/tmux-plugin-sysstat'
+set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-copycat'
-#set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @open-S 'https://www.google.com/search?q='
 
+set -g @sysstat_cpu_view_tmpl '#[fg=magenta]C:#[default] #[fg=#{cpu.color}]#{cpu.pused}#[default]'
+set -g @sysstat_mem_view_tmpl '#[fg=magenta]M:#[default] #[fg=#{mem.color}]#{mem.pused}#[default]'
+set -g status-interval 3
 # -- custom variables ----------------------------------------------------------
 
 # to define a custom #{foo} variable, define a POSIX shell function between the
@@ -405,7 +409,7 @@ set -g @open-S 'https://www.google.com/search?q='
 bind T move-window -t 0
 
 # neovim terminal compatability
-set-option -sa terminal-overrides ',xterm-256color:RGB'
+# set-option -sa terminal-overrides ',xterm-256color:RGB'
 
 # bind -n F1 select-window -t 1
 # bind -n F2 select-window -t 2
@@ -419,6 +423,7 @@ set-option -sa terminal-overrides ',xterm-256color:RGB'
 # bind -n F10 select-window -t 0
 
 set -g default-terminal 'tmux-256color'
+set -ga terminal-overrides ",*256col*:Tc"
 
 # stop recursion for select-pane
 bind-key    k    select-pane -U
@@ -429,3 +434,14 @@ bind-key    l    select-pane -R
 # stop mouse mode right click
 unbind -n MouseDown3Pane
 
+# popup
+bind-key -n 'M-Enter' display-menu -T 'Please choose:' \
+      "Watch default pods" D "display-popup -EE 'watch kubectl get pods'" \
+      "Watch kube-system pods" K "display-popup -EE 'watch kubectl get pods -n kube-system'" \
+      "Copy name of a K8s pod" P "display-popup -EE 'fish -c cpd'" \
+      "" \
+      "System task manager" H "display-popup -EE -h 80% -w 80% htop" \
+      "New terminal" n "display-popup -EE -h 80% -w 80%" \
+      "" \
+      "Run all test (Kotlin mS)" T "send-keys './gradlew.local :test --info' 'Enter'" \
+      "Build project (Kotlin mS)" B "send-keys './gradlew.local :testClasses --info' 'Enter'" \

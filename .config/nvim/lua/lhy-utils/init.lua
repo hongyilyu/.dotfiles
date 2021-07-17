@@ -1,7 +1,6 @@
 local lhy_utils = {}
 
 function lhy_utils.reload_lhy_config()
-  vim.cmd "source ~/.config/nvim/lhy-config.lua"
   vim.cmd "source ~/.config/nvim/lua/plugins.lua"
   vim.cmd ":PackerCompile"
   vim.cmd ":PackerInstall"
