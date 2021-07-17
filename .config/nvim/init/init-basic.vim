@@ -45,7 +45,8 @@ endif
 set tabstop=4           " tab key width
 set shiftwidth=4        " indent width
 set softtabstop=4       " insert tabs on the start of line based on shiftwidth
-set smarttab            " tab to space
+" set smarttab            " tab to space
+set expandtab           " Always uses spaces instead of tab characters (et)
 set noet                " set no expandable tab
 
 "----------------------------------------------------------------------
@@ -72,7 +73,8 @@ set display=lastline    " Show last line
 set wildmenu                " wild char completion menu
 set wildignore=*.o,*~,*.pyc " ignore compiled files
 set wildmode=list:longest
-set completeopt=longest,menu " auto complete like normal IDE
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
 set magic                   " for regular expressions turn magic on
 
 set title               " change terminal's title

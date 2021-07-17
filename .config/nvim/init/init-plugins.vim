@@ -1,43 +1,41 @@
 call plug#begin('~/.vim/plugged')
 
-" VIM Enhancements
-Plug 'ciaranm/securemodelines'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'preservim/nerdcommenter'
-Plug 'pechorin/any-jump.vim'
-
 " GUI Enhancements
-Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
-Plug 'romgrk/barbar.nvim'
-Plug 'mhinz/vim-signify'
-Plug 'rhysd/git-messenger.vim'
 Plug 'sainnhe/gruvbox-material'
+Plug 'easymotion/vim-easymotion'
 Plug 'psliwka/vim-smoothie'
-Plug 'liuchengxu/vista.vim'
-Plug 'liuchengxu/vim-which-key'
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'voldikss/vim-floaterm'
-" Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-
-" Fuzzy Finder
-Plug 'airblade/vim-rooter'
+Plug 'glepnir/galaxyline.nvim'
+Plug 'romgrk/barbar.nvim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" LSP
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'kabouzeid/nvim-lspinstall', {'on': ['LspInstall', 'LspInfo'], 'do': 'LoadLua init/plugins/plugin-lsp-install.lua' }
+
+" Autocomplete
+Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'simrat39/rust-tools.nvim'
+Plug 'sbdchd/neoformat'
+
+" Telescope
+Plug 'airblade/vim-rooter'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-" LSP
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
-
-" Doc
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'rhysd/rust-doc.vim'
+Plug 'simrat39/symbols-outline.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'windwp/nvim-autopairs'
+Plug 'terrortylor/nvim-comment'
+Plug 'kevinhwang91/nvim-bqf'
+Plug 'folke/which-key.nvim'
+Plug 'kyazdani42/nvim-tree.lua', {'on': ['NvimTreeToggle'], 'do': 'LoadScript init/plugins/plugin-nvim-tree.vim'}
+Plug 'numToStr/FTerm.nvim'
 
 call plug#end()
 
@@ -45,9 +43,9 @@ call plug#end()
 " => ColorScheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd ColorScheme gruvbox-material highlight clear SignColumn
-autocmd ColorScheme gruvbox-material highlight SignifySignAdd    ctermbg=None guifg=green
-autocmd ColorScheme gruvbox-material highlight SignifySignDelete ctermbg=None guifg=red
-autocmd ColorScheme gruvbox-material highlight SignifySignChange ctermbg=None guifg=yellow
+autocmd ColorScheme gruvbox-material highlight GitSignsAdd    ctermbg=None guifg=green
+autocmd ColorScheme gruvbox-material highlight GitSignsDelete ctermbg=None guifg=red
+autocmd ColorScheme gruvbox-material highlight GitSignsChange ctermbg=None guifg=yellow
 if has('termguicolors')
 	set termguicolors
 endif
@@ -63,12 +61,6 @@ set signcolumn=yes:2
 " vim-smoothie
 let g:smoothie_experimental_mappings = 1
 
-" NerdCommenter
-let g:NERDSpaceDelims = 1
-
-" LSP
-LoadScript init/plugins/plugin-coc.vim
-
 " Easymotion
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -76,13 +68,17 @@ let g:EasyMotion_smartcase = 1
 
 " fzf.vim
 LoadScript init/plugins/plugin-fzf.vim
-
-" luafile ~/.dotfiles/.config/nvim/init/plugins/plugin-tree-sitter.lua
-luafile ~/.dotfiles/.config/nvim/init/plugins/plugin-galaxy-line.lua
-luafile ~/.dotfiles/.config/nvim/init/plugins/plugin-telescope.lua
-LoadScript init/plugins/plugin-floaterm.vim
+LoadScript init/plugins/plugin-lspconfig.vim
+LoadScript init/plugins/plugin-compe.vim
 LoadScript init/plugins/plugin-barbar.vim
-LoadScript init/plugins/plugin-denite.vim
-LoadScript init/plugins/plugin-nvim-tree.vim
-LoadScript init/plugins/plugin-which-key.vim
-LoadScript init/plugins/plugin-vista.vim
+LoadScript init/plugins/plugin-symbol-outline.vim
+LoadLua init/plugins/plugin-treesitter.lua
+LoadLua init/plugins/plugin-autopairs.lua
+LoadLua init/plugins/plugin-galaxy-line.lua
+LoadLua init/plugins/plugin-gitsigns.lua
+LoadLua init/plugins/plugin-float-term.lua
+" luafile ~/.dotfiles/.config/nvim/init/plugins/plugin-telescope.lua
+" LoadScript init/plugins/plugin-floaterm.vim
+" LoadScript init/plugins/plugin-denite.vim
+" LoadScript init/plugins/plugin-which-key.vim
+" LoadScript init/plugins/plugin-vista.vim

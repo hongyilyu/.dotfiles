@@ -51,17 +51,6 @@ nnoremap <silent>    <leader>7 :BufferGoto 7<CR>
 nnoremap <silent>    <leader>8 :BufferGoto 8<CR>
 nnoremap <silent>    <leader>9 :BufferGoto 9<CR>
 
-call DescIgnore('1')
-call DescIgnore('2')
-call DescIgnore('3')
-call DescIgnore('4')
-call DescIgnore('5')
-call DescIgnore('6')
-call DescIgnore('7')
-call DescIgnore('8')
-call DescIgnore('9')
 " Close buffer
 nnoremap <silent>    <A-c> :BufferClose<CR>
 
-let g:which_key_map['bd'] = [ ':BufferClose'                       , 'Close Current Buffer' ]
-let g:which_key_map['bs'] = [ ':BufferPick'                        , 'Pick a Buffer' ]

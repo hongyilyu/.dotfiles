@@ -11,12 +11,14 @@ let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git att
 let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
 " let g:nvim_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
 let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree when opening a file
+let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ]
 " let g:nvim_tree_disable_netrw = 0 "1 by default, disables netrw
 " let g:nvim_tree_hijack_netrw = 0 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
 let g:nvim_tree_show_icons = {
     \ 'git': 1,
     \ 'folders': 1,
     \ 'files': 1,
+	\ 'folder_arrows': 1,
     \ }
 "If 0, do not show the icons for one of 'git' 'folder' and 'files'
 "1 by default, notice that if 'files' is 1, it will only display
@@ -32,7 +34,9 @@ let g:nvim_tree_icons = {
     \   'staged': "✓ ",
     \   'unmerged': " ",
     \   'renamed': "➜ ",
-    \   'untracked': "★ "
+    \   'untracked': "★ ",
+    \   'deleted': "  ",
+    \   'ignored': "◌ ",
     \   },
     \ 'folder': {
     \   'default': "  ",
@@ -42,6 +46,4 @@ let g:nvim_tree_icons = {
     \   'symlink': "  ",
     \   }
     \ }
-
-let g:which_key_map['e'] = [ ':NvimTreeToggle'                       , 'Toggle File Explorer' ]
 

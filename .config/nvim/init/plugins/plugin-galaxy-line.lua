@@ -1,6 +1,7 @@
 -- require'nvim-web-devicons'.setup()
 
 local gl = require('galaxyline')
+local condition = require('galaxyline.condition')
 local fileinfo = require('galaxyline.provider_fileinfo')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista'}
@@ -99,18 +100,24 @@ gls.left[2] = {
 }
 
 gls.left[3] = {
-  GitIcon = {
-    provider = function() return '  ' end,
-    condition = buffer_not_empty,
-    highlight = {colors.orange,colors.bg},
-  }
+ GitIcon = {
+        provider = function()
+            return '  '
+        end,
+        condition = condition.check_git_workspace,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.orange, colors.bg}
+    }
 }
 gls.left[4] = {
-  GitBranch = {
-    provider = 'GitBranch',
-    condition = buffer_not_empty,
-    highlight = {colors.grey,colors.bg},
-  }
+ GitBranch = {
+        provider = 'GitBranch',
+        condition = condition.check_git_workspace,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+    }
 }
 
 local checkwidth = function()
@@ -127,7 +134,7 @@ gls.left[5] = {
     condition = checkwidth,
     -- separator = ' ',
     -- separator_highlight = {colors.purple,colors.bg},
-    icon = '+',
+    icon = ' ',
     highlight = {colors.green,colors.bg},
   }
 }
@@ -147,7 +154,7 @@ gls.left[7] = {
     condition = checkwidth,
     -- separator = ' ',
     -- separator_highlight = {colors.purple,colors.bg},
-    icon = '-',
+    icon = ' ',
     highlight = {colors.red,colors.bg},
   }
 }
@@ -159,13 +166,22 @@ gls.left[8] = {
     highlight = {colors.purple,colors.bg}
   }
 }
+
+local FilePath = function()
+  local squeeze_width  = vim.fn.winwidth(0) / 2
+  if squeeze_width > 40 then
+    return vim.fn.expand('%')
+  end
+  return vim.fn.pathshorten(vim.fn.expand('%'))
+end
 gls.left[9] = {
   FileName = {
-    provider = 'FileName',
+    provider = FilePath,
     condition = buffer_not_empty,
     highlight = {colors.grey,colors.bg},
   }
 }
+
 gls.left[10] = {
   Vista = {
     provider = 'VistaPlugin',
@@ -174,41 +190,18 @@ gls.left[10] = {
   }
 }
 
-gls.left[11] = {
-  DiagnosticError = {
-    provider = 'DiagnosticError',
-    icon = '  ',
-    highlight = {colors.red,colors.bg}
-  }
+gls.right[1] = {
+    DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}
 }
-gls.left[12] = {
-  Space = {
-    provider = function () return '' end
-  }
-}
-gls.left[13] = {
-  DiagnosticWarn = {
-    provider = 'DiagnosticWarn',
-    icon = '  ',
-    highlight = {colors.yellow,colors.bg},
-  }
-}
-gls.left[14] = {
-  DiagnosticHint = {
-    provider = 'DiagnosticHint',
-    icon = '   ',
-    highlight = {colors.blue,colors.bg},
-  }
-}
-gls.left[15] = {
-  DiagnosticInfo = {
-    provider = 'DiagnosticInfo',
-    icon = '   ',
-    highlight = {colors.orange,colors.bg},
-  }
+gls.right[2] = {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = '  ', highlight = {colors.orange, colors.bg}}}
+
+gls.right[3] = {
+    DiagnosticHint = {provider = 'DiagnosticHint', icon = '  ', highlight = {colors.vivid_blue, colors.bg}}
 }
 
-gls.right[1]= {
+gls.right[4] = {DiagnosticInfo = {provider = 'DiagnosticInfo', icon = '  ', highlight = {colors.info_yellow, colors.bg}}}
+
+gls.right[5]= {
   FileFormat = {
     provider = 'FileFormat',
     separator = ' ',
@@ -216,7 +209,7 @@ gls.right[1]= {
     highlight = {colors.grey,colors.bg},
   }
 }
-gls.right[2]= {
+gls.right[6]= {
   LineIcon = {
     provider = function() return ' ' end,
     separator = ' | ',
@@ -224,7 +217,7 @@ gls.right[2]= {
     highlight = {colors.grey,colors.bg},
   }
 }
-gls.right[3] = {
+gls.right[7] = {
   LineInfo = {
     provider = 'LineColumn',
     separator = '',
@@ -232,18 +225,12 @@ gls.right[3] = {
     highlight = {colors.grey,colors.bg},
   },
 }
-gls.right[4] = {
+gls.right[8] = {
   PerCent = {
     provider = 'LinePercent',
     separator = ' |',
     separator_highlight = {colors.darkblue,colors.bg},
     highlight = {colors.grey,colors.bg},
-  }
-}
-gls.right[5] = {
-  ScrollBar = {
-    provider = 'ScrollBar',
-    highlight = {colors.yellow,colors.purple},
   }
 }
 
