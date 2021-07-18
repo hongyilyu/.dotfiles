@@ -13,9 +13,4 @@ alias gd='git diff'
 alias vim='nvim'
 alias v='nvim'
 
-## react
-alias create-tsx='yarn create react-app --template typescript'
-
-## Amazon
-alias bb='brazil-build'
-alias ssh='TERM=screen ssh'
+alias ls='lsd'

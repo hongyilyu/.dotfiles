@@ -1,3 +1,4 @@
+# usage: tic -x this.file
 #	Reconstructed via infocmp from file: /usr/share/terminfo/t/tmux-256color
 tmux-256color|tmux with 256 colors,
 	OTbs, OTpt, am, hs, km, mir, msgr, xenl, AX, G0,
