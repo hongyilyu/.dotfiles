@@ -59,7 +59,6 @@ ENABLE_CORRECTION="true"
 export LANG="en_US.UTF-8"
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$HOME/.toolbox/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # aws
 autoload bashcompinit && bashcompinit
