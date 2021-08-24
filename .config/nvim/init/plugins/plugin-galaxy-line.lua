@@ -102,7 +102,7 @@ gls.left[2] = {
 gls.left[3] = {
  GitIcon = {
         provider = function()
-            return '  '
+            return ' '
         end,
         condition = condition.check_git_workspace,
         separator = ' ',
@@ -191,15 +191,9 @@ gls.left[10] = {
 }
 
 gls.right[1] = {
-    DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}
+    DiagnosticError = {provider = 'DiagnosticError', icon = ' ', highlight = {colors.error_red, colors.bg}}
 }
-gls.right[2] = {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = '  ', highlight = {colors.orange, colors.bg}}}
-
-gls.right[3] = {
-    DiagnosticHint = {provider = 'DiagnosticHint', icon = '  ', highlight = {colors.vivid_blue, colors.bg}}
-}
-
-gls.right[4] = {DiagnosticInfo = {provider = 'DiagnosticInfo', icon = '  ', highlight = {colors.info_yellow, colors.bg}}}
+gls.right[2] = {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = ' ', highlight = {colors.orange, colors.bg}}}
 
 gls.right[5]= {
   FileFormat = {
@@ -244,7 +238,7 @@ gls.short_line_left[1] = {
 }
 gls.short_line_left[3] = {
   GitIcon = {
-    provider = function() return '  ' end,
+    provider = function() return '  ' end,
     condition = buffer_name_not_in_short_line,
     highlight = {colors.orange,colors.bg},
   }

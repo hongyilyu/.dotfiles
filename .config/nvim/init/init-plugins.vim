@@ -35,7 +35,6 @@ Plug 'terrortylor/nvim-comment'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'folke/which-key.nvim'
 Plug 'kyazdani42/nvim-tree.lua', {'on': ['NvimTreeToggle'], 'do': 'LoadScript init/plugins/plugin-nvim-tree.vim'}
-Plug 'numToStr/FTerm.nvim'
 
 call plug#end()
 
@@ -76,8 +75,9 @@ LoadLua init/plugins/plugin-treesitter.lua
 LoadLua init/plugins/plugin-autopairs.lua
 LoadLua init/plugins/plugin-galaxy-line.lua
 LoadLua init/plugins/plugin-gitsigns.lua
-LoadLua init/plugins/plugin-float-term.lua
-" luafile ~/.dotfiles/.config/nvim/init/plugins/plugin-telescope.lua
+LoadLua init/plugins/plugin-telescope.lua
+LoadLua init/plugins/plugin-lspsaga.lua
+
 " LoadScript init/plugins/plugin-floaterm.vim
 " LoadScript init/plugins/plugin-denite.vim
 " LoadScript init/plugins/plugin-which-key.vim

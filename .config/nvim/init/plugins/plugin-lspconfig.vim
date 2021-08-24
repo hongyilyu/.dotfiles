@@ -9,16 +9,13 @@ nvim_lsp.rust_analyzer.setup({
     on_attach=on_attach,
     settings = {
         ["rust-analyzer"] = {
-            assist = {
-                importGranularity = "module",
-                importPrefix = "by_self",
-            },
-            cargo = {
-                loadOutDirsFromCheck = true
-            },
-            procMacro = {
-                enable = true
-            },
+            procMacro = {enable = true},
+            cargo = {loadOutDirsFromCheck = {enable = true}},
+            diagnostics = {
+                enable = true,
+                disabled = {"unresolved-proc-macro", "macro_error"},
+                enableExperimental = true
+            }
         }
     }
 })
@@ -147,22 +144,19 @@ call sign_define("LspDiagnosticsSignInformation",{
 
 
 
-" See `:help vim.lsp.*` for documentation on any of the below functions
-nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <leader>wa <cmd>lua vim.lsp.buf.add_workspace_folder()<CR>
-nnoremap <silent> <leader>wr <cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>
-nnoremap <silent> <leader>wl <cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>
-nnoremap <silent> <leader>D <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <leader>ca <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent> <leader>e <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
-nnoremap <silent> <leader>q <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
-nnoremap <silent> <leader>f <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+nnoremap <silent> <C-j> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
+nnoremap <silent> <C-k> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
+nnoremap <silent> gs <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
+nnoremap <silent> gi <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
+nnoremap <silent> <leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+vnoremap <silent> <leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
+nnoremap <silent> gr <cmd>lua require('lspsaga.rename').rename()<CR>
+nnoremap <silent> gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
 
+" jump diagnostic
+nnoremap <silent> [e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
+nnoremap <silent> ]e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>
 
+" only show diagnostic if cursor is over the area
+nnoremap <silent> <leader>cc <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>

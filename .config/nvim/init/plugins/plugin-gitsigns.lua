@@ -4,7 +4,7 @@ require('gitsigns').setup {
     change       = {hl = 'GitSignsChange', text = '▎'},
     delete       = {hl = 'GitSignsDelete', text = '_'},
     topdelete    = {hl = 'GitSignsDelete', text = '‾'},
-    changedelete = {hl = 'GitSignsChange', text = '▎'},
+    changedelete = {hl = 'GitSignsChange', text = '~'},
   },
   numhl = false,
   linehl = false,
@@ -14,10 +14,9 @@ require('gitsigns').setup {
     buffer = true,
   },
   watch_index = {
-    interval = 1000
+    interval = 100
   },
   sign_priority = 6,
   update_debounce = 200,
-  status_formatter = nil, -- Use default
-  use_decoration_api = false
+  status_formatter = nil -- Use default
 }
