@@ -13,7 +13,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'kabouzeid/nvim-lspinstall', {'on': ['LspInstall', 'LspInfo'], 'do': 'LoadLua init/plugins/plugin-lsp-install.lua' }
+Plug 'kabouzeid/nvim-lspinstall'
 
 " Autocomplete
 Plug 'hrsh7th/nvim-compe'
@@ -71,12 +71,13 @@ LoadScript init/plugins/plugin-lspconfig.vim
 LoadScript init/plugins/plugin-compe.vim
 LoadScript init/plugins/plugin-barbar.vim
 LoadScript init/plugins/plugin-symbol-outline.vim
-LoadLua init/plugins/plugin-treesitter.lua
-LoadLua init/plugins/plugin-autopairs.lua
 LoadLua init/plugins/plugin-galaxy-line.lua
 LoadLua init/plugins/plugin-gitsigns.lua
 LoadLua init/plugins/plugin-telescope.lua
 LoadLua init/plugins/plugin-lspsaga.lua
+LoadLua init/plugins/plugin-lsp-install.lua
+LoadLua init/plugins/plugin-treesitter.lua
+LoadLua init/plugins/plugin-autopairs.lua
 
 " LoadScript init/plugins/plugin-floaterm.vim
 " LoadScript init/plugins/plugin-denite.vim

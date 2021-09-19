@@ -1,6 +1,7 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = {"haskell"}, -- List of parsers to ignore installing
+  ensure_installed = {"rust", "vim", "typescript", "toml", "tsx", "yaml"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = {}, -- List of parsers to ignore installing
+  autopairs = {enable = true},
   highlight = {
     enable = true,              -- false will disable the whole extension
     use_languagetree = true,

@@ -153,6 +153,7 @@ nnoremap <silent> <leader>ca <cmd>lua require('lspsaga.codeaction').code_action(
 vnoremap <silent> <leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
 nnoremap <silent> gr <cmd>lua require('lspsaga.rename').rename()<CR>
 nnoremap <silent> gd <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
+nnoremap <silent> ff <cmd>lua vim.lsp.buf.formatting()<CR>
 
 " jump diagnostic
 nnoremap <silent> [e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>
