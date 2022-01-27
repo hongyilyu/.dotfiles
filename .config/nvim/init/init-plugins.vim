@@ -13,7 +13,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'kabouzeid/nvim-lspinstall'
+Plug 'williamboman/nvim-lsp-installer'
 
 " Autocomplete
 Plug 'hrsh7th/nvim-compe'
@@ -75,7 +75,7 @@ LoadLua init/plugins/plugin-galaxy-line.lua
 LoadLua init/plugins/plugin-gitsigns.lua
 LoadLua init/plugins/plugin-telescope.lua
 LoadLua init/plugins/plugin-lspsaga.lua
-LoadLua init/plugins/plugin-lsp-install.lua
+LoadLua init/plugins/plugin-lsp-installer.lua
 LoadLua init/plugins/plugin-treesitter.lua
 LoadLua init/plugins/plugin-autopairs.lua
 

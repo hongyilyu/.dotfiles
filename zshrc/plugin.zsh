@@ -5,7 +5,7 @@
 plugins=(
         git
         autojump
-        osx
+        macos
         zsh-syntax-highlighting
         zsh-autosuggestions
         zsh-completions

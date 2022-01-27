@@ -5,14 +5,14 @@ local ts_conds = require "nvim-autopairs.ts-conds"
 
 vim.g.completion_confirm_key = ""
 
-npairs.setup {
+npairs.setup({
   check_ts = true,
   ts_config = {
     lua = { "string" }, -- it will not add pair on that treesitter node
     javascript = { "template_string" },
     java = false, -- don't check treesitter on java
   },
-}
+})
 
 -- press % => %% is only inside comment or string
 npairs.add_rules {

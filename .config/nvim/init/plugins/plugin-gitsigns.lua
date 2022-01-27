@@ -13,8 +13,9 @@ require('gitsigns').setup {
     noremap = true,
     buffer = true,
   },
-  watch_index = {
-    interval = 100
+  watch_gitdir = {
+    interval = 100,
+    follow_files = true,
   },
   sign_priority = 6,
   update_debounce = 200,

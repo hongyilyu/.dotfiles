@@ -1,4 +1,35 @@
 local telescope = require "telescope"
+local previewers = require("telescope.previewers")
+
+-- Disable highlighting for certain files
+local _bad = { ".*%.csv" } -- Put all filetypes that slow you down in this array
+local bad_files = function(filepath)
+  for _, v in ipairs(_bad) do
+    if filepath:match(v) then
+      return false
+    end
+  end
+
+  return true
+end
+
+local new_preview_maker = function(filepath, bufnr, opts)
+  opts = opts or {}
+
+  if opts.use_ft_detect == nil then opts.use_ft_detect = true end
+  opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
+
+  filepath = vim.fn.expand(filepath)
+    vim.loop.fs_stat(filepath, function(_, stat)
+      if not stat then return end
+      if stat.size > 100000 then
+        return
+      else
+        previewers.buffer_previewer_maker(filepath, bufnr, opts)
+      end
+    end)
+  previewers.buffer_previewer_maker(filepath, bufnr, opts)
+end
 
 telescope.setup {
    defaults = {
@@ -10,6 +41,7 @@ telescope.setup {
          "--line-number",
          "--column",
          "--smart-case",
+         "--trim",
       },
       prompt_prefix = "   ",
       selection_caret = "  ",
@@ -45,7 +77,7 @@ telescope.setup {
       grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
       qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
       -- Developer configurations: Not meant for general override
-      buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+      buffer_previewer_maker = new_preview_maker,
    },
    extensions = {
       fzf = {
@@ -59,6 +91,21 @@ telescope.setup {
          filetypes = { "png", "webp", "jpg", "jpeg" },
          find_cmd = "rg", -- find command (defaults to `fd`)
       },
+   },
+   pickers = {
+       find_files = {
+           mappings = {
+               n = {
+                   ["cd"] = function(prompt_bufnr)
+                       local selection = require("telescope.actions.state").get_selected_entry()
+                       local dir = vim.fn.fnamemodify(selection.path, ":p:h")
+                       require("telescope.actions").close(prompt_bufnr)
+                       -- Depending on what you want put `cd`, `lcd`, `tcd`
+                       vim.cmd(string.format("silent cd %s", dir))
+                   end
+               }
+           }
+       }
    },
 }
 
