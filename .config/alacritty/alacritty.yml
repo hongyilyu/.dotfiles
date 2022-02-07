@@ -1005,6 +1005,12 @@ key_bindings:
   #- { key: W,        mods: Command, action: Quit                         }
   #- { key: N,      mods: Command,            action: SpawnNewInstance }
   #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
+  # https://github.com/alacritty/alacritty/issues/93#issuecomment-353489475
+  - { key: H, mods: Alt, chars: "\x1bh" }
+  - { key: J, mods: Alt, chars: "\x1bj" }
+  - { key: K, mods: Alt, chars: "\x1bk" }
+  - { key: L, mods: Alt, chars: "\x1bl" }
+  - { key: E, mods: Alt, chars: "\x1be" }
 #debug:
 # Display the time it takes to redraw each frame.
 #render_timer: false

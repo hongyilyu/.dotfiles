@@ -1,0 +1,7 @@
+require("plugin.cmp")
+require("plugin.lsp")
+require("plugin.comment")
+require("plugin.telescope_nvim")
+require("plugin.treesitter")
+require("plugin.nvim_tree")
+require("plugin.autopairs")
