@@ -6,14 +6,16 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'easymotion/vim-easymotion'
 Plug 'psliwka/vim-smoothie'
 Plug 'NTBBloodbath/galaxyline.nvim', { 'commit': 'f8c3653f34f8993a1aff1a7fad7052c11e75cfbe' }
-Plug 'romgrk/barbar.nvim'
-Plug 'sbdchd/neoformat'
+Plug 'akinsho/bufferline.nvim'
 Plug 'rcarriga/nvim-notify'
 
 " TreeSitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'p00f/nvim-ts-rainbow'
+
+" LSP bridge
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -83,10 +85,7 @@ let g:EasyMotion_smartcase = 1
 
 lua require("plugin")
 
-LoadScript init/plugins/plugin-lspconfig.vim
-LoadScript init/plugins/plugin-barbar.vim
-LoadScript init/plugins/plugin-symbol-outline.vim
+" LoadScript init/plugins/plugin-lspconfig.vim
 LoadLua init/plugins/plugin-galaxy-line.lua
-LoadLua init/plugins/plugin-gitsigns.lua
 LoadLua init/plugins/plugin-lspsaga.lua
 LoadLua init/plugins/plugin-which-key.lua

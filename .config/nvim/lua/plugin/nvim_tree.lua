@@ -26,7 +26,7 @@ require("nvim-tree").setup {
     hijack_netrw = true,
     open_on_setup = false,
     ignore_ft_on_setup = { "startify", "dashboard" },
-    auto_close = false,
+    auto_close = true,
     open_on_tab = false,
     hijack_cursor = false,
     update_cwd = false,
@@ -35,7 +35,7 @@ require("nvim-tree").setup {
         auto_open = true,
     },
     diagnostics = {
-        enable = false,
+        enable = true,
         icons = {
             hint = "",
             info = "",
