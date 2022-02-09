@@ -6,7 +6,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'easymotion/vim-easymotion'
 Plug 'psliwka/vim-smoothie'
 Plug 'nvim-lualine/lualine.nvim'
-" Plug 'NTBBloodbath/galaxyline.nvim', { 'commit': 'f8c3653f34f8993a1aff1a7fad7052c11e75cfbe' }
 Plug 'akinsho/bufferline.nvim'
 Plug 'rcarriga/nvim-notify'
 
@@ -17,6 +16,7 @@ Plug 'p00f/nvim-ts-rainbow'
 
 " LSP bridge
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'folke/trouble.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -29,7 +29,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-Plug 'folke/trouble.nvim'
 Plug 'nvim-lua/lsp-status.nvim'
 
 " Rust
