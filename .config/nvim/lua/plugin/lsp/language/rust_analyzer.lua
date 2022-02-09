@@ -2,7 +2,7 @@ local extension_path = "/Users/hongyilyu/.vscode-oss/extensions/vadimcn.vscode-l
 local codelldb_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
-local opts = {
+return {
     tools = { -- rust-tools options
         -- Automatically set inlay hints (type hints)
         autoSetHints = true,
@@ -93,9 +93,7 @@ local opts = {
     -- these override the defaults set by rust-tools.nvim
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
     server = {
-        -- standalone file support
-        -- setting it to false may improve startup time
-        standalone = true,
+        { on_attach = require('plugin.lsp.handler').on_attach }
     }, -- rust-analyer options
 
     -- debugging stuff
@@ -103,5 +101,3 @@ local opts = {
         adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
     },
 }
-
-require("rust-tools").setup(opts)

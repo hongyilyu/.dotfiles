@@ -5,7 +5,8 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'easymotion/vim-easymotion'
 Plug 'psliwka/vim-smoothie'
-Plug 'NTBBloodbath/galaxyline.nvim', { 'commit': 'f8c3653f34f8993a1aff1a7fad7052c11e75cfbe' }
+Plug 'nvim-lualine/lualine.nvim'
+" Plug 'NTBBloodbath/galaxyline.nvim', { 'commit': 'f8c3653f34f8993a1aff1a7fad7052c11e75cfbe' }
 Plug 'akinsho/bufferline.nvim'
 Plug 'rcarriga/nvim-notify'
 
@@ -29,9 +30,10 @@ Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'folke/trouble.nvim'
+Plug 'nvim-lua/lsp-status.nvim'
 
 " Rust
-Plug 'simrat39/rust-tools.nvim'
+Plug 'simrat39/rust-tools.nvim', { 'commit': '7b4d155dd47e211ee661cbb4c7969b245f768edb'}
 Plug 'mfussenegger/nvim-dap'
 Plug 'saecki/crates.nvim', { 'tag': 'v0.1.0' }
 
@@ -86,6 +88,6 @@ let g:EasyMotion_smartcase = 1
 lua require("plugin")
 
 " LoadScript init/plugins/plugin-lspconfig.vim
-LoadLua init/plugins/plugin-galaxy-line.lua
+" LoadLua init/plugins/plugin-galaxy-line.lua
 LoadLua init/plugins/plugin-lspsaga.lua
 LoadLua init/plugins/plugin-which-key.lua
