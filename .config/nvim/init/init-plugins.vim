@@ -87,7 +87,5 @@ let g:EasyMotion_smartcase = 1
 
 lua require("plugin")
 
-" LoadScript init/plugins/plugin-lspconfig.vim
 " LoadLua init/plugins/plugin-galaxy-line.lua
-LoadLua init/plugins/plugin-lspsaga.lua
 LoadLua init/plugins/plugin-which-key.lua
