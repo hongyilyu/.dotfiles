@@ -78,6 +78,9 @@ function M.vnoremap(lhs, rhs)
     vim.api.nvim_set_keymap("v", lhs, rhs, { noremap = true })
 end
 
+function M.cnoremap(lhs, rhs)
+    vim.api.nvim_set_keymap("c", lhs, rhs, { noremap = true })
+end
 
 
 

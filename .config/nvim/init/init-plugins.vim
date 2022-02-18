@@ -5,9 +5,13 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'easymotion/vim-easymotion'
 Plug 'psliwka/vim-smoothie'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'rcarriga/nvim-notify'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'glepnir/dashboard-nvim'
+Plug 'RRethy/vim-illuminate'
 
 " TreeSitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -47,13 +51,17 @@ Plug 'tami5/sqlite.lua' " because I'm Firefox ~
 Plug 'AckslD/nvim-neoclip.lua'
 Plug 'LinArcX/telescope-command-palette.nvim'
 
+" CheatSheet
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'tpope/vim-commentary'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'folke/which-key.nvim'
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'chentau/marks.nvim'
+
+" Misc
+Plug 'NTBBloodbath/rest.nvim'
 
 call plug#end()
 
@@ -65,7 +73,7 @@ autocmd ColorScheme gruvbox-material highlight GitSignsAdd    ctermbg=None guifg
 autocmd ColorScheme gruvbox-material highlight GitSignsDelete ctermbg=None guifg=red
 autocmd ColorScheme gruvbox-material highlight GitSignsChange ctermbg=None guifg=yellow
 if has('termguicolors')
-	set termguicolors
+    set termguicolors
 endif
 set background=dark
 let g:gruvbox_material_background = 'hard'

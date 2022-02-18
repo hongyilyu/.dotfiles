@@ -1,3 +1,4 @@
+vim.cmd [[
 let mapleader = ','
 let g:mapleader = ','
 
@@ -8,8 +9,7 @@ let g:mapleader = ','
 "----------------------------------------------------------------------
 
 set nocompatible        " disable vi mode compatible
-set bs=eol,start,indent " set backspace key mode
-set whichwrap+=<,>		" https://vim.fandom.com/wiki/Automatically_wrap_left_and_right
+set bs=eol,start,indent " set backspace key mode set whichwrap+=<,>		" https://vim.fandom.com/wiki/Automatically_wrap_left_and_right
 set nohlsearch
 
 set autoindent          " auto indentation
@@ -32,14 +32,6 @@ set undodir=~/.vimdid   " Permanent undo
 set undofile
 
 "----------------------------------------------------------------------
-" Indentation Config
-"----------------------------------------------------------------------
-if has('autocmd')
-	" Check file type indent for different file, allow plugin
-	filetype plugin indent on
-endif
-
-"----------------------------------------------------------------------
 " Indent Format
 "----------------------------------------------------------------------
 set tabstop=4           " tab key width
@@ -54,13 +46,6 @@ set expandtab           " Always uses spaces instead of tab characters (et)
 autocmd FileType html,css,typescript,javascript,yaml,json,jsonc setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
-"----------------------------------------------------------------------
-" Syntax Highlighting
-"----------------------------------------------------------------------
-if has('syntax')
-	syntax enable
-	syntax on
-endif
 
 "----------------------------------------------------------------------
 " Other Settings
@@ -98,3 +83,25 @@ set formatoptions+=m
 " default unix line-break
 set ffs=unix,dos,mac
 
+"----------------------------------------------------------------------
+" Display Settings
+"----------------------------------------------------------------------
+
+set laststatus=2
+
+" display leading spaces
+set listchars=lead:⋅
+
+" default new window at right side when split
+set splitright
+set splitbelow
+
+" open file at location that was last viewed
+if has("autocmd")
+    autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \     exe "normal! g`\"" |
+        \ endif
+endif
+
+]]

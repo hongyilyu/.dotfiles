@@ -21,17 +21,17 @@ end
 
 telescope.setup {
     defaults = {
+        -- only works for `grep_string` and `live_grep`
         vimgrep_arguments = {
             "rg",
-            "--color=never",
             "--hidden",
-            "--files",
             "--no-heading",
             "--with-filename",
             "--line-number",
             "--column",
             "--smart-case",
             "--trim",
+            "-uu",
         },
         prompt_prefix = "   ",
         selection_caret = "  ",
