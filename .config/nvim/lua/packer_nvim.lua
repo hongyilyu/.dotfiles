@@ -51,8 +51,9 @@ return packer.startup(function(use)
     use "akinsho/bufferline.nvim"
     use "rcarriga/nvim-notify"
     use "kyazdani42/nvim-tree.lua"
-    use "glepnir/dashboard-nvim"
+    use "goolord/alpha-nvim"
     use "RRethy/vim-illuminate"
+    use "akinsho/toggleterm.nvim"
 
     -- TreeSitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
@@ -65,7 +66,6 @@ return packer.startup(function(use)
 
     -- LSP
     use "neovim/nvim-lspconfig"
-    use "glepnir/lspsaga.nvim"
     use "williamboman/nvim-lsp-installer"
     use "hrsh7th/nvim-cmp"
     use "L3MON4D3/LuaSnip"
@@ -91,15 +91,14 @@ return packer.startup(function(use)
     use "tami5/sqlite.lua" -- because I'm Firefox ~
     use "AckslD/nvim-neoclip.lua"
     use "LinArcX/telescope-command-palette.nvim"
+    use "ahmedkhalf/project.nvim"
 
     -- CheatSheet
-    use "simrat39/symbols-outline.nvim"
     use "lewis6991/gitsigns.nvim"
     use "windwp/nvim-autopairs"
     use "tpope/vim-commentary"
     use "kevinhwang91/nvim-bqf"
     use "folke/which-key.nvim"
-    use "chentau/marks.nvim"
 
     -- Misc
     use "NTBBloodbath/rest.nvim"

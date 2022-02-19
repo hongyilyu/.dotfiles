@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["alpha-nvim"] = {
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -109,11 +114,6 @@ _G.packer_plugins = {
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/crates.nvim",
     url = "https://github.com/saecki/crates.nvim"
   },
-  ["dashboard-nvim"] = {
-    loaded = true,
-    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
-    url = "https://github.com/glepnir/dashboard-nvim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -134,20 +134,10 @@ _G.packer_plugins = {
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/lsp-status.nvim",
     url = "https://github.com/nvim-lua/lsp-status.nvim"
   },
-  ["lspsaga.nvim"] = {
-    loaded = true,
-    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
-    url = "https://github.com/glepnir/lspsaga.nvim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  ["marks.nvim"] = {
-    loaded = true,
-    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/marks.nvim",
-    url = "https://github.com/chentau/marks.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -234,6 +224,11 @@ _G.packer_plugins = {
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["project.nvim"] = {
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/project.nvim",
+    url = "https://github.com/ahmedkhalf/project.nvim"
+  },
   ["rest.nvim"] = {
     loaded = true,
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/rest.nvim",
@@ -248,11 +243,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/sqlite.lua",
     url = "https://github.com/tami5/sqlite.lua"
-  },
-  ["symbols-outline.nvim"] = {
-    loaded = true,
-    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
-    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
   ["telescope-bookmarks.nvim"] = {
     loaded = true,
@@ -273,6 +263,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,

@@ -78,8 +78,7 @@ omap / <Plug>(easymotion-tn)
 nnoremap("<C-n>", ":NvimTreeToggle<CR>")
 
 -- Comentary
-nnoremap("<space>/", "<cmd>lua require(\"plugin.comment\")()<CR>")
-vnoremap("<space>/", "<cmd>lua require(\"plugin.comment\")()<CR>")
+-- check whichkey.lua
 
 -- Document highlights
 vim.api.nvim_set_keymap(

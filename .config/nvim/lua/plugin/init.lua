@@ -8,11 +8,11 @@ require "plugin.nvim_tree"
 require "plugin.autopairs"
 require "plugin.bufferline_nvim"
 require "plugin.gitsigns_nvim"
-require "plugin.symbols_outline"
 require "plugin.lualine_nvim"
 require "plugin.indent_blankline_nvim"
-require "plugin.dashboard"
-require "plugin.marks_nvim"
+require "plugin.alpha_nvim"
+require "plugin.toggleterm_nvim"
+require "plugin.whichkey"
 
 -- vim-smoothie
 vim.g.smoothie_experimental_mappings = 1

@@ -2,7 +2,7 @@ vim.opt.list = true
 
 require("indent_blankline").setup {
     buftype_exclude = { "terminal" },
-    filetype_exclude = { "dashboard", "lspinfo" },
+    filetype_exclude = { "alpha", "lspinfo" },
 
     use_treesitter = true,
     show_end_of_line = false,
