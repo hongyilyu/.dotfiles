@@ -13,6 +13,7 @@ require "plugin.indent_blankline_nvim"
 require "plugin.alpha_nvim"
 require "plugin.toggleterm_nvim"
 require "plugin.whichkey"
+require "plugin.neorg_nvim"
 
 -- vim-smoothie
 vim.g.smoothie_experimental_mappings = 1

@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup {
-    ensure_installed = { "rust", "vim", "typescript", "toml", "tsx", "yaml", "json", "http" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    ensure_installed = { "rust", "vim", "typescript", "toml", "tsx", "yaml", "json", "http", "norg" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ignore_install = {}, -- List of parsers to ignore installing
     autopairs = { enable = true },
     highlight = {

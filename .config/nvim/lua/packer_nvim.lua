@@ -93,6 +93,9 @@ return packer.startup(function(use)
     use "LinArcX/telescope-command-palette.nvim"
     use "ahmedkhalf/project.nvim"
 
+    -- org mode
+    use "nvim-neorg/neorg"
+
     -- CheatSheet
     use "lewis6991/gitsigns.nvim"
     use "windwp/nvim-autopairs"
