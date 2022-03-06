@@ -1,4 +1,5 @@
 local null_ls = require "null-ls"
+local Set = require("util").Set
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 -- local code_actions = null_ls.builtins.code_actions
@@ -35,6 +36,13 @@ local sources = {
 }
 
 null_ls.setup {
+    should_attach = function(bufnr)
+        local disable = Set { "rust" }
+        if disable[vim.api.nvim_buf_get_option(bufnr, "filetype")] then
+            return false
+        end
+        return true
+    end,
     -- debug = true,
     sources = sources,
 }

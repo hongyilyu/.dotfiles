@@ -61,7 +61,6 @@ function M.u(code)
     return table.concat(t)
 end
 
-
 -- Source: https://github.com/simrat39/dotfiles/blob/master/nvim/.config/nvim/lua/mappings.lua
 function M.nnoremap(lhs, rhs, silent)
     if not silent then
@@ -84,7 +83,11 @@ end
 
 
 
+function M.Set (list)
+  local set = {}
+  for _, l in ipairs(list) do set[l] = true end
+  return set
+end
+
 
 return M
-
-

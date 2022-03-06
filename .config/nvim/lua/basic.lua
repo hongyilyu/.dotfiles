@@ -74,8 +74,9 @@ set hid                 " A buffer becomes hidden when it is abandoned
 set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
 
 " display hidden/invisible characters
-set list
-set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
+set invlist
+" set list
+" set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 
 " if text object Unicode > 255，wrap line before space.
 set formatoptions+=m
@@ -88,9 +89,6 @@ set ffs=unix,dos,mac
 "----------------------------------------------------------------------
 
 set laststatus=2
-
-" display leading spaces
-set listchars=lead:⋅
 
 " default new window at right side when split
 set splitright

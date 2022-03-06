@@ -100,7 +100,7 @@ return packer.startup(function(use)
     use "lewis6991/gitsigns.nvim"
     use "windwp/nvim-autopairs"
     use "tpope/vim-commentary"
-    use "kevinhwang91/nvim-bqf"
+    --use "kevinhwang91/nvim-bqf"
     use "folke/which-key.nvim"
 
     -- Misc
