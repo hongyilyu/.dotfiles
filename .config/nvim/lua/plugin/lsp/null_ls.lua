@@ -24,8 +24,6 @@ local sources = {
     -- diagnostics
     diagnostics.write_good,
     diagnostics.markdownlint,
-    diagnostics.tsc,
-    diagnostics.eslint,
     diagnostics.yamllint,
 
     -- code actions

@@ -43,7 +43,7 @@ set expandtab           " Always uses spaces instead of tab characters (et)
 "----------------------------------------------------------------------
 " File Type Different
 "----------------------------------------------------------------------
-autocmd FileType html,css,typescript,javascript,yaml,json,jsonc setlocal shiftwidth=2 tabstop=2 expandtab
+" autocmd FileType html,css,typescript,javascript,yaml,json,jsonc setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 
 
