@@ -4,7 +4,9 @@ add_newline = false
 # Use custom format
 format = """
  $directory\
-	${custom.git_status}\
+	${git_branch}\
+	${git_state}\
+	${git_status}\
 	$package\
 		$rust$python\
 	$cmd_duration
@@ -24,15 +26,10 @@ read_only = "🔒 "
 read_only_style = "red"
 truncate_to_repo = false
 truncation_length = 8
-format = "[$read_only]($read_only_style)[$path](bold fg:#94bdff)"
+format = "[$read_only]($read_only_style)[$path](bold fg:#94bdff) "
 
-[custom.git_status]
-description = "git status which calls git directly"
-command = "~/.dotfiles/zshrc/starship/gitstatus.zsh || true"
-when = "true"
-style = "bold red"
-# current master version of how to specify formats
-format = "[$output]($style) "
-#disabled = true
-
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
 # Language Support

@@ -1,22 +1,15 @@
-eval "$(starship init zsh)"
-
 # Path to your oh-my-zsh installation.
 export BASE_DIR=${HOME}/.dotfiles
-export ZSH=${BASE_DIR}/oh-my-zsh
 export ZSH_CONFIG=${BASE_DIR}/zshrc
+export ZSH_PLUGIN=${ZSH_CONFIG}/submodules
 
 # Use the force to load my functions
 fpath=($ZSH_CONFIG/functions $fpath)
 # autoload custom functions
 autoload $^fpath/*(N:t)
 
-
-
 source $ZSH_CONFIG/plugin.zsh
-source $ZSH_CONFIG/fzf.zsh
-source $ZSH_CONFIG/OS.zsh
 source $ZSH_CONFIG/alias.zsh
-
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -59,9 +52,10 @@ ENABLE_CORRECTION="true"
 export LANG="en_US.UTF-8"
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
 # aws
 autoload bashcompinit && bashcompinit
-complete -C '/usr/local/bin/aws_completer' aws
+autoload -Uz compinit && compinit
+complete -C '/opt/homebrew/bin/aws_completer' aws
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(starship init zsh)"
