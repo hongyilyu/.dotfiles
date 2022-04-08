@@ -11,3 +11,4 @@ alias vim='nvim'
 alias v='nvim'
 
 alias ls='lsd'
+alias la='lsd -a'

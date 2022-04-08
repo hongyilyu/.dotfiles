@@ -32,4 +32,5 @@ format = "[$read_only]($read_only_style)[$path](bold fg:#94bdff) "
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
+
 # Language Support
