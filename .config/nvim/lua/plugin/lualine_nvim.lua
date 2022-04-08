@@ -48,7 +48,7 @@ require("lualine").setup {
         theme = "gruvbox-material",
         component_separators = { left = "", right = "︱" },
         section_separators = { left = "", right = " " },
-        disabled_filetypes = {},
+        disabled_filetypes = {"dapui*", "dap-repl"},
         always_divide_middle = true,
     },
     sections = {

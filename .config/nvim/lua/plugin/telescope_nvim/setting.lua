@@ -107,6 +107,11 @@ telescope.setup {
             case_mode = "smart_case", -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
         },
+        ["ui-select"] = {
+            require("telescope.themes").get_dropdown {
+                -- even more opts
+            },
+        },
         bookmarks = {
             -- Available: 'brave', 'buku', 'chrome', 'edge', 'safari', 'firefox'
             selected_browser = "firefox",
@@ -160,4 +165,5 @@ require("telescope").load_extension "command_palette"
 -- require('telescope').load_extension('bookmarks') -- disable due to sqlite issue https://github.com/dhruvmanila/telescope-bookmarks.nvim/issues/5
 
 require("telescope").load_extension "neoclip"
+require("telescope").load_extension "ui-select"
 require("neoclip").setup()

@@ -1,6 +1,6 @@
-local extension_path = "/Users/hongyilyu/.vscode-oss/extensions/vadimcn.vscode-lldb-1.6.10"
+local extension_path = vim.env.HOME .. "/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/"
 local codelldb_path = extension_path .. "adapter/codelldb"
-local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 
 return {
     tools = { -- rust-tools options
@@ -93,7 +93,17 @@ return {
     -- these override the defaults set by rust-tools.nvim
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
     server = {
-        { on_attach = require('plugin.lsp.handler').on_attach }
+        standalone = true,
+        settings = {
+            -- to enable rust-analyzer settings visit:
+            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+            ["rust-analyzer"] = {
+                -- enable clippy on save
+                checkOnSave = {
+                    command = "clippy",
+                },
+            },
+        },
     }, -- rust-analyer options
 
     -- debugging stuff

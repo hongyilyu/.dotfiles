@@ -79,6 +79,7 @@ return packer.startup(function(use)
     -- Rust
     use { "simrat39/rust-tools.nvim", commit = "7b4d155dd47e211ee661cbb4c7969b245f768edb" }
     use "mfussenegger/nvim-dap"
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
     use { "saecki/crates.nvim", tag = "v0.1.0" }
 
     -- Telescope
@@ -92,9 +93,11 @@ return packer.startup(function(use)
     use "AckslD/nvim-neoclip.lua"
     use "LinArcX/telescope-command-palette.nvim"
     use "ahmedkhalf/project.nvim"
+    use {'nvim-telescope/telescope-ui-select.nvim' }
 
     -- org mode
     use "nvim-neorg/neorg"
+    use "nvim-neorg/neorg-telescope"
 
     -- CheatSheet
     use "lewis6991/gitsigns.nvim"
