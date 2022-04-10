@@ -169,7 +169,8 @@ local mappings = {
 
     t = {
         name = "Terminal",
-        t = { "<cmd>lua _BTM_TOGGLE()<cr>", "Bottom" },
+        b = { "<cmd>lua _BTM_TOGGLE()<cr>", "BTM" },
+        g = { "<cmd>lua _GITUI_TOGGLE()<cr>", "GitUI" },
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
