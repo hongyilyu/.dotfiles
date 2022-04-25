@@ -12,3 +12,5 @@ alias v='nvim'
 
 alias ls='lsd'
 alias la='lsd -a'
+
+alias c='cargo'
