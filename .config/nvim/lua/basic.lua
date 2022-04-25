@@ -88,8 +88,6 @@ set ffs=unix,dos,mac
 " Display Settings
 "----------------------------------------------------------------------
 
-set laststatus=2
-
 " default new window at right side when split
 set splitright
 set splitbelow
