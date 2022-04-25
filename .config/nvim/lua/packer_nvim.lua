@@ -45,6 +45,13 @@ return packer.startup(function(use)
     use "sainnhe/gruvbox-material"
     use "kyazdani42/nvim-web-devicons"
     use "easymotion/vim-easymotion"
+    -- Switch to hop when incremental search is implemented! https://github.com/phaazon/hop.nvim/issues/52
+    -- use { "phaazon/hop.nvim",
+    --     branch = 'v1', -- optional but strongly recommended
+    --     config = function()
+    --         -- you can configure hop the way you like here; see :h hop-config
+    --         require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    --     end }
     use "psliwka/vim-smoothie"
     use "lukas-reineke/indent-blankline.nvim"
     use "nvim-lualine/lualine.nvim"
@@ -77,9 +84,9 @@ return packer.startup(function(use)
     use "nvim-lua/lsp-status.nvim"
 
     -- Rust
-    use { "simrat39/rust-tools.nvim", commit = "7b4d155dd47e211ee661cbb4c7969b245f768edb" }
+    use { "simrat39/rust-tools.nvim" }
     use "mfussenegger/nvim-dap"
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use { "saecki/crates.nvim", tag = "v0.1.0" }
 
     -- Telescope
@@ -93,7 +100,7 @@ return packer.startup(function(use)
     use "AckslD/nvim-neoclip.lua"
     use "LinArcX/telescope-command-palette.nvim"
     use "ahmedkhalf/project.nvim"
-    use {'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
 
     -- org mode
     use "nvim-neorg/neorg"
