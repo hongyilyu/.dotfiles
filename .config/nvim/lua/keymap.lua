@@ -75,7 +75,7 @@ omap / <Plug>(easymotion-tn)
 ]]
 
 -- Nvim-Tree
-nnoremap("<C-n>", ":NvimTreeToggle<CR>")
+nnoremap("<C-n>", ":NvimTreeFindFileToggle<CR>")
 
 -- Comentary
 -- check whichkey.lua
