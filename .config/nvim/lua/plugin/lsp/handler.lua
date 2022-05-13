@@ -1,4 +1,5 @@
 local M = {}
+local Set = require("util").Set
 local nnoremap = require("util").nnoremap
 local vnoremap = require("util").vnoremap
 
@@ -69,7 +70,9 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-    if client.name == "tsserver" then
+    -- Disable in favor of null-ls
+    local disable = Set { "tsserver", "sumneko_lua" }
+    if disable[client.name] then
         client.resolved_capabilities.document_formatting = false
     end
     lsp_keymaps(bufnr)

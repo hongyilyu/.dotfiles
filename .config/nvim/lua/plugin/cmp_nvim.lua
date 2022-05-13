@@ -35,10 +35,25 @@ local kind_icons = {
 local cmp = require "cmp"
 local luasnip = require "luasnip"
 cmp.setup {
+    enabled = function()
+        -- disable completion in comments
+        local context = require "cmp.config.context"
+        -- keep command mode completion enabled when cursor is in a comment
+        if vim.api.nvim_get_mode().mode == "c" then
+            return true
+        else
+            return not context.in_treesitter_capture "comment" and not context.in_syntax_group "Comment"
+        end
+    end,
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
         end,
+    },
+    completion = {
+        completeopt = "menu,menuone,noinsert",
+        keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\)]],
+        keyword_length = 1,
     },
     mapping = {
         ["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -58,12 +73,7 @@ cmp.setup {
         ["<CR>"] = cmp.mapping.confirm { select = true },
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                local entry = cmp.get_selected_entry()
-                if entry then
-                    cmp.select_next_item()
-                else
-                    cmp.confirm { select = true }
-                end
+                cmp.select_next_item()
             elseif luasnip.expandable() then
                 luasnip.expand()
             elseif luasnip.expand_or_jumpable() then
@@ -102,6 +112,7 @@ cmp.setup {
                 luasnip = "[Snippet]",
                 buffer = "[Buffer]",
                 path = "[Path]",
+                crates = "[CRATE]",
             })[entry.source.name]
             return vim_item
         end,
@@ -114,12 +125,13 @@ cmp.setup {
         { name = "path" },
         { name = "crates" },
     },
+    preselect = cmp.PreselectMode.None,
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
     },
     window = {
-        documentation = cmp.config.window.bordered()
+        documentation = cmp.config.window.bordered(),
     },
     experimental = {
         ghost_text = false,

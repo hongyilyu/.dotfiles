@@ -61,6 +61,8 @@ return packer.startup(function(use)
     use "goolord/alpha-nvim"
     use "RRethy/vim-illuminate"
     use "akinsho/toggleterm.nvim"
+    use "chrisbra/Colorizer"
+    use "junegunn/vim-easy-align"
 
     -- TreeSitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
@@ -69,7 +71,7 @@ return packer.startup(function(use)
 
     -- LSP bridge
     use "jose-elias-alvarez/null-ls.nvim"
-    use "folke/trouble.nvim"
+    -- use "folke/trouble.nvim"
 
     -- LSP
     use "neovim/nvim-lspconfig"
@@ -100,7 +102,7 @@ return packer.startup(function(use)
     use "AckslD/nvim-neoclip.lua"
     use "LinArcX/telescope-command-palette.nvim"
     use "ahmedkhalf/project.nvim"
-    use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use { "nvim-telescope/telescope-ui-select.nvim" }
 
     -- org mode
     use "nvim-neorg/neorg"

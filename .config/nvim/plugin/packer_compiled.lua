@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  Colorizer = {
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/Colorizer",
+    url = "https://github.com/chrisbra/Colorizer"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -284,15 +289,15 @@ _G.packer_plugins = {
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
-  ["trouble.nvim"] = {
-    loaded = true,
-    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim"
-  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
+  },
+  ["vim-easy-align"] = {
+    loaded = true,
+    path = "/Users/hongyilyu/.local/share/nvim/site/pack/packer/start/vim-easy-align",
+    url = "https://github.com/junegunn/vim-easy-align"
   },
   ["vim-easymotion"] = {
     loaded = true,
