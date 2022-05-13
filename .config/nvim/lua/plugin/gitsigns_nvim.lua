@@ -21,3 +21,6 @@ require('gitsigns').setup {
   update_debounce = 200,
   status_formatter = nil -- Use default
 }
+vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg="Green", bg="None" })
+vim.api.nvim_set_hl(0, 'GitSignsChange', { fg="Yellow", bg="None" })
+vim.api.nvim_set_hl(0, 'GitSignsDelete', { fg="Red", bg="None" })
