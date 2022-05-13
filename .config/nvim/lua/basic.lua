@@ -1,103 +1,67 @@
-vim.cmd [[
-let mapleader = ','
-let g:mapleader = ','
+vim.mapleader = ","
+vim.g.mapleader = ","
 
+local options = {
+    --  Basic Config
+    bs             = "eol,start,indent",        -- set backspace key mode set whichwrap+=<,>		 https://vim.fandom.com/wiki/Automatically_wrap_left_and_right
+    hlsearch       = false,
+    autoindent     = true,
+    cindent        = true,                      -- C/C++ indentation
+    wrap           = true,                      -- display long lines as multiple line
+    breakindent    = true,                      -- enable indentation
+    breakindentopt = "shift:4,sbr,min:10",      -- ident by an additional 4 characters on wrapped lines, when line >= 10 characters, put 'showbreak' at start of line
+    showbreak      = "↪ ",                      -- wrap indent
+    smartindent    = true,                      -- Smart Indent
+    ttimeout       = true,                      -- Function Key timeout
+    ttimeoutlen    = 50,                        -- Function Key timeout set to 50 ms
+    ruler          = true,                      -- always show current position
+    clipboard      = "unnamedplus",             -- https://stackoverflow.com/a/30691754/6780928
+    lazyredraw     = true,
+    undodir        = "/tmp/.nvimdid/",          -- Permanent undo
+    undofile       = true,
 
+    --  Display Settings
+    splitright     = true,                      -- default new window at right side when split
+    splitbelow     = true,
 
-"----------------------------------------------------------------------
-" Basic Config
-"----------------------------------------------------------------------
+    -- Indent Format
+    tabstop        = 4,                         -- tab key width
+    shiftwidth     = 4,                         -- indent width
+    softtabstop    = 4,                         -- insert tabs on the start of line based on shiftwidth
+    expandtab      = true,                      -- Always uses spaces instead of tab characters (et)
 
-set nocompatible        " disable vi mode compatible
-set bs=eol,start,indent " set backspace key mode set whichwrap+=<,>		" https://vim.fandom.com/wiki/Automatically_wrap_left_and_right
-set nohlsearch
+    -- Other Settings
+    showmatch      = true,                      -- cursor shows matching ) and }
+    matchtime      = 3,                         -- how many tens of second to blink when matching bracket
+    display        = "lastline",                -- Show last line
 
-set autoindent          " auto indentation
-set cindent             " C/C++ indentation
-set wrap                " display long lines as multiple line
-set breakindent         " enable indentation
-" ident by an additional 4 characters on wrapped lines, when line >= 10 characters, put 'showbreak' at start of line
-set breakindentopt=shift:4,sbr,min:10
-set showbreak=↪         " wrap indent
-set smartindent         " Smart Indent
-set ttimeout            " Function Key timeout
-set ttimeoutlen=50      " Function Key timeout set to 50 ms
-set ruler               " always show current position
-"set number              " show line number
-"set relativenumber      " turn hybrid line number on
-set clipboard+=unnamed  " Vim paste copy to OS clipboard
-set lazyredraw
+    wildmenu       = true,                      -- wild char completion menu
+    wildignore     = "*.o,*~,*.pyc",            -- ignore compiled files
+    wildmode       = "list:longest",
+    completeopt    = "menuone,noinsert,noselect",
+    magic          = true,                      -- for regular expressions turn magic on
 
-set undodir=~/.vimdid   " Permanent undo
-set undofile
+    title          = true,                      -- change terminal's title
+    autoread       = true,                      -- auto reload file
+    showcmd        = true,                      -- show command on status bar
+    scrolloff      = 10,                        -- keep 10 lines when scrol down or up
+    cursorline     = false,                     -- highlight current line
+    mousehide      = true,                      -- hide the mouse when typing
+    hid            = true,                      -- A buffer becomes hidden when it is abandoned
 
-"----------------------------------------------------------------------
-" Indent Format
-"----------------------------------------------------------------------
-set tabstop=4           " tab key width
-set shiftwidth=4        " indent width
-set softtabstop=4       " insert tabs on the start of line based on shiftwidth
-set expandtab           " Always uses spaces instead of tab characters (et)
-" set noet                " set no expandable tab
+    ffs            = "unix,dos,mac",            -- default unix line-break
+}
 
-"----------------------------------------------------------------------
-" File Type Different
-"----------------------------------------------------------------------
-" autocmd FileType html,css,typescript,javascript,yaml,json,jsonc setlocal shiftwidth=2 tabstop=2 expandtab
-autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+local options_plus = {
+    shortmess      = "c",
+    formatoptions  = "m",                       -- if text object Unicode > 255，wrap line before space.
+    errorformat    = "[%f:%l] -> %m,[%f:%l]:%m",
+}
 
+for key, value in pairs(options) do
+    vim.opt[key] = value
+end
 
-"----------------------------------------------------------------------
-" Other Settings
-"----------------------------------------------------------------------
-set showmatch           " cursor shows matching ) and }
-set matchtime=3         " how many tens of second to blink when matching bracket
-set display=lastline    " Show last line
-
-set wildmenu                " wild char completion menu
-set wildignore=*.o,*~,*.pyc " ignore compiled files
-set wildmode=list:longest
-set completeopt=menuone,noinsert,noselect
-set shortmess+=c
-set magic                   " for regular expressions turn magic on
-
-set title               " change terminal's title
-set autoread            " auto reload file
-set showcmd             " show command on status bar
-set scrolloff=15        " keep 15 lines when scrol down or up
-set nocursorline        " highlight current line
-set mousehide           " hide the mouse when typing
-set hid                 " A buffer becomes hidden when it is abandoned
-" set mouse=a				" Enable mouse usage in terminals
-
-" error format
-set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
-
-" display hidden/invisible characters
-set invlist
-" set list
-" set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
-
-" if text object Unicode > 255，wrap line before space.
-set formatoptions+=m
-
-" default unix line-break
-set ffs=unix,dos,mac
-
-"----------------------------------------------------------------------
-" Display Settings
-"----------------------------------------------------------------------
-
-" default new window at right side when split
-set splitright
-set splitbelow
-
-" open file at location that was last viewed
-if has("autocmd")
-    autocmd BufReadPost *
-        \ if line("'\"") > 1 && line("'\"") <= line("$") |
-        \     exe "normal! g`\"" |
-        \ endif
-endif
-
-]]
+for key, value in pairs(options_plus) do
+    vim.opt[key] = vim.opt[key] + value
+end

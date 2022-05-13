@@ -1,4 +1,5 @@
 require "basic"
+require "autocmd"
 require "packer_nvim"
 require "plugin"
 require "keymap"
