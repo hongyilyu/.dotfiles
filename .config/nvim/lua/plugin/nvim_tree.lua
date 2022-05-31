@@ -7,7 +7,7 @@ local nvim_tree_icons = {
         unmerged = " ",
         renamed = "➜ ",
         untracked = "★ ",
-        deleted = "  ",
+        --deleted = "  ",
         ignored = "◌ ",
     },
     folder = {
@@ -19,7 +19,7 @@ local nvim_tree_icons = {
     },
 }
 
-vim.api.nvim_set_var("nvim_tree_icons", nvim_tree_icons)
+-- vim.api.nvim_set_var("nvim_tree_icons", nvim_tree_icons)
 
 require("nvim-tree").setup {
     disable_netrw = true,
@@ -29,6 +29,9 @@ require("nvim-tree").setup {
     open_on_tab = false,
     hijack_cursor = false,
     update_cwd = false,
+    renderer = {
+        icons = { glyphs = nvim_tree_icons },
+    },
     diagnostics = {
         enable = true,
         icons = {
