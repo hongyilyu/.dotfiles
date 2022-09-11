@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export BASE_DIR=${HOME}/.dotfiles
-export ZSH_CONFIG=${BASE_DIR}/zshrc
+export ZSH_CONFIG=${BASE_DIR}/zsh
 export ZSH_PLUGIN=${ZSH_CONFIG}/submodules
 
 # Use the force to load my functions
