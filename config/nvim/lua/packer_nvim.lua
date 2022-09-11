@@ -84,12 +84,13 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
     use "nvim-lua/lsp-status.nvim"
+    use 'simrat39/symbols-outline.nvim'
 
     -- Rust
     use { "simrat39/rust-tools.nvim" }
     use "mfussenegger/nvim-dap"
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-    use { "saecki/crates.nvim", tag = "v0.1.0" }
+    use { "saecki/crates.nvim", tag = "v0.2.1" }
 
     -- Telescope
     use "airblade/vim-rooter"

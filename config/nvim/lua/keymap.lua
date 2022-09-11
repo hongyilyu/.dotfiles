@@ -77,6 +77,9 @@ omap / <Plug>(easymotion-tn)
 -- Nvim-Tree
 nnoremap("<C-n>", ":NvimTreeFindFileToggle<CR>")
 
+-- Symbols Outline
+nnoremap("<C-s>", ":SymbolsOutline<CR>")
+
 -- Comentary
 -- check whichkey.lua
 

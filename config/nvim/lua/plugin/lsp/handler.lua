@@ -54,7 +54,7 @@ end
 local function lsp_keymaps(bufnr)
     ---@diagnostic disable-next-line: unused-local
     local opts = { noremap = true, silent = true }
-    nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+    nnoremap("gd", "<cmd>Telescope lsp_definitions<CR>")
     nnoremap("gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
     nnoremap("gr", "<cmd>Telescope lsp_references<CR>")
     nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")

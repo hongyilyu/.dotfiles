@@ -14,6 +14,7 @@ require "plugin.alpha_nvim"
 require "plugin.toggleterm_nvim"
 require "plugin.whichkey"
 require "plugin.neorg_nvim"
+require("symbols-outline").setup()
 
 -- vim-smoothie
 vim.g.smoothie_experimental_mappings = 1

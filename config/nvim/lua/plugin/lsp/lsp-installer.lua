@@ -12,8 +12,6 @@ lsp_installer.on_server_ready(function(server)
         rust_tools_opts.server = vim.tbl_deep_extend("force", server:get_default_options(), rust_tools_opts.server, opts)
         require("rust-tools").setup(rust_tools_opts)
         server:attach_buffers()
-        -- Only if standalone support is needed
-        require("rust-tools").start_standalone_if_required()
         return
     end
 

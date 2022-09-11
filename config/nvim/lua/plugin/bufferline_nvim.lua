@@ -10,7 +10,10 @@ require("bufferline").setup {
         -- NOTE: this plugin is designed with this icon in mind,
         -- and so changing this is NOT recommended, this is intended
         -- as an escape hatch for people who cannot bear it for whatever reason
-        indicator_icon = "▎",
+        indicator = {
+            icon = "▎", -- this should be omitted if indicator style is not 'icon'
+            style = "icon",
+        },
         buffer_close_icon = "",
         -- buffer_close_icon = '',
         modified_icon = "●",
@@ -80,4 +83,3 @@ nnoremap("<leader>6", "<cmd>BufferLineGoToBuffer6<CR>")
 nnoremap("<leader>7", "<cmd>BufferLineGoToBuffer7<CR>")
 nnoremap("<leader>8", "<cmd>BufferLineGoToBuffer8<CR>")
 nnoremap("<leader>9", "<cmd>BufferLineGoToBuffer9<CR>")
-

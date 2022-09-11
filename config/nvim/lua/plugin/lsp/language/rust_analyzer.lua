@@ -4,16 +4,16 @@ local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 
 return {
     tools = { -- rust-tools options
-        -- Automatically set inlay hints (type hints)
-        autoSetHints = true,
-
-        -- Whether to show hover actions inside the hover window
-        -- This overrides the default hover handler
-        hover_with_actions = true,
-
         -- how to execute terminal commands
         -- options right now: termopen / quickfix
         executor = require("rust-tools/executors").termopen,
+
+        -- callback to execute once rust-analyzer is done initializing the workspace
+        -- The callback receives one parameter indicating the `health` of the server: "ok" | "warning" | "error"
+        on_initialized = nil,
+
+        -- automatically call RustReloadWorkspace when writing to a Cargo.toml file.
+        reload_workspace_from_cargo_toml = true,
 
         runnables = {
             -- whether to use telescope for selection menu or not
@@ -31,6 +31,10 @@ return {
 
         -- These apply to the default RustSetInlayHints command
         inlay_hints = {
+
+            -- automatically set inlay hints (type hints)
+            -- default: true
+            auto = true,
 
             -- Only show inlay hints for the current line
             only_current_line = false,
@@ -108,6 +112,10 @@ return {
 
     -- debugging stuff
     dap = {
-        adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+        adapter = {
+            type = "executable",
+            command = codelldb_path,
+            name = "rt_lldb",
+        },
     },
 }
