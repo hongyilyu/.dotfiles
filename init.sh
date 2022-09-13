@@ -23,5 +23,6 @@ install_submodule romkatv/gitstatus
 rm $HOME/.zshrc
 ln -s $BASE_DIR/zshrc $HOME/.zshrc
 ln -s $BASE_DIR/config $HOME/.config
+ln -s $BASE_DIR/tmux/scripts $HOME/.tmux/
 ln -s $BASE_DIR/tmux.conf $HOME/.tmux.conf
 ln -s $BASE_DIR/tmux.conf.local $HOME/.tmux.conf.local

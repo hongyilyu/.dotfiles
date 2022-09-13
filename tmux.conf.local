@@ -454,13 +454,17 @@ bind-key    l    select-pane -R
 # stop mouse mode right click
 unbind -n MouseDown3Pane
 
+# -- scripts ----------------------------------------------------------
+search='~/.tmux/scripts/search'
+bind         /   run "$search"
+
 # popup
 bind-key -n 'M-Enter' display-menu -T 'Please choose:' \
-      "Watch default pods" D "display-popup -EE 'watch kubectl get pods'" \
-      "Watch kube-system pods" K "display-popup -EE 'watch kubectl get pods -n kube-system'" \
-      "Copy name of a K8s pod" P "display-popup -EE 'fish -c cpd'" \
+      "Search Paths" p "run '$search paths'" \
+      "Search Prompts" l "run '$search prompts'" \
+      "Search Interesting" i "run '$search interesting'" \
       "" \
-      "System task manager" H "display-popup -EE -h 80% -w 80% htop" \
+      "System task manager" H "display-popup -EE -h 80% -w 80% btm" \
       "New terminal" n "display-popup -EE -h 80% -w 80%" \
       "" \
       "Run all test (Kotlin mS)" T "send-keys './gradlew.local :test --info' 'Enter'" \
