@@ -13,8 +13,10 @@ require "plugin.indent_blankline_nvim"
 require "plugin.alpha_nvim"
 require "plugin.toggleterm_nvim"
 require "plugin.whichkey"
-require "plugin.neorg_nvim"
+require "plugin.hydra_nvim"
+-- require "plugin.neorg_nvim"
 require("symbols-outline").setup()
+require("treesitter-context").setup { always_show_line_numbers = "relative" }
 
 -- vim-smoothie
 vim.g.smoothie_experimental_mappings = 1

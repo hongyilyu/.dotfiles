@@ -81,8 +81,6 @@ local opts = {
 local mappings = {
     ["/"] = { "<cmd>lua require('plugin.comment')()<CR>", "Comment" },
     ["e"] = { ":e <C-R>=expand('%:p:h') . '/' <CR>", "New File" },
-    ["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-    ["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
     p = {
         name = "Packer",
@@ -149,10 +147,10 @@ local mappings = {
 
     d = {
         name = "Debug",
-        b = {"<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint"},
-        c = {"<cmd>lua require'dap'.continue()<cr>", "Launch/Continue"},
-        n = {"<cmd>lua require'dap'.step_over()<cr>", "Step Over"},
-        i = {"<cmd>lua require'dap'.step_into()<cr>", "Step Into"},
+        b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
+        c = { "<cmd>lua require'dap'.continue()<cr>", "Launch/Continue" },
+        n = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+        i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
     },
 
     s = {

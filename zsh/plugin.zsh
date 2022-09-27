@@ -30,6 +30,25 @@ _fix_cursor() {
    echo -ne '\e[5 q'
 }
 
+# Other shortcuts
+# ci", ci', ci`, di", etc
+autoload -U select-quoted
+zle -N select-quoted
+for m in visual viopp; do
+        for c in {a,i}{\',\",\`}; do
+                bindkey -M $m $c select-quoted
+        done
+done
+
+# ci{, ci(, ci<, di{, etc
+autoload -U select-bracketed
+zle -N select-bracketed
+for m in visual viopp; do
+        for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+                bindkey -M $m $c select-bracketed
+        done
+done
+
 precmd_functions+=(_fix_cursor)
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1

@@ -22,16 +22,14 @@ function M.get_os_command_output(cmd, cwd)
     end
     local command = table.remove(cmd, 1)
     local stderr = {}
-    local stdout, ret = Job
-        :new({
-            command = command,
-            args = cmd,
-            cwd = cwd,
-            on_stderr = function(_, data)
-                table.insert(stderr, data)
-            end,
-        })
-        :sync()
+    local stdout, ret = Job:new({
+        command = command,
+        args = cmd,
+        cwd = cwd,
+        on_stderr = function(_, data)
+            table.insert(stderr, data)
+        end,
+    }):sync()
     return stdout, ret, stderr
 end
 
@@ -66,29 +64,31 @@ function M.nnoremap(lhs, rhs, silent)
     if not silent then
         silent = true
     end
-    vim.api.nvim_set_keymap("n", lhs, rhs, { noremap = true, silent = silent })
+    vim.keymap.set("n", lhs, rhs, { noremap = true, silent = silent })
 end
 
 function M.inoremap(lhs, rhs)
-    vim.api.nvim_set_keymap("i", lhs, rhs, { noremap = true })
+    vim.keymap.set("i", lhs, rhs, { noremap = true })
 end
 
-function M.vnoremap(lhs, rhs)
-    vim.api.nvim_set_keymap("v", lhs, rhs, { noremap = true })
+function M.vnoremap(lhs, rhs, silent)
+    if not silent then
+        silent = true
+    end
+    vim.keymap.set("v", lhs, rhs, { noremap = true, silent = silent })
 end
 
 function M.cnoremap(lhs, rhs)
-    vim.api.nvim_set_keymap("c", lhs, rhs, { noremap = true })
+    vim.keymap.set("c", lhs, rhs, { noremap = true })
 end
 
-
-
-function M.Set (list)
-  local set = {}
-  for _, l in ipairs(list) do set[l] = true end
-  return set
+function M.Set(list)
+    local set = {}
+    for _, l in ipairs(list) do
+        set[l] = true
+    end
+    return set
 end
-
 
 -- colors
 M.colors = {

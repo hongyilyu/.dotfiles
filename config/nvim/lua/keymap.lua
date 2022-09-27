@@ -44,8 +44,6 @@ nnoremap("<M-h>", ":vertical resize -2<CR>")
 nnoremap("<M-l>", ":vertical resize +2<CR>")
 
 -- Move by line for vim wrap
-nnoremap("j", "gj")
-nnoremap("k", "gk")
 vim.cmd [[
 map H ^
 map L $

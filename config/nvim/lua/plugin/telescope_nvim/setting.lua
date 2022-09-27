@@ -107,63 +107,10 @@ telescope.setup {
             case_mode = "smart_case", -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
         },
-        ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-                -- even more opts
-            },
-        },
-        bookmarks = {
-            -- Available: 'brave', 'buku', 'chrome', 'edge', 'safari', 'firefox'
-            selected_browser = "firefox",
-            -- Either provide a shell command to open the URL
-            url_open_command = "open",
-            -- Or provide the plugin name which is already installed
-            -- Available: 'vim_external', 'open_browser'
-            url_open_plugin = nil,
-            -- Show the full path to the bookmark instead of just the bookmark name
-            full_path = true,
-            -- Provide a custom profile name for Firefox
-            firefox_profile_name = "default-release",
-        },
-        command_palette = {
-            {
-                "File",
-                { "Yank Current File Name", ":lua require('joel.funcs').yank_current_file_name()" },
-                { "Write Current Buffer", ":w" },
-                { "Write All Buffers", ":wa" },
-                { "Quit", ":qa" },
-                { "File Browser", ":lua require'telescope'.extensions.file_browser.file_browser()", 1 },
-                { "Search for Word", ":lua require('telescope.builtin').live_grep()", 1 },
-                { "Git Files", ":lua require('telescope.builtin').git_files()", 1 },
-            },
-            {
-                "Help",
-                { "Search Help", ":lua require('telescope.builtin').help_tags()", 1 },
-            },
-            {
-                "Neovim",
-                { "checkhealth", ":checkhealth" },
-                { "commands", ":lua require('telescope.builtin').commands()" },
-                { "command history", ":lua require('telescope.builtin').command_history()" },
-                { "registers", ":lua require('telescope.builtin').registers()" },
-                { "options", ":lua require('telescope.builtin').vim_options()" },
-                { "keymaps", ":lua require('telescope.builtin').keymaps()" },
-                { "buffers", ":Telescope buffers" },
-                { "search history", ":lua require('telescope.builtin').search_history()" },
-                { "cursor line", ":set cursorline!" },
-                { "cursor column", ":set cursorcolumn!" },
-                { "spell checker", ":set spell!" },
-                { "relative number", ":set relativenumber!" },
-                { "search highlighting", ":set hlsearch!" },
-            },
-        },
     },
 }
 
 require("telescope").load_extension "fzf"
-require("telescope").load_extension "command_palette"
--- require('telescope').load_extension('bookmarks') -- disable due to sqlite issue https://github.com/dhruvmanila/telescope-bookmarks.nvim/issues/5
 
 require("telescope").load_extension "neoclip"
-require("telescope").load_extension "ui-select"
 require("neoclip").setup()

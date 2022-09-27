@@ -45,13 +45,6 @@ return packer.startup(function(use)
     use "sainnhe/gruvbox-material"
     use "kyazdani42/nvim-web-devicons"
     use "easymotion/vim-easymotion"
-    -- Switch to hop when incremental search is implemented! https://github.com/phaazon/hop.nvim/issues/52
-    -- use { "phaazon/hop.nvim",
-    --     branch = 'v1', -- optional but strongly recommended
-    --     config = function()
-    --         -- you can configure hop the way you like here; see :h hop-config
-    --         require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    --     end }
     use "psliwka/vim-smoothie"
     use "lukas-reineke/indent-blankline.nvim"
     use "nvim-lualine/lualine.nvim"
@@ -63,9 +56,11 @@ return packer.startup(function(use)
     use "akinsho/toggleterm.nvim"
     use "chrisbra/Colorizer"
     use "junegunn/vim-easy-align"
+    use "chaoren/vim-wordmotion"
 
     -- TreeSitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+    use 'nvim-treesitter/nvim-treesitter-context'
     use "JoosepAlviste/nvim-ts-context-commentstring"
     use "p00f/nvim-ts-rainbow"
 
@@ -84,7 +79,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
     use "nvim-lua/lsp-status.nvim"
-    use 'simrat39/symbols-outline.nvim'
+    use "simrat39/symbols-outline.nvim"
 
     -- Rust
     use { "simrat39/rust-tools.nvim" }
@@ -98,23 +93,19 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim"
     use "nvim-telescope/telescope.nvim"
     use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-    use "dhruvmanila/telescope-bookmarks.nvim"
-    use "tami5/sqlite.lua" -- because I'm Firefox ~
     use "AckslD/nvim-neoclip.lua"
-    use "LinArcX/telescope-command-palette.nvim"
     use "ahmedkhalf/project.nvim"
-    use { "nvim-telescope/telescope-ui-select.nvim" }
 
     -- org mode
-    use "nvim-neorg/neorg"
-    use "nvim-neorg/neorg-telescope"
+    -- use "nvim-neorg/neorg"
+    -- use "nvim-neorg/neorg-telescope"
 
     -- CheatSheet
     use "lewis6991/gitsigns.nvim"
     use "windwp/nvim-autopairs"
     use "tpope/vim-commentary"
-    --use "kevinhwang91/nvim-bqf"
     use "folke/which-key.nvim"
+    use 'anuvyklack/hydra.nvim'
 
     -- Misc
     use "NTBBloodbath/rest.nvim"
