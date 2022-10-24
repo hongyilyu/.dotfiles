@@ -7,3 +7,6 @@
 [submodule "zsh/submodules/zsh-completions"]
 	path = zsh/submodules/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
+[submodule "zsh/submodules/gitstatus"]
+	path = zsh/submodules/gitstatus
+	url = https://github.com/romkatv/gitstatus

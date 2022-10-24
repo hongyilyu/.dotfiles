@@ -79,3 +79,8 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --header 'Press CTRL-Y to copy command into clipboard' --border"
 #############################################################################################################
 
+
+################################################## GITSTATUS ##################################################
+export GITSTATUS_DIR=$ZSH_PLUGIN/gitstatus
+source $ZSH_PLUGIN/gitstatus/gitstatus.prompt.zsh
+#############################################################################################################
