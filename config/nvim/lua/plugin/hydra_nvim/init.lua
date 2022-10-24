@@ -1,3 +1,5 @@
 require "plugin.hydra_nvim.vim_options"
 require "plugin.hydra_nvim.git"
 require "plugin.hydra_nvim.telescope"
+require "plugin.hydra_nvim.terminal"
+require "plugin.hydra_nvim.packer"

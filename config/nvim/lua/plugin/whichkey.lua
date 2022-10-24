@@ -82,37 +82,6 @@ local mappings = {
     ["/"] = { "<cmd>lua require('plugin.comment')()<CR>", "Comment" },
     ["e"] = { ":e <C-R>=expand('%:p:h') . '/' <CR>", "New File" },
 
-    p = {
-        name = "Packer",
-        c = { "<cmd>PackerCompile<cr>", "Compile" },
-        i = { "<cmd>PackerInstall<cr>", "Install" },
-        s = { "<cmd>PackerSync<cr>", "Sync" },
-        S = { "<cmd>PackerStatus<cr>", "Status" },
-        u = { "<cmd>PackerUpdate<cr>", "Update" },
-    },
-
-    g = {
-        name = "Git",
-        g = { "<cmd>lua _GITUI_TOGGLE()<CR>", "GitUI" },
-        n = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-        p = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-        b = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-        d = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk/Diff Line" },
-        r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-        R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-        s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-        u = {
-            "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-            "Undo Stage Hunk",
-        },
-        o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-        c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-        f = {
-            "<cmd>Gitsigns diffthis HEAD<cr>",
-            "Diff File",
-        },
-    },
-
     l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -151,27 +120,6 @@ local mappings = {
         c = { "<cmd>lua require'dap'.continue()<cr>", "Launch/Continue" },
         n = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
         i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-    },
-
-    s = {
-        name = "Search",
-        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-        c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-        R = { "<cmd>Telescope registers<cr>", "Registers" },
-        k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-        C = { "<cmd>Telescope commands<cr>", "Commands" },
-    },
-
-    t = {
-        name = "Terminal",
-        b = { "<cmd>lua _BTM_TOGGLE()<cr>", "BTM" },
-        g = { "<cmd>lua _GITUI_TOGGLE()<cr>", "GitUI" },
-        f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-        h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-        v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     },
 }
 

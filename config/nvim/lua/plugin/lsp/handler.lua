@@ -67,13 +67,14 @@ local function lsp_keymaps(bufnr)
     nnoremap("]d", "<cmd>lua vim.diagnostic.goto_next({ border = \"rounded\" })<CR>")
     nnoremap("gl", "<cmd>lua vim.diagnostic.open_float({ border = \"rounded\" })<CR>")
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]]
+    vim.cmd [[ command! FOrmat execute 'lua vim.lsp.buf.formatting_sync()' ]]
 end
 
 M.on_attach = function(client, bufnr)
     -- Disable in favor of null-ls
     local disable = Set { "tsserver", "sumneko_lua" }
     if disable[client.name] then
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
     end
     lsp_keymaps(bufnr)
     lsp_highlight_document(client)
@@ -82,6 +83,6 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 return M
