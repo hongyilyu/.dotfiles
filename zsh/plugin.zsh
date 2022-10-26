@@ -82,5 +82,7 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap 
 
 ################################################## GITSTATUS ##################################################
 export GITSTATUS_DIR=$ZSH_PLUGIN/gitstatus
-source $ZSH_PLUGIN/gitstatus/gitstatus.prompt.zsh
+source $GITSTATUS_DIR/gitstatus.prompt.zsh
+# This is a hack
+export GITSTATUS_PROMPT=
 #############################################################################################################

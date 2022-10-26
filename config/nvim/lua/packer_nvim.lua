@@ -66,7 +66,6 @@ return packer.startup(function(use)
 
     -- LSP bridge
     use "jose-elias-alvarez/null-ls.nvim"
-    -- use "folke/trouble.nvim"
 
     -- LSP
     use "neovim/nvim-lspconfig"

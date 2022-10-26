@@ -22,32 +22,38 @@ $character
 """
 
 # Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
+scan_timeout      = 10
 
 [custom.system_icons]
-description = "Show system icons"
-command     = '([ $(uname -s) == "Darwin" ] && echo   ) || ([ $(uname -s) == "Linux" ] && echo )  '
-symbol      = "at"
-format      = "[$symbol]() [$output]($style) "
-style       = "bold"
-shell       = ["bash", "--noprofile", "--norc"]
-when        = true
+description       = "Show system icons"
+command           = '([ $(uname -s) == "Darwin" ] && echo   ) || ([ $(uname -s) == "Linux" ] && echo )  '
+symbol            = "at"
+format            = "[$symbol]() [$output]($style) "
+style             = "bold"
+shell             = ["bash", "--noprofile", "--norc"]
+when              = true
 
 [character]
-success_symbol = "[λ]($bold green)"
-error_symbol = "[λ]($bold fg:#fd6f6b)"
+success_symbol    = "[λ](bold green)"
+error_symbol      = "[λ](bold red)"
+vimcmd_symbol     = "[∀](bold yellow)"
+
 
 [directory]
-disabled = false
-read_only = "🔒 "
-read_only_style = "red"
-truncate_to_repo = false
+disabled          = false
+read_only         = "🔒 "
+read_only_style   = "red"
+truncate_to_repo  = false
 truncation_length = 8
-format = "[$read_only]($read_only_style)[$path](bold fg:#94bdff) "
+format            = "[$read_only]($read_only_style)[$path](bold fg:#94bdff) "
 
 [custom.git]
-symbol = "on "
-command = "print -P ${GITSTATUS_PROMPT}"
-when = true
+description       = "Show git status"
+command           = 'echo $GITSTATUS_PROMPT'
+symbol            = "on"
+format            = "$symbol $output "
+shell             = ["bash", "--noprofile", "--norc"]
+when              = "$(git rev-parse --is-inside-work-tree) == true"
+
 
 # Language Support
