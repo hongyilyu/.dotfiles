@@ -66,8 +66,8 @@ local function lsp_keymaps(bufnr)
     nnoremap("[d", "<cmd>lua vim.diagnostic.goto_prev({ border = \"rounded\" })<CR>")
     nnoremap("]d", "<cmd>lua vim.diagnostic.goto_next({ border = \"rounded\" })<CR>")
     nnoremap("gl", "<cmd>lua vim.diagnostic.open_float({ border = \"rounded\" })<CR>")
-    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]]
-    vim.cmd [[ command! FOrmat execute 'lua vim.lsp.buf.formatting_sync()' ]]
+    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
+    vim.cmd [[ command! FOrmat execute 'lua vim.lsp.buf.format()' ]]
 end
 
 M.on_attach = function(client, bufnr)

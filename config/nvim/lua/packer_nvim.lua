@@ -60,16 +60,18 @@ return packer.startup(function(use)
 
     -- TreeSitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-    use 'nvim-treesitter/nvim-treesitter-context'
+    use "nvim-treesitter/nvim-treesitter-context"
     use "JoosepAlviste/nvim-ts-context-commentstring"
     use "p00f/nvim-ts-rainbow"
 
     -- LSP bridge
     use "jose-elias-alvarez/null-ls.nvim"
+    use "jayp0521/mason-null-ls.nvim"
 
     -- LSP
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
-    use "williamboman/nvim-lsp-installer"
     use "hrsh7th/nvim-cmp"
     use "L3MON4D3/LuaSnip"
     use "saadparwaiz1/cmp_luasnip"
@@ -78,7 +80,16 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
     use "nvim-lua/lsp-status.nvim"
-    use "simrat39/symbols-outline.nvim"
+    use {
+        "simrat39/symbols-outline.nvim",
+        config = function()
+            require("symbols-outline").setup {
+                keymaps = {
+                    close = {},
+                },
+            }
+        end,
+    }
 
     -- Rust
     use { "simrat39/rust-tools.nvim" }
@@ -91,6 +102,7 @@ return packer.startup(function(use)
     use "nvim-lua/popup.nvim"
     use "nvim-lua/plenary.nvim"
     use "nvim-telescope/telescope.nvim"
+    use "nvim-telescope/telescope-ui-select.nvim"
     use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
     use "AckslD/nvim-neoclip.lua"
     use "ahmedkhalf/project.nvim"
@@ -104,7 +116,7 @@ return packer.startup(function(use)
     use "windwp/nvim-autopairs"
     use "tpope/vim-commentary"
     use "folke/which-key.nvim"
-    use 'anuvyklack/hydra.nvim'
+    use "anuvyklack/hydra.nvim"
 
     -- Misc
     use "NTBBloodbath/rest.nvim"

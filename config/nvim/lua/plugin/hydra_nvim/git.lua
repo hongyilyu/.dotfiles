@@ -64,7 +64,7 @@ Hydra {
             end,
             { expr = true, desc = "prev hunk" },
         },
-        { "s", ":Gitsigns stage_hunk<CR>", { silent = true, desc = "stage hunk" } },
+        { "s", gitsigns.stage_hunk, { silent = true, desc = "stage hunk" } },
         { "u", gitsigns.undo_stage_hunk, { desc = "undo last stage" } },
         { "S", gitsigns.stage_buffer, { desc = "stage buffer" } },
         { "p", gitsigns.preview_hunk, { desc = "preview hunk" } },

@@ -2,15 +2,13 @@ local Hydra = require "hydra"
 local cmd = require("hydra.keymap-util").cmd
 
 local hint = [[
-  ^ ^        Terminals
-  ^
-  _b_  BTM
-  _g_  GitUI
-  _f_  Float Term
-  _h_  Bottom Term
-  _v_  Right Term
-  ^
-       ^^^^                _<Esc>_
+        Terminals
+████████  _b_  BTM
+   ██     _g_  GitUI
+   ██     _f_  Float Term
+   ██     _h_  Bottom Term
+   ██     _v_  Right Term
+                    _<Esc>_
 ]]
 
 Hydra {
