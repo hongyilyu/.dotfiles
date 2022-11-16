@@ -70,7 +70,14 @@ Hydra {
         { "p", gitsigns.preview_hunk, { desc = "preview hunk" } },
         { "d", gitsigns.toggle_deleted, { nowait = true, desc = "toggle deleted" } },
         { "b", gitsigns.blame_line, { desc = "blame" } },
-        { "r", gitsigns.reset_hunk, { desc = "reset hunk" } },
+        {
+            "r",
+            function()
+                vim.cmd "set ma"
+                gitsigns.reset_hunk()
+            end,
+            { desc = "reset hunk" },
+        },
         { "R", gitsigns.reset_buffer, { desc = "reset file" } },
         { "o", cmd "Telescope git_status", { desc = "Open changed file in Project" } },
         { "c", cmd "Telescope git_commits", { desc = "Checkout commit" } },

@@ -75,27 +75,16 @@ omap / <Plug>(easymotion-tn)
 -- Nvim-Tree
 nnoremap("<C-n>", ":NvimTreeFindFileToggle<CR>")
 
--- Symbols Outline
-nnoremap("<C-s>", ":SymbolsOutline<CR>")
-
 -- Comentary
--- check whichkey.lua
+nnoremap("<leader>/", "<cmd>lua require('plugin.comment')()<CR>")
+vnoremap("<leader>/", "<cmd>lua require('plugin.comment')()<CR>")
 
 -- Document highlights
-vim.api.nvim_set_keymap(
-    "n",
-    "<M-n>",
-    "<cmd>lua require\"illuminate\".next_reference{wrap=true}<cr>",
-    { noremap = true }
-)
-vim.api.nvim_set_keymap(
-    "n",
-    "<M-p>",
-    "<cmd>lua require\"illuminate\".next_reference{reverse=true,wrap=true}<cr>",
-    { noremap = true }
-)
+nnoremap("<M-n>", "<cmd>lua require\"illuminate\".next_reference{wrap=true}<cr>")
+nnoremap("<M-p>", "<cmd>lua require\"illuminate\".next_reference{reverse=true,wrap=true}<cr>")
 
-
-local wk = require "which-key"
-
-wk.register {}
+-- Easy Align
+vim.cmd [[
+vmap  ga <Plug>(EasyAlign)
+nmap  ga <Plug>(EasyAlign)
+]]

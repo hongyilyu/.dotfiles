@@ -19,6 +19,7 @@ local options = {
     lazyredraw     = true,
     undodir        = "/tmp/.nvimdid/",          -- Permanent undo
     undofile       = true,
+    mouse          = "ic",
 
     --  Display Settings
     splitright     = true,                      -- default new window at right side when split

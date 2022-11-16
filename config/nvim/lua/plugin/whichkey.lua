@@ -79,9 +79,6 @@ local opts = {
 }
 
 local mappings = {
-    ["/"] = { "<cmd>lua require('plugin.comment')()<CR>", "Comment" },
-    ["e"] = { ":e <C-R>=expand('%:p:h') . '/' <CR>", "New File" },
-
     d = {
         name = "Debug",
         b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
@@ -100,7 +97,6 @@ local vopts = {
     nowait = true, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-    ["/"] = { "<cmd>lua require('plugin.comment')()<CR>", "Comment" },
 }
 
 local ignore_mappings = {

@@ -13,7 +13,7 @@ toggleterm.setup {
     start_in_insert = true,
     insert_mappings = true,
     persist_size = true,
-    direction = "float",
+    direction = "tab",
     close_on_exit = true,
     shell = vim.o.shell,
     float_opts = {
@@ -27,13 +27,13 @@ toggleterm.setup {
 }
 
 local Terminal = require("toggleterm.terminal").Terminal
-local gitui = Terminal:new { cmd = "gitui", hidden = true }
+local gitui = Terminal:new { cmd = "gitui" }
 
 function _GITUI_TOGGLE()
     gitui:toggle()
 end
 
-local btm = Terminal:new { cmd = "btm", hidden = true }
+local btm = Terminal:new { cmd = "btm" }
 
 function _BTM_TOGGLE()
     btm:toggle()
