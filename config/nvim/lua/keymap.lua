@@ -82,9 +82,3 @@ vnoremap("<leader>/", "<cmd>lua require('plugin.comment')()<CR>")
 -- Document highlights
 nnoremap("<M-n>", "<cmd>lua require\"illuminate\".next_reference{wrap=true}<cr>")
 nnoremap("<M-p>", "<cmd>lua require\"illuminate\".next_reference{reverse=true,wrap=true}<cr>")
-
--- Easy Align
-vim.cmd [[
-vmap  ga <Plug>(EasyAlign)
-nmap  ga <Plug>(EasyAlign)
-]]

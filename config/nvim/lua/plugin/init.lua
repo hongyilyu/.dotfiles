@@ -14,9 +14,7 @@ require "plugin.alpha_nvim"
 require "plugin.toggleterm_nvim"
 require "plugin.whichkey"
 require "plugin.hydra_nvim"
--- require "plugin.neorg_nvim"
-require("symbols-outline").setup()
-require("treesitter-context").setup { always_show_line_numbers = "relative" }
+require("treesitter-context").setup()
 
 -- vim-smoothie
 vim.g.smoothie_experimental_mappings = 1

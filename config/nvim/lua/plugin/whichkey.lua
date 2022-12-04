@@ -79,13 +79,6 @@ local opts = {
 }
 
 local mappings = {
-    d = {
-        name = "Debug",
-        b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
-        c = { "<cmd>lua require'dap'.continue()<cr>", "Launch/Continue" },
-        n = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-        i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-    },
 }
 
 local vopts = {

@@ -18,12 +18,6 @@ Hydra {
         hint = {
             border = "rounded",
         },
-        on_enter = function()
-            vim.cmd "SymbolsOutlineOpen"
-        end,
-        on_exit = function()
-            vim.cmd "SymbolsOutlineClose"
-        end,
     },
     mode = { "n" },
     body = "<leader>l",
@@ -76,7 +70,7 @@ Hydra {
             function()
                 vim.lsp.codelens.run()
             end,
-            { expr = true, desc = "codelens actions" },
+            { desc = "codelens actions", exit = true, nowait = true },
         },
         { "<ESC>", nil, { exit = true, nowait = true, desc = "exit" } },
         { "q", nil, { exit = true, nowait = true, desc = "exit" } },

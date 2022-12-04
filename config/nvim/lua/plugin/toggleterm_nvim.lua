@@ -38,3 +38,9 @@ local btm = Terminal:new { cmd = "btm" }
 function _BTM_TOGGLE()
     btm:toggle()
 end
+
+local cargo_test = Terminal:new { cmd = "cargo test" }
+
+function _CARGO_TEST()
+  cargo_test:toggle()
+end

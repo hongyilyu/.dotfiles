@@ -55,7 +55,6 @@ return packer.startup(function(use)
     use "RRethy/vim-illuminate"
     use "akinsho/toggleterm.nvim"
     use "chrisbra/Colorizer"
-    use "junegunn/vim-easy-align"
     use "chaoren/vim-wordmotion"
 
     -- TreeSitter
@@ -79,26 +78,29 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-nvim-lua"
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
-    use "nvim-lua/lsp-status.nvim"
     use {
-        "simrat39/symbols-outline.nvim",
+        "j-hui/fidget.nvim", -- lsp status
         config = function()
-            require("symbols-outline").setup {
-                keymaps = {
-                    close = {},
-                },
-            }
+            require("fidget").setup()
         end,
     }
 
     -- Rust
     use { "simrat39/rust-tools.nvim" }
-    use "mfussenegger/nvim-dap"
-    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-    use { "saecki/crates.nvim", tag = "v0.2.1" }
+    use {
+        "saecki/crates.nvim",
+        tag = "v0.3.0",
+        config = function()
+            require("crates").setup {
+                null_ls = {
+                    enabled = true,
+                    name = "crates.nvim",
+                },
+            }
+        end,
+    }
 
     -- Telescope
-    use "airblade/vim-rooter"
     use "nvim-lua/popup.nvim"
     use "nvim-lua/plenary.nvim"
     use "nvim-telescope/telescope.nvim"
@@ -107,17 +109,10 @@ return packer.startup(function(use)
     use "AckslD/nvim-neoclip.lua"
     use "ahmedkhalf/project.nvim"
 
-    -- org mode
-    -- use "nvim-neorg/neorg"
-    -- use "nvim-neorg/neorg-telescope"
-
     -- CheatSheet
     use "lewis6991/gitsigns.nvim"
     use "windwp/nvim-autopairs"
     use "tpope/vim-commentary"
     use "folke/which-key.nvim"
     use "anuvyklack/hydra.nvim"
-
-    -- Misc
-    use "NTBBloodbath/rest.nvim"
 end)
