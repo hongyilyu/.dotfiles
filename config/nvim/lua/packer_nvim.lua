@@ -54,8 +54,8 @@ return packer.startup(function(use)
     use "goolord/alpha-nvim"
     use "RRethy/vim-illuminate"
     use "akinsho/toggleterm.nvim"
-    use "chrisbra/Colorizer"
     use "chaoren/vim-wordmotion"
+    use "ggandor/leap.nvim"
 
     -- TreeSitter
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
@@ -115,4 +115,8 @@ return packer.startup(function(use)
     use "tpope/vim-commentary"
     use "folke/which-key.nvim"
     use "anuvyklack/hydra.nvim"
+    use {
+        "rest-nvim/rest.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+    }
 end)

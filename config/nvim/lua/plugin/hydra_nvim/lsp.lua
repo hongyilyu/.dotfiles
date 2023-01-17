@@ -24,24 +24,18 @@ Hydra {
     heads = {
         {
             "a",
-            function()
-                vim.lsp.buf.code_action()
-            end,
-            { expr = true, desc = "code actions" },
+            vim.lsp.buf.code_action,
+            { desc = "code actions" },
         },
         {
             "r",
-            function()
-                vim.lsp.buf.rename()
-            end,
-            { expr = true, desc = "rename variable" },
+            vim.lsp.buf.rename,
+            { desc = "rename variable" },
         },
         {
             "f",
-            function()
-                vim.diagnostic.setloclist()
-            end,
-            { expr = true, desc = "quickfix" },
+            vim.diagnostic.setloclist,
+            { desc = "quickfix" },
         },
         {
             "d",
@@ -60,16 +54,12 @@ Hydra {
         },
         {
             "F",
-            function()
-                vim.lsp.buf.format()
-            end,
-            { expr = true, desc = "format" },
+            vim.lsp.buf.format,
+            { desc = "format" },
         },
         {
             "l",
-            function()
-                vim.lsp.codelens.run()
-            end,
+            vim.lsp.codelens.run,
             { desc = "codelens actions", exit = true, nowait = true },
         },
         { "<ESC>", nil, { exit = true, nowait = true, desc = "exit" } },

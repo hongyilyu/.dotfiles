@@ -65,20 +65,3 @@ inoremap("\"", "\"<c-g>u")
 
 -- Open new file adjacent to current file
 nnoremap("<leader>e", ":e <C-R>=expand('%:p:h') . '/' <CR>")
-
--- Easymotion
-vim.cmd [[
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-]]
-
--- Nvim-Tree
-nnoremap("<C-n>", ":NvimTreeFindFileToggle<CR>")
-
--- Comentary
-nnoremap("<leader>/", "<cmd>lua require('plugin.comment')()<CR>")
-vnoremap("<leader>/", "<cmd>lua require('plugin.comment')()<CR>")
-
--- Document highlights
-nnoremap("<M-n>", "<cmd>lua require\"illuminate\".next_reference{wrap=true}<cr>")
-nnoremap("<M-p>", "<cmd>lua require\"illuminate\".next_reference{reverse=true,wrap=true}<cr>")

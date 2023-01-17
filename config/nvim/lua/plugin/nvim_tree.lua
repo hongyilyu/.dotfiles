@@ -38,6 +38,7 @@ require("nvim-tree").setup {
     filters = {
         dotfiles = true,
         custom = { ".git", "node_modules", ".cache", "__pycache__" },
+        exclude = {".env"}
     },
     trash = {
         cmd = "trash",

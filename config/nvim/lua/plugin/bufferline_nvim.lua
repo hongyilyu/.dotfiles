@@ -39,12 +39,12 @@ require("bufferline").setup {
 }
 
 -- Goto buffer in position...
-nnoremap("<leader>1", "<cmd>BufferLineGoToBuffer1<CR>")
-nnoremap("<leader>2", "<cmd>BufferLineGoToBuffer2<CR>")
-nnoremap("<leader>3", "<cmd>BufferLineGoToBuffer3<CR>")
-nnoremap("<leader>4", "<cmd>BufferLineGoToBuffer4<CR>")
-nnoremap("<leader>5", "<cmd>BufferLineGoToBuffer5<CR>")
-nnoremap("<leader>6", "<cmd>BufferLineGoToBuffer6<CR>")
-nnoremap("<leader>7", "<cmd>BufferLineGoToBuffer7<CR>")
-nnoremap("<leader>8", "<cmd>BufferLineGoToBuffer8<CR>")
-nnoremap("<leader>9", "<cmd>BufferLineGoToBuffer9<CR>")
+nnoremap("<leader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<CR>")
+nnoremap("<leader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<CR>")
+nnoremap("<leader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<CR>")
+nnoremap("<leader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<CR>")
+nnoremap("<leader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<CR>")
+nnoremap("<leader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<CR>")
+nnoremap("<leader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<CR>")
+nnoremap("<leader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<CR>")
+nnoremap("<leader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<CR>")

@@ -18,6 +18,7 @@ local sources = {
     formatting.trim_whitespace,
     formatting.trim_newlines,
     formatting.stylua,
+    formatting.eslint,
     with_root_file(formatting.stylua, "stylua.toml"),
 
     -- diagnostics

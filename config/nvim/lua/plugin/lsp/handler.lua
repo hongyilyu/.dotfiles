@@ -72,7 +72,7 @@ end
 
 M.on_attach = function(client, bufnr)
     -- Disable in favor of null-ls
-    local disable = Set { "tsserver", "sumneko_lua" }
+    local disable = Set {}
     if disable[client.name] then
         client.server_capabilities.document_formatting = false
     end

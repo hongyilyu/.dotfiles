@@ -33,6 +33,7 @@ function finder.ctrl_p()
     local opts = vim.deepcopy(dropdown_theme)
     opts.width = 0.5
     opts.hidden = true
+    opts.find_command = { "rg", "--files", "--hidden", "--no-ignore" }
 
     builtin.fd(opts)
 end

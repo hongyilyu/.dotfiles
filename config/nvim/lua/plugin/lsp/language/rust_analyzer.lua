@@ -34,6 +34,7 @@ return {
         capabilities = require("plugin.lsp.handler").capabilities,
         settings = {
             ["rust-analyzer"] = {
+                inlayHints = { locationLinks = false },
                 lens = {
                     enable = true,
                 },
