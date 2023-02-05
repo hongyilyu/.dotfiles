@@ -56,7 +56,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 # aws
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
-complete -C '/opt/homebrew/bin/aws_completer' aws
+complete -C '/usr/local/bin/aws_completer' aws
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=500000
