@@ -1,6 +1,6 @@
 -- Credit: https://github.com/nguyenvukhang/nvim-toggler/blob/v0.1.0/lua/nvim-toggler.lua
-local nnoremap = require("util").nnoremap
-local vnoremap = require("util").vnoremap
+local nnoremap = require("core.util").nnoremap
+local vnoremap = require("core.util").vnoremap
 
 local t = vim.tbl_add_reverse_lookup {
     ["true"] = "false",
