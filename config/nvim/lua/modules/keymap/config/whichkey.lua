@@ -80,7 +80,7 @@ local opts = {
 
 local mappings = {
     ["e"] = {":e <C-R>=expand('%:p:h') . '/' <CR>", "New file nearby"},
-    ["/"] = {"<cmd>lua require('plugin.comment')()<CR>", "Comment Out"},
+    ["/"] = {"<cmd>lua require('custom.comment')()<CR>", "Comment Out"},
 }
 
 local vopts = {
@@ -92,7 +92,7 @@ local vopts = {
     nowait = true, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-    ["/"] = {"<cmd>lua require('plugin.comment')()<CR>", "Batch Comment Out"}
+    ["/"] = {"<cmd>lua require('custom.comment')()<CR>", "Batch Comment Out"}
 }
 
 local ignore_mappings = {
