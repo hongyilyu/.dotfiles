@@ -20,6 +20,7 @@ local options = {
     undodir        = "/tmp/.nvimdid/",          -- Permanent undo
     undofile       = true,
     mouse          = "ic",
+    signcolumn     = "yes:2",
 
     --  Display Settings
     splitright     = true,                      -- default new window at right side when split
@@ -45,7 +46,7 @@ local options = {
     title          = true,                      -- change terminal's title
     autoread       = true,                      -- auto reload file
     showcmd        = true,                      -- show command on status bar
-    scrolloff      = 10,                        -- keep 10 lines when scrol down or up
+    scrolloff      = 20,                        -- keep 10 lines when scrol down or up
     cursorline     = false,                     -- highlight current line
     mousehide      = true,                      -- hide the mouse when typing
     hid            = true,                      -- A buffer becomes hidden when it is abandoned
