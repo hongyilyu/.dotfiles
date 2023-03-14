@@ -31,7 +31,9 @@ function conf.easymotion()
 end
 
 function conf.colorscheme()
-    require "modules.ui.config.colorscheme"
+    -- require "modules.ui.config.colorscheme"
+    vim.cmd.colorscheme "gruvbox-flat"
+    vim.g.gruvbox_flat_style = "hard"
 end
 
 function conf.indent()

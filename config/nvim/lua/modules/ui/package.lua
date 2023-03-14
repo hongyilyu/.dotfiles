@@ -6,7 +6,8 @@ package { "rcarriga/nvim-notify" }
 package { "RRethy/vim-illuminate" }
 package { "chaoren/vim-wordmotion" }
 
-package { "sainnhe/gruvbox-material", config = conf.colorscheme }
+-- package { "sainnhe/gruvbox-material", config = conf.colorscheme }
+package { "eddyekofo94/gruvbox-flat.nvim", config = conf.colorscheme }
 package { "psliwka/vim-smoothie", config = conf.smoothie }
 package { "easymotion/vim-easymotion", config = conf.easymotion }
 package { "windwp/nvim-autopairs", config = conf.autopairs }
