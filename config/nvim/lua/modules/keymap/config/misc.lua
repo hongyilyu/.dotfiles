@@ -1,6 +1,7 @@
 local nnoremap = require("core.util").nnoremap
 
-nnoremap("q:", "<nop>")
+-- nnoremap("q:", "<Nop>")
+vim.cmd [[ nnoremap q: <Nop> ]]
 
 -- vim-smoothie
 vim.g.smoothie_experimental_mappings = 1
