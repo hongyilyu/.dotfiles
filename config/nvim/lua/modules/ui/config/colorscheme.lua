@@ -13,7 +13,7 @@ end
 
 -- custom highlights
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = colors.bg3 })
--- vim.api.nvim_set_hl(0, "FloatBorder", { bg = colors.none })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = colors.none })
 
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = colors.bg5, fg = colors.green })
 vim.api.nvim_set_hl(0, "Pmenu", { bg = colors.bg3, fg = colors.fg0 })
@@ -23,6 +23,7 @@ vim.api.nvim_set_hl(0, "PMenuThumb", { fg = colors.aqua })
 
 -- LSPSaga
 --      General
+vim.api.nvim_set_hl(0, "SagaBorder", { fg = colors.grey1, bg = colors.bg3 })
 vim.api.nvim_set_hl(0, "DiagnosticError", {fg = colors.red, bg = colors.none})
 vim.api.nvim_set_hl(0, "DiagnosticWarning", {fg = colors.yellow, bg = colors.none})
 vim.api.nvim_set_hl(0, "DiagnosticInformation", {fg = colors.blue, bg = colors.none})
