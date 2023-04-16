@@ -3,5 +3,5 @@
 oh-my-zsh
 .git
 config/yarn
-tmux/plugins
 config/mozilla
+config/tmux/plugins
