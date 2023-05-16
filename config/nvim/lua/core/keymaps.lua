@@ -1,7 +1,7 @@
-local nnoremap = require("core.util").nnoremap
-local inoremap = require("core.util").inoremap
-local vnoremap = require("core.util").vnoremap
-local cnoremap = require("core.util").cnoremap
+local nnoremap = require("core.utils").nnoremap
+local inoremap = require("core.utils").inoremap
+local vnoremap = require("core.utils").vnoremap
+local cnoremap = require("core.utils").cnoremap
 
 -- ----------------------------------------------------------------------
 --  INSERT mode default EMAC key mapping
