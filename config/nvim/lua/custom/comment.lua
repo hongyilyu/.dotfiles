@@ -1,6 +1,3 @@
-local nnoremap = require("core.utils").nnoremap
-local vnoremap = require("core.utils").vnoremap
-
 local function comment()
   require("ts_context_commentstring.internal").update_commentstring()
   local mode = vim.fn.mode()
@@ -11,5 +8,4 @@ local function comment()
   end
 end
 
-nnoremap("<leader>/", comment, true)
-vnoremap("<leader>/", comment, true)
+return comment

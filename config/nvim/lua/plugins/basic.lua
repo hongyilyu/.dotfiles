@@ -2,7 +2,6 @@ return {
   "nvim-lua/plenary.nvim",
   { "nvim-lualine/lualine.nvim", config = require "plugins.configs.basic.lualine" },
   { "sainnhe/gruvbox-material", config = require "plugins.configs.basic.gruvbox-material" },
-  { "famiu/bufdelete.nvim", cmd = { "Bdelete", "Bwipeout" } },
   {
     "NMAC427/guess-indent.nvim",
     event = "User LHY_File",

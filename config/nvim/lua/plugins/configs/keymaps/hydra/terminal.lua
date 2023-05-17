@@ -1,5 +1,23 @@
 local Hydra = require "hydra"
 local cmd = require("hydra.keymap-util").cmd
+local Terminal = require("toggleterm.terminal").Terminal
+local gitui = Terminal:new { cmd = "gitui" }
+
+function _GITUI_TOGGLE()
+    gitui:toggle()
+end
+
+local btm = Terminal:new { cmd = "btm" }
+
+function _BTM_TOGGLE()
+    btm:toggle()
+end
+
+local cargo_test = Terminal:new { cmd = "cargo test" }
+
+function _CARGO_TEST()
+  cargo_test:toggle()
+end
 
 local hint = [[
         Terminals
