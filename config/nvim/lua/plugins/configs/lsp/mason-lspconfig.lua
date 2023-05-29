@@ -8,10 +8,10 @@ return function(_, opts)
     function(server_name) -- default handler (optional)
       require("lspconfig")[server_name].setup(lsp_opts)
     end,
-    --[[ ["rust_analyzer"] = function()
-        local rust_tools_opts = require "modules.lsp.config.language.rust_analyzer"
+    ["rust_analyzer"] = function()
+        local rust_tools_opts = require "plugins.configs.lsp.server.rust"
         require("rust-tools").setup(rust_tools_opts)
-    end, ]]
+    end,
   }
 
   require("core.utils").event "MasonLspSetup"
