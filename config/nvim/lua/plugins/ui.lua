@@ -29,4 +29,5 @@ return {
     config = require "plugins.configs.ui.alpha",
   },
   { "akinsho/bufferline.nvim", config = require "plugins.configs.ui.bufferline" },
+  { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = require "plugins.configs.ui.nvim-tree" },
 }

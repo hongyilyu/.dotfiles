@@ -8,7 +8,7 @@ return function(_, opts)
       diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc" | false,
       diagnostics_update_in_insert = false,
       offsets = {
-        { filetype = "neo-tree", text = "File Explorer", padding = 1 },
+        { filetype = "NvimTree", text = "File Explorer", padding = 1 },
       },
       separator_style = "thick", -- | "thick" | "thin" | { 'any', 'any' },
       enforce_regular_tabs = true,

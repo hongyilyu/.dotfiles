@@ -26,6 +26,6 @@ local other_opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 local other_mappings = {
-  ["<c-n>"] = { ":Neotree toggle<CR>", "File Explorer" },
+  ["<c-n>"] = { ":NvimTreeToggle<CR>", "File Explorer" },
 }
 which_key.register(other_mappings, other_opts)
