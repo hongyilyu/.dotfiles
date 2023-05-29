@@ -1,3 +1,7 @@
+local merge = require("core.utils").extend_tbl
+
+local telescope = require("plugins.configs.telescope.mappings").n
+
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
   return
@@ -16,6 +20,7 @@ local mappings = {
   ["/"] = { "<cmd>lua require('custom.comment')()<CR>", "Comment Out" },
   ["r"] = { "<cmd>lua require('custom.reverse')()<CR>", "Reverse Toggle" },
 }
+mappings = merge(mappings, telescope)
 which_key.register(mappings, opts)
 
 local other_opts = {
@@ -27,5 +32,6 @@ local other_opts = {
 }
 local other_mappings = {
   ["<c-n>"] = { ":NvimTreeToggle<CR>", "File Explorer" },
+  ["<c-p>"] = { "<cmd>lua require('plugins.configs.telescope.finder').ctrl_p()<CR>", "File Search" },
 }
 which_key.register(other_mappings, other_opts)

@@ -1,7 +1,7 @@
 return {
   "nvim-lua/plenary.nvim",
   { "nvim-lualine/lualine.nvim", config = require "plugins.configs.basic.lualine" },
-  { "sainnhe/gruvbox-material", config = require "plugins.configs.basic.gruvbox-material" },
+  { "sainnhe/gruvbox-material", lazy = false, priority = 1000, config = require "plugins.configs.basic.gruvbox-material" },
   {
     "NMAC427/guess-indent.nvim",
     event = "User LHY_File",
