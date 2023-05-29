@@ -2,8 +2,20 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
-    {"AckslD/nvim-neoclip.lua", event = "VeryLazy", config = function(_, opts) require("neoclip").setup(opts) end,},
-    {"ahmedkhalf/project.nvim", event = "VeryLazy", config = function(_, _) require("plugins.configs.telescope.extension.project") end,},
+    {
+      "AckslD/nvim-neoclip.lua",
+      event = "VeryLazy",
+      config = function(_, opts)
+        require("neoclip").setup(opts)
+      end,
+    },
+    {
+      "ahmedkhalf/project.nvim",
+      event = "VeryLazy",
+      config = function(_, _)
+        require "plugins.configs.telescope.extension.project"
+      end,
+    },
   },
   cmd = "Telescope",
   opts = function()
@@ -21,8 +33,8 @@ return {
     }
     return {
       defaults = {
-        prompt_prefix = get_icon("Selected", 1),
-        selection_caret = get_icon("Selected", 1),
+        prompt_prefix = get_icon "Selected",
+        selection_caret = get_icon "Selected",
         path_display = { "truncate" },
         sorting_strategy = "ascending",
         layout_config = {
