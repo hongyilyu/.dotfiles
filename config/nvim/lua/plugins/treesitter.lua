@@ -49,6 +49,7 @@ return {
         "rust",
         "lua",
         "java",
+        "toml",
       },
     },
     config = function(_, opts)
