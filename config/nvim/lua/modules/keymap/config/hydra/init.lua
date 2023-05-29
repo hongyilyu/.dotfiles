@@ -1,5 +1,0 @@
-require "modules.keymap.config.hydra.vim_options"
-require "modules.keymap.config.hydra.git"
-require "modules.keymap.config.hydra.lsp"
-require "modules.keymap.config.hydra.telescope"
-require "modules.keymap.config.hydra.terminal"
