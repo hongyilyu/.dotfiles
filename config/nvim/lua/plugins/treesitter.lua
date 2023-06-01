@@ -50,6 +50,8 @@ return {
         "lua",
         "java",
         "toml",
+        "bash",
+        "regex",
       },
     },
     config = function(_, opts)

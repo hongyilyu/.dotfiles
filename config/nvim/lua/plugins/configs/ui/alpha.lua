@@ -19,7 +19,7 @@ return function(_, opts)
     dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
     dashboard.button("t", "  > Find text", ":Telescope live_grep <CR>"),
     dashboard.button("p", "  > Find project", ":Telescope projects <CR>"),
-    dashboard.button("s", "  > Settings", ":lua require('modules.telescope.config.finder').edit_neovim()<CR>"),
+    dashboard.button("s", "  > Settings", ":lua require('plugins.configs.telescope.finder').edit_neovim()<CR>"),
     dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
   }
 

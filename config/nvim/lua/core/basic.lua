@@ -20,7 +20,7 @@ local options = {
   ttimeoutlen = 50, -- Function Key timeout set to 50 ms
   ruler = true, -- always show current position
   clipboard = "unnamedplus", -- https://stackoverflow.com/a/30691754/6780928
-  lazyredraw = true,
+  lazyredraw = false,
   mouse = "ic",
   signcolumn = "yes:2",
 

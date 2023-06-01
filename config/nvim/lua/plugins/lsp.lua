@@ -11,13 +11,6 @@ return {
         },
         config = require "plugins.configs.lsp.mason-lspconfig",
       },
-      {
-        -- lsp progress gui, fidget spinner
-        "j-hui/fidget.nvim",
-        config = function()
-          require("fidget").setup()
-        end,
-      },
     },
     event = "User LHY_File",
     config = require "plugins.configs.lsp.lspconfig",
@@ -58,9 +51,9 @@ return {
     },
     config = require "plugins.configs.lsp.mason",
   },
-  {
+  --[[ {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
     config = require "plugins.configs.lsp.lspsaga",
-  },
+  }, ]]
 }
