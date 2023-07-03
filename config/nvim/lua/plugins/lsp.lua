@@ -51,9 +51,4 @@ return {
     },
     config = require "plugins.configs.lsp.mason",
   },
-  --[[ {
-    "glepnir/lspsaga.nvim",
-    event = "LspAttach",
-    config = require "plugins.configs.lsp.lspsaga",
-  }, ]]
 }

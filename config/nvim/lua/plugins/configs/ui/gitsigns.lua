@@ -9,11 +9,6 @@ return function(_, opts)
     },
     numhl = false,
     linehl = false,
-    keymaps = {
-      -- Default keymap options
-      noremap = true,
-      buffer = true,
-    },
     watch_gitdir = {
       interval = 100,
       follow_files = true,

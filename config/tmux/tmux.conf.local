@@ -414,6 +414,7 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @open-S 'https://www.google.com/search?q='
+set -g @open-G 'https://github.com/'
 
 # -- custom variables ----------------------------------------------------------
 
