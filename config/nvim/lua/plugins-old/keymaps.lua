@@ -5,12 +5,20 @@ return {
     opts = {
       disable = { filetypes = { "TelescopePrompt" } },
     },
-    config = require("plugins.configs.keymaps.whichkey.which-key"),
+    config = require "plugins.configs.keymaps.whichkey.which-key",
+  },
+  {
+    "numToStr/Comment.nvim",
+    keys = { { "gcc", mode = { "n", "v" } }, { "gbc", mode = { "v" } } },
+    opts = function()
+      local commentstring_avail, commentstring = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
+      return commentstring_avail and commentstring and { pre_hook = commentstring.create_pre_hook() } or {}
+    end,
   },
   {
     "anuvyklack/hydra.nvim",
     event = "VeryLazy",
-    config = require("plugins.configs.keymaps.hydra"),
+    config = require "plugins.configs.keymaps.hydra",
   },
   {
     "akinsho/toggleterm.nvim",

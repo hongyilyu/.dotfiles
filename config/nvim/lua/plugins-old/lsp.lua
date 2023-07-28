@@ -51,4 +51,5 @@ return {
     },
     config = require "plugins.configs.lsp.mason",
   },
+  { "folke/neodev.nvim", opts = {} },
 }

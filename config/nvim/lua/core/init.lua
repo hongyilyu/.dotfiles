@@ -1,52 +1,147 @@
--- Credit: https://github.com/glepnir/dope/blob/main/lua/core/init.lua
+---@type LazyVimConfig
+local M = {} ---@class LazyVimConfig
 
-local fn = vim.fn
+---@class LazyVimConfig
+local options = {
+  -- load the default settings
+  defaults = {
+    autocmds = true, -- lazyvim.config.autocmds
+    keymaps = true, -- lazyvim.config.keymaps
+    undo = true,
+  },
+  -- icons used by other plugins
+  icons = {
+    dap = {
+      Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+      Breakpoint = " ",
+      BreakpointCondition = " ",
+      BreakpointRejected = { " ", "DiagnosticError" },
+      LogPoint = ".>",
+    },
+    diagnostics = {
+      Error = " ",
+      Warn = " ",
+      Hint = " ",
+      Info = " ",
+    },
+    git = {
+      added = " ",
+      modified = " ",
+      removed = " ",
+    },
+    kinds = {
+      Array = " ",
+      Boolean = " ",
+      Class = " ",
+      Color = " ",
+      Constant = " ",
+      Constructor = " ",
+      Copilot = " ",
+      Enum = " ",
+      EnumMember = " ",
+      Event = " ",
+      Field = " ",
+      File = " ",
+      Folder = " ",
+      Function = " ",
+      Interface = " ",
+      Key = " ",
+      Keyword = " ",
+      Method = " ",
+      Module = " ",
+      Namespace = " ",
+      Null = " ",
+      Number = " ",
+      Object = " ",
+      Operator = " ",
+      Package = " ",
+      Property = " ",
+      Reference = " ",
+      Snippet = " ",
+      String = " ",
+      Struct = " ",
+      Text = " ",
+      TypeParameter = " ",
+      Unit = " ",
+      Value = " ",
+      Variable = " ",
+    },
+  },
+}
 
-local path_join = function(...)
-  return table.concat({ ... }, package.config:sub(1, 1) == "\\" and "\\" or "/")
+M.renames = {
+  ["windwp/nvim-spectre"] = "nvim-pack/nvim-spectre",
+}
+
+function M.setup()
+  M.load("autocmds")
+  M.load("keymaps")
+  M.load("undo")
 end
--- remove check is windows because I only use mac or linux
-local cache_dir = path_join(vim.fn.stdpath "cache", "nvim")
 
--- Create cache dir and subs dir
-local createdir = function()
-  local backup = cache_dir .. "backup"
-  local swap = cache_dir .. "swap"
-  local undo = cache_dir .. "undo"
+---@param name "autocmds" | "basic" | "keymaps"
+function M.load(name)
+  local Util = require("lazy.core.util")
+  local function _load(mod)
+    Util.try(function()
+      require(mod)
+    end, {
+      msg = "Failed loading " .. mod,
+      on_error = function(msg)
+        local info = require("lazy.core.cache").find(mod)
+        if info == nil or (type(info) == "table" and #info == 0) then
+          return
+        end
+        Util.error(msg)
+      end,
+    })
+  end
+  -- always load lazyvim, then user file
+  _load("core." .. name)
+  if vim.bo.filetype == "lazy" then
+    -- HACK: LazyVim may have overwritten options of the Lazy ui, so reset this here
+    vim.cmd([[do VimResized]])
+  end
 
-  local data_dir = {
-    backup,
-    swap,
-    undo,
-  }
+  -- vim.api.nvim_create_autocmd("User", {
+  -- pattern = "LHY_CONFIG_Keymaps",
+  -- callback = function()
+  -- end,
+  -- })
+  local pattern = "LHY_CONFIG_" .. name:sub(1, 1):upper() .. name:sub(2)
+  vim.api.nvim_exec_autocmds("User", { pattern = pattern, modeline = false })
+end
 
-  -- There only check once that If cache_dir exists
-  -- Then I don't want to check subs dir exists
-  if fn.isdirectory(cache_dir) == 0 then
-    os.execute("mkdir -p " .. cache_dir)
-    for _, v in pairs(data_dir) do
-      if fn.isdirectory(v) == 0 then
-        os.execute("mkdir -p " .. v)
+M.did_init = false
+function M.init()
+  if not M.did_init then
+    M.did_init = true
+    -- delay notifications till vim.notify was replaced or after 500ms
+    require("util").lazy_notify()
+
+    -- load basic options here, before lazy init while sourcing plugin modules
+    -- this is needed to make sure options will be correctly applied
+    -- after installing missing plugins
+    require("core").load("basic")
+    local Plugin = require("lazy.core.plugin")
+    local add = Plugin.Spec.add
+    Plugin.Spec.add = function(self, plugin, ...)
+      if type(plugin) == "table" and M.renames[plugin[1]] then
+        plugin[1] = M.renames[plugin[1]]
       end
+      return add(self, plugin, ...)
     end
   end
-
-  -- point directories
-  local options = {
-    dir = swap,
-    undodir = undo, -- Permanent undo
-    undofile = true,
-    backupdir = backup,
-  }
-
-  for key, value in pairs(options) do
-    vim.opt[key] = value
-  end
 end
 
-createdir()
+setmetatable(M, {
+  __index = function(_, key)
+    if options == nil then
+      return vim.deepcopy(defaults)[key]
+    end
+    ---@cast options LazyVimConfig
+    return options[key]
+  end,
+})
 
-require "core.basic"
-require "core.keymaps"
-require "core.lazy"
-require "core.autocmds"
+return M

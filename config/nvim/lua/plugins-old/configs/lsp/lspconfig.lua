@@ -1,6 +1,8 @@
 local setup_servers = require("plugins.configs.lsp.custom.setup")
 
 return function(_, _)
+  require("neodev").setup({
+})
   require("plugins.configs.lsp.basic.diagnostic")()
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded", silent = true })

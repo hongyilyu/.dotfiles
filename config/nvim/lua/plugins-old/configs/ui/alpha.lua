@@ -16,31 +16,29 @@ return function(_, opts)
 
   -- Set menu
   dashboard.section.buttons.val = {
-    dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-    dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-    dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-    dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-    dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-    dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
-    dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
-    dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+    dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
+    dashboard.button("t", "  > Find text", ":Telescope live_grep <CR>"),
+    dashboard.button("p", "  > Find project", ":Telescope projects <CR>"),
+    dashboard.button("s", "  > Settings", ":lua require('plugins.configs.telescope.finder').edit_neovim()<CR>"),
+    dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
   }
 
-  for _, button in ipairs(dashboard.section.buttons.val) do
-    button.opts.hl = "AlphaButtons"
-    button.opts.hl_shortcut = "AlphaShortcut"
-  end
-  dashboard.section.header.opts.hl = "AlphaHeader"
-  dashboard.section.buttons.opts.hl = "AlphaButtons"
-  dashboard.section.footer.opts.hl = "AlphaFooter"
+  local fortune = require "alpha.fortune"
+  dashboard.section.footer.val = fortune()
 
-  dashboard.config.layout[1].val = vim.fn.max { 2, vim.fn.floor(vim.fn.winheight(0) * 0.2) }
-  dashboard.config.layout[3].val = 5
+  dashboard.section.footer.opts.hl = "Type"
+  dashboard.section.header.opts.hl = "String"
+  dashboard.section.buttons.opts.hl = "Keyword"
+
+  dashboard.opts.opts.noautocmd = true
 
   -- Disable folding on alpha buffer
   vim.cmd [[
       autocmd FileType alpha setlocal nofoldenable
   ]]
 
-  return dashboard
+  dashboard.config.layout[1].val = vim.fn.max { 2, vim.fn.floor(vim.fn.winheight(0) * 0.2) }
+  dashboard.config.layout[3].val = 5
+  -- Send config to alpha
+  alpha.setup(dashboard.opts)
 end
