@@ -1,10 +1,10 @@
 local function map(mode, lhs, rhs, opts)
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    if opts.remap and not vim.g.vscode then
-      opts.remap = nil
-    end
-    vim.keymap.set(mode, lhs, rhs, opts)
+  opts = opts or {}
+  opts.silent = opts.silent ~= false
+  if opts.remap and not vim.g.vscode then
+    opts.remap = nil
+  end
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 map("i", "<C-a>", "<home>", { expr = false, silent = true })
@@ -14,6 +14,9 @@ map("i", "<C-n>", "<down>", { expr = false, silent = true })
 map("i", "<C-p>", "<up>", { expr = false, silent = true })
 map("i", "<C-f>", "<right>", { expr = false, silent = true })
 map("i", "<C-b>", "<left>", { expr = false, silent = true })
+
+-- Mapping in coding.lua file
+-- map("i", "<S-Tab>", "<c-d>", { expr = false, silent = true })
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -52,14 +55,13 @@ map("c", "<c-_>", "<c-k>")
 -- ----------------------------------------------------------------------
 -- Undo break points
 -- ----------------------------------------------------------------------
-map({"i","n","o"}, ",", ",<c-g>u")
-map({"i","n","o"}, ".", ".<c-g>u")
-map({"i","n","o"}, "!", "!<c-g>u")
-map({"i","n","o"}, "?", "?<c-g>u")
-map({"i","n","o"}, "[", "[<c-g>u")
-map({"i","n","o"}, "'", "'<c-g>u")
-map({"i","n","o"}, "\"", "\"<c-g>u")
-
+map({ "i", "n", "o" }, ",", ",<c-g>u")
+map({ "i", "n", "o" }, ".", ".<c-g>u")
+map({ "i", "n", "o" }, "!", "!<c-g>u")
+map({ "i", "n", "o" }, "?", "?<c-g>u")
+map({ "i", "n", "o" }, "[", "[<c-g>u")
+map({ "i", "n", "o" }, "'", "'<c-g>u")
+map({ "i", "n", "o" }, '"', '"<c-g>u')
 
 -- ----------------------------------------------------------------------
 -- buffers
