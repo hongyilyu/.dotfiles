@@ -8,15 +8,35 @@ return {
     },
   },
   {
+    "easymotion/vim-easymotion",
+    cond = false,
+    init = function()
+      vim.g.EasyMotion_smartcase = 1
+      vim.cmd([[
+        map  / <Plug>(easymotion-sn)
+        omap / <Plug>(easymotion-tn)
+    ]])
+    end,
+  },
+  {
     "folke/flash.nvim",
     event = "VeryLazy",
     vscode = true,
     ---@type Flash.Config
     opts = {
       search = {
+        multi_window = false,
         increment = true,
-        trigger = ";",
       },
+      -- label = {
+      --   after = false,
+      --   before = true,
+      -- },
+      modes = {
+        search = {
+          highlight = { backdrop = true },
+        }
+      }
     },
     -- stylua: ignore
     keys = {

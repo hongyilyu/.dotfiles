@@ -1,3 +1,5 @@
+local Util = require("util")
+
 ---@type LazyVimConfig
 local M = {} ---@class LazyVimConfig
 
@@ -69,17 +71,26 @@ local options = {
   },
 }
 
-M.renames = {
-  ["windwp/nvim-spectre"] = "nvim-pack/nvim-spectre",
-}
-
 function M.setup()
-  M.load("autocmds")
-  M.load("keymaps")
-  M.load("undo")
+  local group = vim.api.nvim_create_augroup("LazyVim", { clear = true })
+  vim.api.nvim_create_autocmd("User", {
+    group = group,
+    pattern = "VeryLazy",
+    callback = function()
+      M.load("autocmds")
+      M.load("keymaps")
+      M.load("undo")
+
+      Util.format.setup()
+
+      vim.api.nvim_create_user_command("LazyRoot", function()
+        Util.root.info()
+      end, { desc = "LazyVim roots for the current buffer" })
+    end,
+  })
 end
 
----@param name "autocmds" | "basic" | "keymaps"
+---@param name "autocmds" | "basic" | "keymaps" | "undo"
 function M.load(name)
   local Util = require("lazy.core.util")
   local function _load(mod)
@@ -114,24 +125,17 @@ end
 
 M.did_init = false
 function M.init()
-  if not M.did_init then
-    M.did_init = true
-    -- delay notifications till vim.notify was replaced or after 500ms
-    require("util").lazy_notify()
-
-    -- load basic options here, before lazy init while sourcing plugin modules
-    -- this is needed to make sure options will be correctly applied
-    -- after installing missing plugins
-    require("core").load("basic")
-    local Plugin = require("lazy.core.plugin")
-    local add = Plugin.Spec.add
-    Plugin.Spec.add = function(self, plugin, ...)
-      if type(plugin) == "table" and M.renames[plugin[1]] then
-        plugin[1] = M.renames[plugin[1]]
-      end
-      return add(self, plugin, ...)
-    end
+  if M.did_init then
+    return
   end
+  M.did_init = true
+  -- delay notifications till vim.notify was replaced or after 500ms
+  require("util").lazy_notify()
+
+  -- load basic options here, before lazy init while sourcing plugin modules
+  -- this is needed to make sure options will be correctly applied
+  -- after installing missing plugins
+  M.load("basic")
 end
 
 setmetatable(M, {

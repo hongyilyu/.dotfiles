@@ -4,8 +4,6 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-      { "folke/neodev.nvim", opts = {} },
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
@@ -30,15 +28,12 @@ return {
       -- Be aware that you also will need to properly configure your LSP server to
       -- provide the inlay hints.
       inlay_hints = {
-        enabled = false,
+        enabled = true,
       },
       -- add any global capabilities here
       capabilities = {},
       -- Automatically format on save
-      autoformat = true,
-      -- Enable this to show formatters used in a notification
-      -- Useful for debugging formatter issues
-      format_notify = false,
+      autoformat = false,
       -- options for vim.lsp.buf.format
       -- `bufnr` and `filter` is handled by the LazyVim formatter,
       -- but can be also overridden when specified
@@ -86,9 +81,10 @@ return {
       local Util = require("util")
 
       -- setup autoformat
-      require("plugins.lsp.format").setup(opts)
+      Util.format.register(Util.lsp.formatter())
+
       -- setup formatting and keymaps
-      Util.on_attach(function(client, buffer)
+      Util.lsp.on_attach(function(client, buffer)
         require("plugins.lsp.keymaps").on_attach(client, buffer)
       end)
 
@@ -168,66 +164,9 @@ return {
         all_mslp_servers = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
       end
 
-      local ensure_installed = { "lua_ls", "rust_analyzer", "tsserver", "pyright", "taplo" }
-      for server, server_opts in pairs(servers) do
-        if server_opts then
-          server_opts = server_opts == true and {} or server_opts
-          -- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
-          if server_opts.mason == false or not vim.tbl_contains(all_mslp_servers, server) then
-            setup(server)
-          else
-            ensure_installed[#ensure_installed + 1] = server
-          end
-        end
-      end
-
       if have_mason then
         mlsp.setup({ ensure_installed = ensure_installed, handlers = { setup } })
       end
-    end,
-  },
-
-  -- formatters
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      {
-        "jay-babu/mason-null-ls.nvim",
-        cmd = { "NullLsInstall", "NullLsUninstall" },
-        opts = {
-          ensure_installed = { "stylua", "prettier", "write_good", "markdownlint", "sql_formatter" },
-          automatic_installation = true,
-          handlers = {},
-        },
-      },
-    },
-    opts = function()
-      local nls = require("null-ls")
-      return {
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
-        sources = {
-          -- formatting
-          nls.builtins.formatting.prettier,
-          nls.builtins.formatting.sql_formatter,
-          nls.builtins.formatting.trim_whitespace,
-          nls.builtins.formatting.trim_newlines,
-          nls.builtins.formatting.stylua,
-          nls.builtins.formatting.eslint,
-          nls.builtins.formatting.black,
-
-          -- diagnostics
-          nls.builtins.diagnostics.write_good,
-          nls.builtins.diagnostics.markdownlint,
-
-          -- code actions
-
-          -- hover
-          nls.builtins.hover.dictionary,
-          nls.builtins.hover.printenv,
-        },
-        disabled_filetypes = { "rust" },
-      }
     end,
   },
 
@@ -242,12 +181,22 @@ return {
       ensure_installed = {
         "stylua",
         "shfmt",
+        "rust-analyzer",
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)
       require("mason").setup(opts)
       local mr = require("mason-registry")
+      mr:on("package:install:success", function()
+        vim.defer_fn(function()
+          -- trigger FileType event to possibly load this newly installed LSP server
+          require("lazy.core.handler.event").trigger({
+            event = "FileType",
+            buf = vim.api.nvim_get_current_buf(),
+          })
+        end, 100)
+      end)
       local function ensure_installed()
         for _, tool in ipairs(opts.ensure_installed) do
           local p = mr.get_package(tool)

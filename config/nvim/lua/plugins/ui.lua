@@ -181,5 +181,10 @@ return {
   { "MunifTanjim/nui.nvim", lazy = true },
 
   -- smoothe scroll
-  { "psliwka/vim-smoothie" },
+  {
+    "psliwka/vim-smoothie",
+    init = function()
+      vim.g.smoothie_experimental_mappings = true
+    end,
+  },
 }

@@ -35,6 +35,10 @@ local options = {
   softtabstop = 4, -- insert tabs on the start of line based on shiftwidth
   expandtab = true, -- Always uses spaces instead of tab characters (et)
 
+  -- Case
+  ignorecase = true,
+  smartcase = true,
+
   -- Other Settings
   showmatch = true, -- cursor shows matching ) and }
   matchtime = 3, -- how many tens of second to blink when matching bracket
