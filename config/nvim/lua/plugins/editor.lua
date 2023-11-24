@@ -1,6 +1,12 @@
 return {
   {
     "kyazdani42/nvim-tree.lua",
+    dependencies = {
+      "notjedi/nvim-rooter.lua",
+      opts = {
+        rooter_patterns = { ".git", ".hg", ".svn" },
+      },
+    },
     cmd = "NvimTreeToggle",
     config = require("plugins.configs.editor.nvim-tree"),
     keys = {
@@ -35,8 +41,8 @@ return {
       modes = {
         search = {
           highlight = { backdrop = true },
-        }
-      }
+        },
+      },
     },
     -- stylua: ignore
     keys = {
