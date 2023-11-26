@@ -136,13 +136,11 @@ function M.init()
   -- this is needed to make sure options will be correctly applied
   -- after installing missing plugins
   M.load("basic")
+  Util.plugin.setup()
 end
 
 setmetatable(M, {
   __index = function(_, key)
-    if options == nil then
-      return vim.deepcopy(defaults)[key]
-    end
     ---@cast options LazyVimConfig
     return options[key]
   end,

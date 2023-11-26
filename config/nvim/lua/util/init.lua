@@ -1,6 +1,7 @@
 local Util = require("lazy.core.util")
 
----@field format lazyvim.util.format
+---@field format util.format
+---@field plugin util.plugin
 local M = {}
 
 M.root_patterns = { ".git", "lua" }

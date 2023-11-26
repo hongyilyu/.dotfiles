@@ -59,13 +59,40 @@ return {
     opts = require("plugins.configs.ui.lualine"),
   },
 
+  -- indent guides for Neovim
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "LazyFile",
+    opts = {
+      indent = {
+        char = "│",
+        tab_char = "│",
+      },
+      scope = { enabled = false },
+      exclude = {
+        filetypes = {
+          "help",
+          "alpha",
+          "dashboard",
+          "Trouble",
+          "trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+          "lazyterm",
+        },
+      },
+    },
+    main = "ibl",
+  },
   -- Active indent guide and indent text objects. When you're browsing
   -- code, this highlights the current level of indentation, and animates
   -- the highlighting.
   {
     "echasnovski/mini.indentscope",
     version = false, -- wait till new 0.7.0 release to put it back on semver
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "LazyFile" },
     opts = {
       -- symbol = "▏",
       symbol = "│",
@@ -185,6 +212,13 @@ return {
     "psliwka/vim-smoothie",
     init = function()
       vim.g.smoothie_experimental_mappings = true
+    end,
+  },
+  {
+    "farmergreg/vim-lastplace",
+    init = function()
+      vim.g.lastplace_ignore = "gitcommit,gitrebase"
+      vim.g.lastplace_ignore_buftype = "quickfix,nofile,help"
     end,
   },
 }
