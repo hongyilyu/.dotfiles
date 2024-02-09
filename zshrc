@@ -52,6 +52,7 @@ ENABLE_CORRECTION="true"
 export LANG="en_US.UTF-8"
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
 
 # aws
 autoload bashcompinit && bashcompinit

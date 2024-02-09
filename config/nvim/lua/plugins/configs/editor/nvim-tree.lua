@@ -22,7 +22,8 @@ return function(_, _)
 
   require("nvim-tree").setup({
     sync_root_with_cwd = true,
-    respect_buf_cwd = true,
+    disable_netrw = true,
+    respect_buf_cwd = false,
     update_focused_file = {
       enable = true,
       update_root = true,

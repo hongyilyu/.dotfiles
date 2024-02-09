@@ -7,7 +7,11 @@ end
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = augroup("checktime"),
-  command = "checktime",
+  callback = function()
+    if vim.o.buftype ~= "nofile" then
+      vim.cmd("checktime")
+    end
+  end,
 })
 
 -- Highlight on yank
@@ -75,16 +79,14 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
-
 -----------------------------------------------------------------------------------------
 -- Disable comment new line
 vim.api.nvim_create_autocmd("BufWinEnter", {
   pattern = "*",
   callback = function()
-    vim.opt_local.formatoptions:remove { "c", "r", "o" }
+    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
   end,
 })
-
 
 vim.api.nvim_create_autocmd("CmdwinEnter", {
   group = augroup("quit_cmd_buffer"),
@@ -95,14 +97,3 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
   end,
 })
 
------------------------------------------------------------------------------------------
--- https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close#rwblokzijl
------------------------------------------------------------------------------------------
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = vim.api.nvim_create_augroup("NvimTreeClose", {clear = true}),
-  pattern = "NvimTree_*",
-  callback = function()
-    local layout = vim.api.nvim_call_function("winlayout", {})
-    if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("confirm quit") end
-  end
-})

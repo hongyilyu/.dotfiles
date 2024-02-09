@@ -14,6 +14,7 @@ local opts = {
 local mappings = {
   ["e"] = { ":e <C-R>=expand('%:p:h') . '/' <CR>", "New file nearby" },
   ["r"] = { "<cmd>lua require('custom.reverse')()<CR>", "Reverse Toggle" },
+  ["/"] = { "<cmd>lua require('custom.comment')()<CR>", "Comment Toggle" },
 }
 which_key.register(mappings, opts)
 

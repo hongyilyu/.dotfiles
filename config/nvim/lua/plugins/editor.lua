@@ -1,6 +1,6 @@
 return {
   {
-    "kyazdani42/nvim-tree.lua",
+    "nvim-tree/nvim-tree.lua",
     dependencies = {
       "notjedi/nvim-rooter.lua",
       opts = {
@@ -14,44 +14,16 @@ return {
     },
   },
   {
-    "easymotion/vim-easymotion",
-    cond = false,
+    "justinmk/vim-sneak",
+    event = "VeryLazy",
     init = function()
-      vim.g.EasyMotion_smartcase = 1
       vim.cmd([[
-        map  / <Plug>(easymotion-sn)
-        omap / <Plug>(easymotion-tn)
+        map f <Plug>Sneak_f
+        map F <Plug>Sneak_F
+        map t <Plug>Sneak_t
+        map T <Plug>Sneak_T
     ]])
     end,
-  },
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    vscode = true,
-    ---@type Flash.Config
-    opts = {
-      search = {
-        multi_window = false,
-        increment = true,
-      },
-      -- label = {
-      --   after = false,
-      --   before = true,
-      -- },
-      modes = {
-        search = {
-          highlight = { backdrop = true },
-        },
-      },
-    },
-    -- stylua: ignore
-    keys = {
-      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-      { "S",     mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
-    },
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -81,8 +53,8 @@ return {
     keys = {
       { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
       { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-      { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
-      { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
+      { "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
+      { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
       {
         "[q",
         function()

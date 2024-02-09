@@ -6,20 +6,17 @@ local path_join = function(...)
   return table.concat({ ... }, package.config:sub(1, 1) == "\\" and "\\" or "/")
 end
 -- remove check is windows because I only use mac or linux
-local cache_dir = path_join(vim.fn.stdpath "cache", "nvim")
+local cache_dir = path_join(vim.fn.stdpath("cache"), "nvim")
 
 -- Create cache dir and subs dir
 local createdir = function()
-  local backup = cache_dir .. "backup"
-  local swap = cache_dir .. "swap"
-  local undo = cache_dir .. "undo"
-
   local data_dir = {
-    backup,
-    swap,
-    undo,
+    cache_dir .. "backup",
+    cache_dir .. "session",
+    cache_dir .. "swap",
+    cache_dir .. "tags",
+    cache_dir .. "undo",
   }
-
   -- There only check once that If cache_dir exists
   -- Then I don't want to check subs dir exists
   if fn.isdirectory(cache_dir) == 0 then
@@ -33,10 +30,11 @@ local createdir = function()
 
   -- point directories
   local options = {
-    dir = swap,
-    undodir = undo, -- Permanent undo
+    swapfile = false,
+    directory = cache_dir .. 'swap/',
+    undodir = cache_dir .. 'undo/',  -- Permanent undo
+    backupdir = cache_dir .. 'backup/',
     undofile = true,
-    backupdir = backup,
   }
 
   for key, value in pairs(options) do

@@ -33,7 +33,6 @@ return {
     opts = {
       highlight = { enable = true },
       autotag = { enable = true },
-      context_commentstring = { enable = true, enable_autocmd = false },
       rainbow = { enable = true },
       indent = { enable = true },
 
