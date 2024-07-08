@@ -90,3 +90,9 @@ map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result
 -- ----------------------------------------------------------------------
 map("v", "<", "<gv")
 map("v", ">", ">gv")
+
+-- ----------------------------------------------------------------------
+-- Plugins
+-- ----------------------------------------------------------------------
+map("n", "<C-n>", "<cmd>lua require('neo-tree.command').execute({ toggle = true, dir = LazyVim.root() })<CR>", {desc = "File Explorer", remap = true})
+

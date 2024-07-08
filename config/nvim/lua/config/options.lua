@@ -1,6 +1,7 @@
 vim.mapleader = ","
 vim.g.mapleader = ","
 
+vim.g.autoformat = false
 -- disable netrw in favor of NvimTree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -15,7 +16,7 @@ local options = {
   breakindentopt = "shift:4,sbr,min:10", -- ident by an additional 4 characters on wrapped lines, when line >= 10 characters, put 'showbreak' at start of line
   showbreak = "↪ ", -- wrap indent
   smartindent = true, -- Smart Indent
-  wrap = false, -- display long lines as multiple line
+  wrap = true, -- display long lines as multiple line
   ttimeout = true, -- Function Key timeout
   ttimeoutlen = 50, -- Function Key timeout set to 50 ms
   ruler = true, -- always show current position
