@@ -11,6 +11,8 @@ return {
       colorscheme = "gruvbox-material",
     },
   },
+  {"catppuccin", enabled = false},
+  {"tokyonight.nvim", enabled = false},
   {
     "psliwka/vim-smoothie",
     init = function()

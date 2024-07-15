@@ -9,7 +9,7 @@ local no_preview = function()
     width = 0.8,
     previewer = false,
     prompt_title = false,
-    cwd = require("lazy.core.config").options.root,
+    cwd = LazyVim.root(),
   })
 end
 
