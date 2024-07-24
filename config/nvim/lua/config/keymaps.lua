@@ -96,3 +96,15 @@ map("v", ">", ">gv")
 -- ----------------------------------------------------------------------
 map("n", "<C-n>", "<cmd>lua require('neo-tree.command').execute({ toggle = true, dir = LazyVim.root() })<CR>", {desc = "File Explorer", remap = true})
 
+-- ----------------------------------------------------------------------
+-- Bufferline
+-- ----------------------------------------------------------------------
+map("n", "<leader>1", "<cmd>lua require('bufferline').go_to_buffer(1, true)<CR>", { desc = "which_key_ignore" })
+map("n", "<leader>2", "<cmd>lua require('bufferline').go_to_buffer(2, true)<CR>", { desc = "which_key_ignore" })
+map("n", "<leader>3", "<cmd>lua require('bufferline').go_to_buffer(3, true)<CR>", { desc = "which_key_ignore" })
+map("n", "<leader>4", "<cmd>lua require('bufferline').go_to_buffer(4, true)<CR>", { desc = "which_key_ignore" })
+map("n", "<leader>5", "<cmd>lua require('bufferline').go_to_buffer(5, true)<CR>", { desc = "which_key_ignore" })
+map("n", "<leader>6", "<cmd>lua require('bufferline').go_to_buffer(6, true)<CR>", { desc = "which_key_ignore" })
+map("n", "<leader>7", "<cmd>lua require('bufferline').go_to_buffer(7, true)<CR>", { desc = "which_key_ignore" })
+map("n", "<leader>8", "<cmd>lua require('bufferline').go_to_buffer(8, true)<CR>", { desc = "which_key_ignore" })
+map("n", "<leader>9", "<cmd>lua require('bufferline').go_to_buffer(9, true)<CR>", { desc = "which_key_ignore" })

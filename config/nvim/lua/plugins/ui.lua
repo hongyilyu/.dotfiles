@@ -11,8 +11,8 @@ return {
       colorscheme = "gruvbox-material",
     },
   },
-  {"catppuccin", enabled = false},
-  {"tokyonight.nvim", enabled = false},
+  { "catppuccin", enabled = false },
+  { "tokyonight.nvim", enabled = false },
   {
     "psliwka/vim-smoothie",
     init = function()
@@ -45,5 +45,27 @@ return {
         },
       },
     },
+  },
+  {
+    "akinsho/bufferline.nvim",
+    opts = function()
+      return {
+        options = {
+          numbers = "ordinal",
+          separator_style = "thick",
+          enforce_regular_tabs = true,
+          always_show_bufferline = true,
+          offsets = {
+            {
+              filetype = "neo-tree",
+              text = "File Explorer",
+              padding = 1,
+              highlight = "Directory",
+              text_align = "left",
+            },
+          },
+        },
+      }
+    end,
   },
 }
