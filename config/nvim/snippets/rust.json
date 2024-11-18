@@ -1,0 +1,17 @@
+{
+    "model store steps": {
+        "prefix": [
+            "!//store"
+        ],
+        "body": [
+            "// -- Prep data",
+            "",
+            "// -- Build query",
+            "",
+            "// -- Exec query",
+            "",
+            "// -- Check result",
+            ""
+        ]
+    }
+}

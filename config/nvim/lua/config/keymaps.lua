@@ -95,6 +95,7 @@ map("v", ">", ">gv")
 -- Plugins
 -- ----------------------------------------------------------------------
 map("n", "<C-n>", "<cmd>lua require('neo-tree.command').execute({ toggle = true, dir = LazyVim.root() })<CR>", {desc = "File Explorer", remap = true})
+map("n", "<leader>e", ":e <C-R>=expand('%:p:h') . '/' <CR>", {desc = "New File Nearby"})
 
 -- ----------------------------------------------------------------------
 -- Bufferline
