@@ -1,24 +1,13 @@
 return {
-  {
-    "f4z3r/gruvbox-material.nvim",
-    opts = {
-      contrast = "hard",
-    },
-  },
+  { "rose-pine/neovim", name = "rose-pine" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-material",
+      colorscheme = "rose-pine-moon",
     },
   },
   { "catppuccin", enabled = false },
   { "tokyonight.nvim", enabled = false },
-  {
-    "psliwka/vim-smoothie",
-    init = function()
-      vim.g.smoothie_experimental_mappings = true
-    end,
-  },
   {
     "akinsho/toggleterm.nvim",
     lazy = false,

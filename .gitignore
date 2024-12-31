@@ -5,3 +5,5 @@ oh-my-zsh
 config/yarn
 config/mozilla
 config/tmux/plugins
+config/flutter
+config/raycast

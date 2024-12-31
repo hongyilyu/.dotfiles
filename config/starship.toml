@@ -55,6 +55,7 @@ symbol            = "on"
 format            = "$symbol $output "
 shell             = ["bash", "--noprofile", "--norc"]
 when              = "$(git rev-parse --is-inside-work-tree) == true"
+unsafe_no_escape  = true
 
 
 # Language Support

@@ -10,6 +10,7 @@ autoload $^fpath/*(N:t)
 
 source $ZSH_CONFIG/plugin.zsh
 source $ZSH_CONFIG/alias.zsh
+source $ZSH_CONFIG/dev.zsh
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -50,14 +51,6 @@ ENABLE_CORRECTION="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 export LANG="en_US.UTF-8"
-export PATH="$PATH:`yarn global bin`"
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/Library/Python/3.9/bin"
-
-# aws
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-complete -C '/usr/local/bin/aws_completer' aws
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=500000
