@@ -8,9 +8,9 @@ fpath=($ZSH_CONFIG/functions $fpath)
 # autoload custom functions
 autoload $^fpath/*(N:t)
 
+source $ZSH_CONFIG/dev.zsh
 source $ZSH_CONFIG/plugin.zsh
 source $ZSH_CONFIG/alias.zsh
-source $ZSH_CONFIG/dev.zsh
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

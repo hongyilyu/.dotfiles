@@ -1,0 +1,24 @@
+theme = "Rose Pine Moon"
+
+font-family = "FiraCode Nerd Font Mono"
+font-style = "Regular"
+font-family-bold = "FiraCode Nerd Font Mono"
+font-style-bold = "Bold"
+font-family-italic = "Operator Mono"
+font-style-italic = "Book Italic"
+font-family-bold-italic = "Operator Mono"
+font-style-bold-italic = "Bold Italic"
+font-size = 18
+
+bold-color = bright
+
+background-opacity = 1
+
+macos-option-as-alt = true
+
+fullscreen = true
+
+scrollback-limit = 0
+
+term = "tmux-256color"
+
