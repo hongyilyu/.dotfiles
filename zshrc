@@ -3,6 +3,8 @@ export BASE_DIR=${HOME}/.dotfiles
 export ZSH_CONFIG=${BASE_DIR}/zsh
 export ZSH_PLUGIN=${ZSH_CONFIG}/submodules
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Use the force to load my functions
 fpath=($ZSH_CONFIG/functions $fpath)
 # autoload custom functions
@@ -61,3 +63,8 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
 eval "$(starship init zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/hongyi/.lmstudio/bin"
+# End of LM Studio CLI section
+
