@@ -7,3 +7,4 @@ config/mozilla
 config/tmux/plugins
 config/flutter
 config/raycast
+config/noctalia/plugins

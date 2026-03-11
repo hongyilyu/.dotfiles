@@ -1,6 +1,6 @@
 binds {
     // Custom commands.
-    Mod+Shift+S { spawn-sh "bash -c 'grim -g \"$(slurp)\" - | wl-copy'"; }
+    Alt+Shift+Ctrl+4 { spawn-sh "bash -c 'grim -g \"$(slurp)\" - | wl-copy'"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: Ghostty" { spawn "ghostty"; }
 
     // Niri window management.

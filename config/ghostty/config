@@ -16,7 +16,7 @@ background-opacity = 1
 
 macos-option-as-alt = true
 
-fullscreen = true
+fullscreen = false
 
 scrollback-limit = 0
 
