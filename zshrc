@@ -63,8 +63,4 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
 eval "$(starship init zsh)"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/hongyi/.lmstudio/bin"
-# End of LM Studio CLI section
-
+eval "$(direnv hook zsh)"
