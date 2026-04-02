@@ -1,0 +1,15 @@
+[Unit]
+Description=xremap keyboard remapper
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xremap --watch=config,device --ignore vicinae-snippet-virtual-keyboard /home/hongyi/.config/xremap/config.yml
+Restart=always
+RestartSec=2
+KillMode=process
+
+[Install]
+WantedBy=graphical-session.target

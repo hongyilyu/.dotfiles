@@ -1,0 +1,15 @@
+[Unit]
+Description=Vicinae server daemon
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/vicinae server
+Restart=always
+RestartSec=5
+KillMode=process
+
+[Install]
+WantedBy=graphical-session.target

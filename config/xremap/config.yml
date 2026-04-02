@@ -1,0 +1,55 @@
+shared:
+  terminals: &terminals
+    - com.mitchellh.ghostty
+  browsers: &browsers
+    - firefox
+    - zen
+    - helium
+    - chromium
+    - google-chrome
+
+keymap:
+  # Terminal-specific behavior first.
+  - name: macOS-like terminal shortcuts
+    application:
+      only: *terminals
+    remap:
+      SUPER-v: C-Shift-v
+
+  # In browsers, reserve Ctrl for Emacs-like editing and use Super for tabs/navigation.
+  - name: browser Emacs-like Ctrl bindings
+    application:
+      only: *browsers
+    remap:
+      C-b: left
+      C-f: right
+      C-p: up
+      C-n: down
+      C-a: home
+      C-e: end
+
+  - name: browser macOS-like shortcuts
+    application:
+      only: *browsers
+    remap:
+      SUPER-t: C-t
+      SUPER-r: C-r
+      SUPER-Shift-r: C-Shift-r
+      SUPER-Shift-n: C-Shift-n
+      SUPER-Shift-t: C-Shift-t
+      SUPER-w: C-w
+
+  # General app behavior.
+  - name: macOS-like app shortcuts
+    application:
+      not: *terminals
+    remap:
+      SUPER-c: C-c
+      SUPER-v: C-v
+      SUPER-x: C-x
+      SUPER-a: C-a
+      SUPER-z: C-z
+      SUPER-Shift-z: C-Shift-z
+      SUPER-s: C-s
+      SUPER-f: C-f
+      SUPER-comma: C-comma

@@ -13,6 +13,8 @@ font-size = 18
 bold-color = bright
 
 background-opacity = 1
+window-padding-y = 0
+window-padding-color = extend
 
 macos-option-as-alt = true
 
@@ -21,4 +23,3 @@ fullscreen = false
 scrollback-limit = 0
 
 term = "tmux-256color"
-
