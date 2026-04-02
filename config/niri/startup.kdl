@@ -1,3 +1,0 @@
-// Startup applications and shell components.
-spawn-at-startup "qs" "-c" "noctalia-shell";
-spawn-at-startup "fcitx5";

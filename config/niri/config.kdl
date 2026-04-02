@@ -3,7 +3,6 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
-include "./startup.kdl";
 include "./outputs.kdl";
 include "./input.kdl";
 include "./binds.kdl";
@@ -12,6 +11,8 @@ include "./rules/floating.kdl";
 include "./rules/shell.kdl";
 
 prefer-no-csd
+
+spawn-at-startup "qs" "-c" "noctalia-shell";
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -64,7 +65,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 1
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -205,11 +206,4 @@ gestures {
     hot-corners {
         off
     }
-}
-
-environment {
-    XMODIFIERS "@im=fcitx"
-    QT_IM_MODULE "fcitx"
-    QT_IM_MODULES "wayland;fcitx;ibus"
-    SDL_IM_MODULE "fcitx"
 }
